@@ -17,6 +17,8 @@ import org.bridj.cpp.com.COMRuntime;
 
 import com.fourthskyinteractive.dx4j.d2d1.core.D2D1_FACTORY_OPTIONS;
 import com.fourthskyinteractive.dx4j.d2d1.core.ID2D1Factory;
+import com.fourthskyinteractive.dx4j.d2d1.resources.geometry.D2D1_MATRIX_3X2_F;
+import com.fourthskyinteractive.dx4j.d2d1.resources.geometry.D2D1_POINT_2F;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D_FEATURE_LEVEL;
 
 @Library("D2D1")
