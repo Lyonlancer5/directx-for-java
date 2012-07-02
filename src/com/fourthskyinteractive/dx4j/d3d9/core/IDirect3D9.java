@@ -25,14 +25,11 @@ import com.fourthskyinteractive.dx4j.windows.HWND;
 @IID("81BDCBCA-64D4-426d-AE8D-AD0147F4275C")
 @Library("d3d9")
 @Runtime(COMRuntime.class)
-@Convention(Style.StdCall)
 public class IDirect3D9 extends IUnknown {
 	public IDirect3D9() {
 		super();
 	}
-//	public IDirect3D9(Pointer<? extends IUnknown> peer) {
-//		super(peer);
-//	}
+
 	@Virtual(0)
 	public native final int RegisterSoftwareDevice(Pointer<?> pInitializeFunction);
     

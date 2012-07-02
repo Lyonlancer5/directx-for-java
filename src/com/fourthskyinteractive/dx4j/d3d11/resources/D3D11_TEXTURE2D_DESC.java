@@ -6,6 +6,9 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_BIND_FLAG;
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_CPU_ACCESS_FLAG;
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RESOURCE_MISC_FLAG;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_USAGE;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI_SAMPLE_DESC;
@@ -60,12 +63,12 @@ public class D3D11_TEXTURE2D_DESC extends StructObject {
 	}
 	/// C type : DXGI_FORMAT
 	@Field(4) 
-	public ValuedEnum<DXGI_FORMAT > Format() {
+	public ValuedEnum<DXGI_FORMAT> Format() {
 		return this.io.getEnumField(this, 4);
 	}
 	/// C type : DXGI_FORMAT
 	@Field(4) 
-	public D3D11_TEXTURE2D_DESC Format(ValuedEnum<DXGI_FORMAT > Format) {
+	public D3D11_TEXTURE2D_DESC Format(ValuedEnum<DXGI_FORMAT> Format) {
 		this.io.setEnumField(this, 4, Format);
 		return this;
 	}
@@ -76,7 +79,7 @@ public class D3D11_TEXTURE2D_DESC extends StructObject {
 	}
 	/// C type : D3D11_USAGE
 	@Field(6) 
-	public ValuedEnum<D3D11_USAGE > Usage() {
+	public ValuedEnum<D3D11_USAGE> Usage() {
 		return this.io.getEnumField(this, 6);
 	}
 	/// C type : D3D11_USAGE
@@ -86,30 +89,30 @@ public class D3D11_TEXTURE2D_DESC extends StructObject {
 		return this;
 	}
 	@Field(7) 
-	public int BindFlags() {
-		return this.io.getIntField(this, 7);
+	public ValuedEnum<D3D11_BIND_FLAG> BindFlags() {
+		return this.io.getEnumField(this, 7);
 	}
 	@Field(7) 
-	public D3D11_TEXTURE2D_DESC BindFlags(int BindFlags) {
-		this.io.setIntField(this, 7, BindFlags);
+	public D3D11_TEXTURE2D_DESC BindFlags(ValuedEnum<D3D11_BIND_FLAG> BindFlags) {
+		this.io.setEnumField(this, 7, BindFlags);
 		return this;
 	}
 	@Field(8) 
-	public int CPUAccessFlags() {
-		return this.io.getIntField(this, 8);
+	public ValuedEnum<D3D11_CPU_ACCESS_FLAG> CPUAccessFlags() {
+		return this.io.getEnumField(this, 8);
 	}
 	@Field(8) 
-	public D3D11_TEXTURE2D_DESC CPUAccessFlags(int CPUAccessFlags) {
-		this.io.setIntField(this, 8, CPUAccessFlags);
+	public D3D11_TEXTURE2D_DESC CPUAccessFlags(ValuedEnum<D3D11_CPU_ACCESS_FLAG> CPUAccessFlags) {
+		this.io.setEnumField(this, 8, CPUAccessFlags);
 		return this;
 	}
 	@Field(9) 
-	public int MiscFlags() {
-		return this.io.getIntField(this, 9);
+	public ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags() {
+		return this.io.getEnumField(this, 9);
 	}
 	@Field(9) 
-	public D3D11_TEXTURE2D_DESC MiscFlags(int MiscFlags) {
-		this.io.setIntField(this, 9, MiscFlags);
+	public D3D11_TEXTURE2D_DESC MiscFlags(ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags) {
+		this.io.setEnumField(this, 9, MiscFlags);
 		return this;
 	}
 }

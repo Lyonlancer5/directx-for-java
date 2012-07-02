@@ -1,7 +1,13 @@
 package com.fourthskyinteractive.dx4j.xinput;
 
+import java.util.Collections;
+import java.util.Iterator;
+
 import org.bridj.BridJ;
+import org.bridj.FlagSet;
+import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
+import org.bridj.ValuedEnum;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
@@ -29,7 +35,25 @@ public class XInput {
 	private static final int XINPUT_GAMEPAD_X               = 0x4000;
 	private static final int XINPUT_GAMEPAD_Y               = 0x8000;
 	
-	public static native void XInputEnable(int enable);
 	
-	public static native short XInputSetState(short dwUserIndex, Pointer<XINPUT_VIBRATION> pVibration);
+	// Battery information
+	public static final byte BATTERY_TYPE_DISCONNECTED = 0;
+	public static final byte BATTERY_TYPE_WIRED = 1;
+	public static final byte BATTERY_TYPE_ALKALINE = 2;
+	public static final byte BATTERY_TYPE_NIMH = 3;
+	public static final byte BATTERY_TYPE_UNKNOWN = 4;
+	
+	public static final byte BATTERY_LEVEL_EMPTY = 0;
+	public static final byte BATTERY_LEVEL_LOW = 1;
+	public static final byte BATTERY_LEVEL_MEDIUM = 2;
+	public static final byte BATTERY_LEVEL_FULL = 3;
+	
+	
+	public static final native void XInputEnable(int enable);
+	
+	public static final native short XInputSetState(short dwUserIndex, Pointer<XINPUT_VIBRATION> pVibration);
+	
+	public static final native short XInputGetState(short dwUserIndex, Pointer<XINPUT_STATE> pState);
+	
+	public static final native int XInputGetBatteryInformation(int dwUserIndex, byte devType, Pointer<XINPUT_BATTERY_INFORMATION> pBatteryInfo); 
 }

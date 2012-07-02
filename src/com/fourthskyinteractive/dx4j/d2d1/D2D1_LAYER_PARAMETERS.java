@@ -6,8 +6,10 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2d1Library.D2D1_ANTIALIAS_MODE;
-import com.fourthskyinteractive.dx4j.d2d1.D2d1Library.D2D1_LAYER_OPTIONS;
+import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_ANTIALIAS_MODE;
+import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_LAYER_OPTIONS;
+import com.fourthskyinteractive.dx4j.d2d1.brush.ID2D1Brush;
+import com.fourthskyinteractive.dx4j.d2d1.geometry.ID2D1Geometry;
 
 @Library("d2d1")
 public class D2D1_LAYER_PARAMETERS extends StructObject {

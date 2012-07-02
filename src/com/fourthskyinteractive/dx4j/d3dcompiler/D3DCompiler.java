@@ -127,8 +127,8 @@ public class D3DCompiler {
 										Pointer<Byte> pSourceName,
 										Pointer<D3D_SHADER_MACRO> pDefines,
 										Pointer<? extends ID3DInclude> pInclude,
-										Pointer<Byte> pointer,
-										Pointer<Byte> pointer2,
+										Pointer<Byte> pEntrypoint,
+										Pointer<Byte> pTarget,
 										int Flags1,
 										int Flags2,
 										Pointer<Pointer<ID3D10Blob>> ppCode,
@@ -274,7 +274,7 @@ public class D3DCompiler {
 		 */
 	    @Convention(Convention.Style.StdCall)
 	    public static abstract class OpenCB extends Callback<OpenCB> {
-	            public abstract int apply(Pointer<ID3DInclude> This, ValuedEnum<D3D_INCLUDE_TYPE> IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
+	            public abstract int apply(Pointer<ID3DInclude> This, D3D_INCLUDE_TYPE IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
 	    };
 	    @Convention(Convention.Style.StdCall)
 	    public static abstract class CloseCB extends Callback<CloseCB> {
@@ -289,7 +289,7 @@ public class D3DCompiler {
 		private final ID3DIncludeVtbl.OpenCB openCB = new ID3DIncludeVtbl.OpenCB() {
 			@Override
 			public int apply(Pointer<ID3DInclude> This,
-					ValuedEnum<D3D_INCLUDE_TYPE> IncludeType, Pointer<Byte> pFileName,
+					D3D_INCLUDE_TYPE IncludeType, Pointer<Byte> pFileName,
 					Pointer<?> pParentData, Pointer<Pointer<?>> ppData,
 					Pointer<Integer> pBytes) {
 				return Open(IncludeType, pFileName, pParentData, ppData, pBytes);				
@@ -321,18 +321,13 @@ public class D3DCompiler {
 		/// C type : ISampleGrabberCBVtbl*
         @Field(0) 
         private Pointer<ID3DIncludeVtbl > lpVtbl() {
-                return this.io.getPointerField(this, 0);
+            return this.io.getPointerField(this, 0);
         }
         /// C type : ISampleGrabberCBVtbl*
         @Field(0) 
         private ID3DInclude lpVtbl(Pointer<ID3DIncludeVtbl > lpVtbl) {
-                this.io.setPointerField(this, 0, lpVtbl);
-                return this;
-        }
-        /// C type : ISampleGrabberCBVtbl*
-        private final Pointer<ID3DIncludeVtbl > lpVtbl_$eq(Pointer<ID3DIncludeVtbl> lpVtbl) {
-                lpVtbl(lpVtbl);
-                return lpVtbl;
+            this.io.setPointerField(this, 0, lpVtbl);
+            return this;
         }
         
         /**
@@ -344,7 +339,7 @@ public class D3DCompiler {
          * @param pBytes
          * @return
          */
-        public abstract int Open(ValuedEnum<D3D_INCLUDE_TYPE> IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
+        public abstract int Open(D3D_INCLUDE_TYPE IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
         
         /**
          * 

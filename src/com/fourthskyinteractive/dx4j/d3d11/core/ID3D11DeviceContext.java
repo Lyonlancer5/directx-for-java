@@ -18,6 +18,7 @@ import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.RECT;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_ASYNC_GETDATA_FLAG;
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_CLEAR_FLAG;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_DEVICE_CONTEXT_TYPE;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_MAP;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D_PRIMITIVE_TOPOLOGY;
@@ -121,7 +122,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	@Virtual(29)
 	public native void OMSetDepthStencilState(Pointer<ID3D11DepthStencilState> pDepthStencilState, int StencilRef);
 	@Virtual(30)
-	public native void SOSetTargets(int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppSOTargets, int pOffsets);
+	public native void SOSetTargets(int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppSOTargets, Pointer<Integer> pOffsets);
 	@Virtual(31)
 	public native void DrawAuto();
 	@Virtual(32)
@@ -153,7 +154,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	@Virtual(45)
 	public native void ClearUnorderedAccessViewFloat(Pointer<ID3D11UnorderedAccessView> pUnorderedAccessView,  @Array(4) Pointer<Float> Values);
 	@Virtual(46)
-	public native void ClearDepthStencilView(Pointer<ID3D11DepthStencilView> pDepthStencilView, int ClearFlags, float Depth, byte Stencil);
+	public native void ClearDepthStencilView(Pointer<ID3D11DepthStencilView> pDepthStencilView, ValuedEnum<D3D11_CLEAR_FLAG> ClearFlags, float Depth, byte Stencil);
 	@Virtual(47)
 	public native void GenerateMips(Pointer<ID3D11ShaderResourceView> pShaderResourceView);
 	@Virtual(48)

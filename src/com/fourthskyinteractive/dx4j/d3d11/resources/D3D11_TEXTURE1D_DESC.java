@@ -6,6 +6,8 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_BIND_FLAG;
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RESOURCE_MISC_FLAG;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_USAGE;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 /**
@@ -71,12 +73,12 @@ public class D3D11_TEXTURE1D_DESC extends StructObject {
 		return this;
 	}
 	@Field(5) 
-	public int BindFlags() {
-		return this.io.getIntField(this, 5);
+	public ValuedEnum<D3D11_BIND_FLAG> BindFlags() {
+		return this.io.getEnumField(this, 5);
 	}
 	@Field(5) 
-	public D3D11_TEXTURE1D_DESC BindFlags(int BindFlags) {
-		this.io.setIntField(this, 5, BindFlags);
+	public D3D11_TEXTURE1D_DESC BindFlags(ValuedEnum<D3D11_BIND_FLAG> BindFlags) {
+		this.io.setEnumField(this, 5, BindFlags);
 		return this;
 	}
 	@Field(6) 
@@ -89,12 +91,12 @@ public class D3D11_TEXTURE1D_DESC extends StructObject {
 		return this;
 	}
 	@Field(7) 
-	public int MiscFlags() {
-		return this.io.getIntField(this, 7);
+	public ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags() {
+		return this.io.getEnumField(this, 7);
 	}
 	@Field(7) 
-	public D3D11_TEXTURE1D_DESC MiscFlags(int MiscFlags) {
-		this.io.setIntField(this, 7, MiscFlags);
+	public D3D11_TEXTURE1D_DESC MiscFlags(ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags) {
+		this.io.setEnumField(this, 7, MiscFlags);
 		return this;
 	}
 }

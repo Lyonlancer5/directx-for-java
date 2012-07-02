@@ -6,10 +6,16 @@ import java.util.Iterator;
 import org.bridj.BridJ;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
+import org.bridj.Pointer;
 import org.bridj.ValuedEnum;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
+
+import com.fourthskyinteractive.dx4j.d3d11.core.ID3D11Device;
+import com.fourthskyinteractive.dx4j.d3d11.resources.ID3D11Resource;
+import com.fourthskyinteractive.dx4j.d3d11.resources.views.ID3D11ShaderResourceView;
+import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 
 @Library("d3dx11_43")
 @Runtime(COMRuntime.class)
@@ -18,6 +24,10 @@ public class D3DX11 {
 	static {
 		BridJ.register();
 	}
+	
+	public static final int D3DX11_DEFAULT            = -1;
+	public static final int D3DX11_FROM_FILE          = -3;
+	public static final ValuedEnum<DXGI_FORMAT> DXGI_FORMAT_FROM_FILE = DXGI_FORMAT.fromValue(-3);
 
 	public enum D3DX11_FILTER_FLAG implements IntValuedEnum<D3DX11_FILTER_FLAG> {
 		D3DX11_FILTER_NONE            (1 << 0),
@@ -129,7 +139,7 @@ public class D3DX11 {
 		}
 	}
 	
-	public  enum D3DX11_SAVE_TEXTURE_FLAG implements IntValuedEnum<D3DX11_SAVE_TEXTURE_FLAG> {
+	public enum D3DX11_SAVE_TEXTURE_FLAG implements IntValuedEnum<D3DX11_SAVE_TEXTURE_FLAG> {
 	    D3DX11_STF_USEINPUTBLOB(0x0001);
 	    		
 	    public final long value;
@@ -150,4 +160,10 @@ public class D3DX11 {
 		}
 	}
 	
+	
+	public static native final int D3DX11CreateThreadPump(int cIoThreads, int cProcThreads, Pointer<Pointer<ID3DX11ThreadPump>> ppThreadPump);
+	
+	public static native final int D3DX11CreateShaderResourceViewFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11ShaderResourceView>> ppSRV, Pointer<Integer> pHResult);
+	
+	public static native final int D3DX11CreateTextureFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11Resource>> ppTexture, Pointer<Integer> pHResult);
 }

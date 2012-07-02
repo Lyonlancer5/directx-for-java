@@ -16,6 +16,15 @@ public class D3D11_SO_DECLARATION_ENTRY extends StructObject {
 	public D3D11_SO_DECLARATION_ENTRY(Pointer pointer) {
 		super(pointer);
 	}
+	public D3D11_SO_DECLARATION_ENTRY(int Stream, String SemanticName, int SemanticIndex, int StartComponent, int ComponentCount, int OutputSlot) {
+		super();
+		this.Stream(Stream)
+			.SemanticName(Pointer.pointerToCString(SemanticName))
+			.SemanticIndex(SemanticIndex)
+			.StartComponent((byte)StartComponent)
+			.ComponentCount((byte)ComponentCount)
+			.OutputSlot((byte)OutputSlot);
+	}
 	@Field(0) 
 	public int Stream() {
 		return this.io.getIntField(this, 0);

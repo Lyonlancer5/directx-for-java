@@ -34,6 +34,8 @@ public class D3D11 {
 	static {
 		BridJ.register();
 	}
+	
+	public static final int D3D11_SO_NO_RASTERIZED_STREAM = 0xffffffff;
 
 	public enum D3D_INCLUDE_TYPE implements IntValuedEnum<D3D_INCLUDE_TYPE > {
 		D3D_INCLUDE_LOCAL(0),
@@ -53,7 +55,7 @@ public class D3D11 {
 			return FlagSet.fromValue(value, values());
 		}
 	};
-	public enum D3D_DRIVER_TYPE implements IntValuedEnum<D3D_DRIVER_TYPE > {
+	public enum D3D_DRIVER_TYPE implements IntValuedEnum<D3D_DRIVER_TYPE> {
 		D3D_DRIVER_TYPE_UNKNOWN(0),
 		D3D_DRIVER_TYPE_HARDWARE(1),
 		D3D_DRIVER_TYPE_REFERENCE(2),
@@ -848,7 +850,8 @@ public class D3D11 {
 	};
 	public enum D3D11_CLEAR_FLAG implements IntValuedEnum<D3D11_CLEAR_FLAG > {
 		D3D11_CLEAR_DEPTH(0x1),
-		D3D11_CLEAR_STENCIL(0x2);
+		D3D11_CLEAR_STENCIL(0x2),
+		D3D11_CLEAR_DEPTH_AND_STENCIL(0x3);
 		D3D11_CLEAR_FLAG(long value) {
 			this.value = value;
 		}
@@ -1036,6 +1039,7 @@ public class D3D11 {
 		}
 	};
 	public enum D3D11_DSV_FLAG implements IntValuedEnum<D3D11_DSV_FLAG > {
+		D3D11_DSV_READ_NONE(0x0),
 		D3D11_DSV_READ_ONLY_DEPTH(0x1),
 		D3D11_DSV_READ_ONLY_STENCIL(0x2);
 		D3D11_DSV_FLAG(long value) {
@@ -1403,6 +1407,72 @@ public class D3D11 {
 		}
 	}
 	
+	public enum D3D11_MESSAGE_CATEGORY implements IntValuedEnum<D3D11_MESSAGE_CATEGORY> {
+		D3D11_MESSAGE_CATEGORY_APPLICATION_DEFINED(0),
+        D3D11_MESSAGE_CATEGORY_MISCELLANEOUS(1),
+        D3D11_MESSAGE_CATEGORY_INITIALIZATION(2),
+        D3D11_MESSAGE_CATEGORY_CLEANUP(3),
+        D3D11_MESSAGE_CATEGORY_COMPILATION(4),
+        D3D11_MESSAGE_CATEGORY_STATE_CREATION(5),
+        D3D11_MESSAGE_CATEGORY_STATE_SETTING(6),
+        D3D11_MESSAGE_CATEGORY_STATE_GETTING(7),
+        D3D11_MESSAGE_CATEGORY_RESOURCE_MANIPULATION(8),
+        D3D11_MESSAGE_CATEGORY_EXECUTION(9); 
+        
+        D3D11_MESSAGE_CATEGORY(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<D3D11_MESSAGE_CATEGORY> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static ValuedEnum<D3D11_MESSAGE_CATEGORY> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+    }
+
+	public enum D3D11_MESSAGE_SEVERITY implements IntValuedEnum<D3D11_MESSAGE_SEVERITY> {
+		D3D11_MESSAGE_SEVERITY_CORRUPTION(0),
+		D3D11_MESSAGE_SEVERITY_ERROR(1),
+        D3D11_MESSAGE_SEVERITY_WARNING(2),
+        D3D11_MESSAGE_SEVERITY_INFO(3);
+		
+		D3D11_MESSAGE_SEVERITY(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<D3D11_MESSAGE_SEVERITY> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static ValuedEnum<D3D11_MESSAGE_SEVERITY> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+    }
+
+	public enum D3D11_MESSAGE_ID implements IntValuedEnum<D3D11_MESSAGE_ID> {
+		D3D11_MESSAGE_ID_UNKNOWN(0);
+		
+		D3D11_MESSAGE_ID(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<D3D11_MESSAGE_ID> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static ValuedEnum<D3D11_MESSAGE_ID> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
 	public static final int D3D11_MIN_FILTER_SHIFT = (4);
 	public static final int D3D11_APPEND_ALIGNED_ELEMENT = (-1);
 	public static final int D3D11_MAG_FILTER_SHIFT = (2);
@@ -1465,7 +1535,7 @@ public class D3D11 {
 										   null,
 										   Flags,
 										   pLevels,
-										   requiredLevels.length,
+										   requiredLevels != null ? requiredLevels.length : 0,
 										   D3D11_SDK_VERSION,
 										   ppDevice,
 										   null,

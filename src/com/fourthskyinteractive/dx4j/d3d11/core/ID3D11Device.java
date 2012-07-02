@@ -1,10 +1,7 @@
 package com.fourthskyinteractive.dx4j.d3d11.core;
 
 
-import static org.bridj.Pointer.allocateArray;
-import static org.bridj.Pointer.allocateInt;
-import static org.bridj.Pointer.allocatePointer;
-import static org.bridj.Pointer.pointerTo;
+import static org.bridj.Pointer.*;
 
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
@@ -74,85 +71,85 @@ public class ID3D11Device extends IUnknown {
 //		super(peer);
 //	}
 	@Deprecated	@Virtual(0)
-	public native int CreateBuffer(Pointer<D3D11_BUFFER_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Buffer>> ppBuffer);
+	public final native int CreateBuffer(Pointer<D3D11_BUFFER_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Buffer>> ppBuffer);
 	@Deprecated	@Virtual(1)
-	public native int CreateTexture1D(Pointer<D3D11_TEXTURE1D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture1D>> ppTexture);
+	public final native int CreateTexture1D(Pointer<D3D11_TEXTURE1D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture1D>> ppTexture);
 	@Deprecated	@Virtual(2)
-	public native int CreateTexture2D(Pointer<D3D11_TEXTURE2D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture2D>> ppTexture);
+	public final native int CreateTexture2D(Pointer<D3D11_TEXTURE2D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture2D>> ppTexture);
 	@Deprecated	@Virtual(3)
-	public native int CreateTexture3D(Pointer<D3D11_TEXTURE3D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture3D>> ppTexture);
+	public final native int CreateTexture3D(Pointer<D3D11_TEXTURE3D_DESC> pDesc, Pointer<D3D11_SUBRESOURCE_DATA> pInitialData, Pointer<Pointer<ID3D11Texture3D>> ppTexture);
 	@Deprecated	@Virtual(4)
-	public native int CreateShaderResourceView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_SHADER_RESOURCE_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11ShaderResourceView>> ppView);
+	public final native int CreateShaderResourceView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_SHADER_RESOURCE_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11ShaderResourceView>> ppView);
 	@Deprecated	@Virtual(5)
-	public native int CreateUnorderedAccessView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_UNORDERED_ACCESS_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11UnorderedAccessView>> ppView);
+	public final native int CreateUnorderedAccessView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_UNORDERED_ACCESS_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11UnorderedAccessView>> ppView);
 	@Deprecated	@Virtual(6)
-	public native int CreateRenderTargetView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_RENDER_TARGET_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11RenderTargetView>> ppView);
+	public final native int CreateRenderTargetView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_RENDER_TARGET_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11RenderTargetView>> ppView);
 	@Deprecated	@Virtual(7)
-	public native int CreateDepthStencilView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_DEPTH_STENCIL_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11DepthStencilView>> ppView);
+	public final native int CreateDepthStencilView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_DEPTH_STENCIL_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11DepthStencilView>> ppView);
 	@Deprecated	@Virtual(8)
-	public native int CreateInputLayout(Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs, int NumElements, Pointer<?> pShaderBytecodeWithInputSignature, int BytecodeLength, Pointer<Pointer<ID3D11InputLayout>> ppLayout);
+	public final native int CreateInputLayout(Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs, int NumElements, Pointer<?> pShaderBytecodeWithInputSignature, int BytecodeLength, Pointer<Pointer<ID3D11InputLayout>> ppLayout);
 	@Deprecated	@Virtual(9)
-	public native int CreateVertexShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11VertexShader>> ppVertexShader);
+	public final native int CreateVertexShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11VertexShader>> ppVertexShader);
 	@Deprecated	@Virtual(10)
-	public native int CreateGeometryShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
+	public final native int CreateGeometryShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
 	@Deprecated	@Virtual(11)
-	public native int CreateGeometryShaderWithStreamOutput(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<D3D11_SO_DECLARATION_ENTRY> pSODeclaration, int NumEntries, Pointer<Integer> pBufferStrides, int NumStrides, int RasterizedStream, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
+	public final native int CreateGeometryShaderWithStreamOutput(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<D3D11_SO_DECLARATION_ENTRY> pSODeclaration, int NumEntries, Pointer<Integer> pBufferStrides, int NumStrides, int RasterizedStream, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
 	@Deprecated	@Virtual(12)
-	public native int CreatePixelShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11PixelShader>> ppVertexShader);
+	public final native int CreatePixelShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11PixelShader>> ppVertexShader);
 	@Deprecated	@Virtual(13)
-	public native int CreateHullShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11HullShader>> ppVertexShader);
+	public final native int CreateHullShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11HullShader>> ppVertexShader);
 	@Deprecated	@Virtual(14)
-	public native int CreateDomainShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11DomainShader>> ppVertexShader);
+	public final native int CreateDomainShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11DomainShader>> ppVertexShader);
 	@Deprecated	@Virtual(15)
-	public native int CreateComputeShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11ComputeShader>> ppVertexShader);
+	public final native int CreateComputeShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11ComputeShader>> ppVertexShader);
 	@Deprecated	@Virtual(16)
-	public native int CreateClassLinkage(Pointer<Pointer<ID3D11ClassLinkage>> ppLinkage);
+	public final native int CreateClassLinkage(Pointer<Pointer<ID3D11ClassLinkage>> ppLinkage);
 	@Deprecated	@Virtual(17)
-	public native int CreateBlendState(Pointer<D3D11_BLEND_DESC> pDesc, Pointer<Pointer<ID3D11BlendState>> ppBlendState);
+	public final native int CreateBlendState(Pointer<D3D11_BLEND_DESC> pDesc, Pointer<Pointer<ID3D11BlendState>> ppBlendState);
 	@Deprecated	@Virtual(18)
-	public native int CreateDepthStencilState(Pointer<D3D11_DEPTH_STENCIL_DESC> pDesc, Pointer<Pointer<ID3D11DepthStencilState>> ppDepthStencilState);
+	public final native int CreateDepthStencilState(Pointer<D3D11_DEPTH_STENCIL_DESC> pDesc, Pointer<Pointer<ID3D11DepthStencilState>> ppDepthStencilState);
 	@Deprecated	@Virtual(19)
-	public native int CreateRasterizerState(Pointer<D3D11_RASTERIZER_DESC> pDesc, Pointer<Pointer<ID3D11RasterizerState>> ppRasterizerState);
+	public final native int CreateRasterizerState(Pointer<D3D11_RASTERIZER_DESC> pDesc, Pointer<Pointer<ID3D11RasterizerState>> ppRasterizerState);
 	@Deprecated	@Virtual(20)
-	public native int CreateSamplerState(Pointer<D3D11_SAMPLER_DESC> pDesc, Pointer<Pointer<ID3D11SamplerState>> ppRasterizerState);
+	public final native int CreateSamplerState(Pointer<D3D11_SAMPLER_DESC> pDesc, Pointer<Pointer<ID3D11SamplerState>> ppRasterizerState);
 	@Deprecated	@Virtual(21)
-	public native int CreateQuery(Pointer<D3D11_QUERY_DESC> pDesc, Pointer<Pointer<ID3D11Query>> ppQuery);
+	public final native int CreateQuery(Pointer<D3D11_QUERY_DESC> pDesc, Pointer<Pointer<ID3D11Query>> ppQuery);
 	@Deprecated	@Virtual(22)
-	public native int CreatePredicate(Pointer<D3D11_QUERY_DESC> pDesc, Pointer<Pointer<ID3D11Predicate>> ppPredicate);
+	public final native int CreatePredicate(Pointer<D3D11_QUERY_DESC> pDesc, Pointer<Pointer<ID3D11Predicate>> ppPredicate);
 	@Deprecated	@Virtual(23)
-	public native int CreateCounter(Pointer<D3D11_COUNTER_DESC> pDesc, Pointer<Pointer<ID3D11Counter>> ppCounter);
+	public final native int CreateCounter(Pointer<D3D11_COUNTER_DESC> pDesc, Pointer<Pointer<ID3D11Counter>> ppCounter);
 	@Deprecated	@Virtual(24)
-	public native int CreateDeferredContext(int ContextFlags, Pointer<Pointer<ID3D11DeviceContext>> ppContext);
+	public final native int CreateDeferredContext(int ContextFlags, Pointer<Pointer<ID3D11DeviceContext>> ppContext);
 	@Deprecated @Virtual(25)
-	public native <R extends ID3D11Resource> int OpenSharedResource(HANDLE hResource, Pointer<Byte> ReturnedInterface, Pointer<Pointer<R>> ppResource);
+	public final native <R extends ID3D11Resource> int OpenSharedResource(HANDLE hResource, Pointer<Byte> ReturnedInterface, Pointer<Pointer<R>> ppResource);
 	@Deprecated @Virtual(26)
-	public native int CheckFormatSupport(DXGI_FORMAT Format, Pointer<Integer> pFormatSupport);
+	public final native int CheckFormatSupport(DXGI_FORMAT Format, Pointer<Integer> pFormatSupport);
 	@Deprecated @Virtual(27)
-	public native int CheckMultisampleQualityLevels(DXGI_FORMAT Format, int SampleCount, Pointer<Integer> pNumQualityLevels);
+	public final native int CheckMultisampleQualityLevels(DXGI_FORMAT Format, int SampleCount, Pointer<Integer> pNumQualityLevels);
 	@Virtual(28)
-	public native int CheckCounterInfo(Pointer<D3D11_COUNTER_INFO> pCounterInfo);
+	public final native int CheckCounterInfo(Pointer<D3D11_COUNTER_INFO> pCounterInfo);
 	@Virtual(29)
-	public native int CheckCounter(Pointer<D3D11_COUNTER_DESC> pDesc, Pointer<D3D11_COUNTER_TYPE> pType, Pointer<Integer> pActiveCounters, Pointer<Byte> szName, Pointer<Integer> pNameLength, Pointer<Byte> szUnits, Pointer<Integer> pUnitsLength, Pointer<Byte> szDescription, Pointer<Integer> pDescriptionLength);
+	public final native int CheckCounter(Pointer<D3D11_COUNTER_DESC> pDesc, Pointer<D3D11_COUNTER_TYPE> pType, Pointer<Integer> pActiveCounters, Pointer<Byte> szName, Pointer<Integer> pNameLength, Pointer<Byte> szUnits, Pointer<Integer> pUnitsLength, Pointer<Byte> szDescription, Pointer<Integer> pDescriptionLength);
 	@Virtual(30)
-	public native int CheckFeatureSupport(D3D11_FEATURE Feature, Pointer<?> pFeatureSupportData);
+	public final native int CheckFeatureSupport(D3D11_FEATURE Feature, Pointer<?> pFeatureSupportData);
 	@Virtual(31)
-	public native int GetPrivateData(Pointer<Byte> guid, Pointer<Integer> pDataSize, Pointer<?> pData);
+	public final native int GetPrivateData(Pointer<Byte> guid, Pointer<Integer> pDataSize, Pointer<?> pData);
 	@Virtual(32)
-	public native int SetPrivateData(Pointer<Byte> guid, Pointer<Integer> pDataSize, Pointer<?> pData);
+	public final native int SetPrivateData(Pointer<Byte> guid, Pointer<Integer> pDataSize, Pointer<?> pData);
 	@Virtual(33)
-	public native int SetPrivateDataInterface(Pointer<Byte> guid, Pointer<IUnknown> pData);
+	public final native int SetPrivateDataInterface(Pointer<Byte> guid, Pointer<IUnknown> pData);
 	@Virtual(34)
-	public native D3D_FEATURE_LEVEL GetFeatureLevel();
+	public final native D3D_FEATURE_LEVEL GetFeatureLevel();
 	@Virtual(35)
-	public native int GetCreationFlags();
+	public final native int GetCreationFlags();
     @Virtual(36)
-    public native int GetDeviceRemovedReason();
+    public final native int GetDeviceRemovedReason();
     @Deprecated @Virtual(37)
-    public native void GetImmediateContext(Pointer<Pointer<ID3D11DeviceContext>> ppImmediateContext);
+    public final native void GetImmediateContext(Pointer<Pointer<ID3D11DeviceContext>> ppImmediateContext);
     @Virtual(38)
-    public native int SetExceptionMode(int RaiseFlags);
+    public final native int SetExceptionMode(int RaiseFlags);
     @Virtual(39)
-    public native int GetExceptionMode();
+    public final native int GetExceptionMode();
     
     // "Javanized" methods
     public final ID3D11DeviceContext CreateDeferredContext(int ContextFlags) {
@@ -185,6 +182,21 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
+    public final ID3D11DepthStencilView CreateDepthStencilView(ID3D11Resource resource, D3D11_DEPTH_STENCIL_VIEW_DESC desc) {
+    	Pointer<Pointer<ID3D11DepthStencilView>> pp = allocatePointer(ID3D11DepthStencilView.class);
+    	try {
+    		int result = this.CreateDepthStencilView(pointerTo(resource), pointerTo(desc), pp);
+    		if(result != 0) {
+    			throw new D3D11Exception("Error creating depth stencil view", result);
+    		}
+    		
+    		return pp.get().getNativeObject(ID3D11DepthStencilView.class);
+    	} finally {
+   			pp.release();
+   			pp = null;
+    	}
+    }
+    
     public final ID3D11DeviceContext GetImmediateContext() {
     	Pointer<Pointer<ID3D11DeviceContext>> ppImmediateContext =  allocatePointer(ID3D11DeviceContext.class);;
     	try {
@@ -199,20 +211,10 @@ public class ID3D11Device extends IUnknown {
     
     public final ID3D11InputLayout CreateInputLayout(D3D11_INPUT_ELEMENT_DESC[] descs, ID3D10Blob shaderCode) {
     	Pointer<Pointer<ID3D11InputLayout>> pp = allocatePointer(ID3D11InputLayout.class);
-    	Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs = allocateArray(D3D11_INPUT_ELEMENT_DESC.class, descs.length);
+    	Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs = pointerToArray(descs);
     	
     	try {
-    		// Pointer.pointerToArray crashes the program, so copy manually every element
-    		for(int i = 0; i < descs.length; i++) {
-    			pDescs.get(i).SemanticName(descs[i].SemanticName())
-							  .SemanticIndex(descs[i].SemanticIndex())
-							  .Format(descs[i].Format())
-							  .InputSlot(descs[i].InputSlot())
-							  .AlignedByteOffset(descs[i].AlignedByteOffset())
-							  .InputSlotClass(descs[i].InputSlotClass())
-							  .InstanceDataStepRate(descs[i].InstanceDataStepRate());
-    		}
-    		int result = CreateInputLayout(pDescs, descs.length, shaderCode.GetBufferPointer(), (int) shaderCode.GetBufferSize(), pp);
+    		int result = this.CreateInputLayout(pDescs, descs.length, shaderCode.GetBufferPointer(), (int) shaderCode.GetBufferSize(), pp);
     		if(result != 0) {
     			throw new D3D11Exception("Could not create input layout", result);
     		}
@@ -291,7 +293,32 @@ public class ID3D11Device extends IUnknown {
     		pp.release();
    			pp = null;
     	}
+    }
+    
+    public final ID3D11GeometryShader CreateGeometryShaderWithStreamOutput(ID3D10Blob compiledCode, 
+    																	   D3D11_SO_DECLARATION_ENTRY[] soDeclaration, 
+    																	   int[] bufferStrides, 
+    																	   int RasterizedStream, 
+    																	   ID3D11ClassLinkage linkage) {
+    	Pointer<Pointer<ID3D11GeometryShader>> pp = allocatePointer(ID3D11GeometryShader.class);
+    	Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = pointerToArray(soDeclaration);
     	
+    	try {
+    		int result = this.CreateGeometryShaderWithStreamOutput(compiledCode.GetBufferPointer(), (int)compiledCode.GetBufferSize(), 
+    															   pDescs, soDeclaration.length, 
+    															   pointerToInts(bufferStrides), bufferStrides.length, 
+    															   RasterizedStream, 
+    															   pointerTo(linkage), 
+    															   pp);
+    		if(result != 0) {
+    			throw new D3D11Exception("Could not create geometry shader", result);
+    		}    		
+    		
+    		return pp.get().getNativeObject(ID3D11GeometryShader.class);
+    	} finally {
+    		pp.release();
+   			pp = null;
+    	}
     }
     
     public final ID3D11HullShader CreateHullShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {

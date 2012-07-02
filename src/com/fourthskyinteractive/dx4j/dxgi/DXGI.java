@@ -1,6 +1,5 @@
 package com.fourthskyinteractive.dx4j.dxgi;
 
-
 import static org.bridj.Pointer.allocatePointer;
 import static org.bridj.Pointer.pointerToAddress;
 
@@ -70,6 +69,7 @@ public class DXGI {
 		}
 	};
 	public enum DXGI_FORMAT implements IntValuedEnum<DXGI_FORMAT > {
+		DXGI_FORMAT_FROM_FILE(-3),
 		DXGI_FORMAT_UNKNOWN(0),
 		DXGI_FORMAT_R32G32B32A32_TYPELESS(1),
 		DXGI_FORMAT_R32G32B32A32_FLOAT(2),
@@ -181,7 +181,7 @@ public class DXGI {
 		public Iterator<DXGI_FORMAT > iterator() {
 			return Collections.singleton(this).iterator();
 		}
-		public static ValuedEnum<DXGI_FORMAT > fromValue(long value) {
+		public static ValuedEnum<DXGI_FORMAT> fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
 	};

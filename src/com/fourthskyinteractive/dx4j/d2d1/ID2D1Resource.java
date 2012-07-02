@@ -8,6 +8,8 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
+import com.fourthskyinteractive.dx4j.d2d1.core.ID2D1Factory;
+
 @IID("2cd90691-12e2-11dc-9fed-001143a055f9")
 @Library("D2D1")
 @Runtime(COMRuntime.class)

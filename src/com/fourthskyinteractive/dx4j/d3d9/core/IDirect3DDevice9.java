@@ -13,14 +13,23 @@ import org.bridj.cpp.com.RECT;
 
 import static org.bridj.Pointer.*;
 
+import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT;
+import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DMULTISAMPLE_TYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DPOOL;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DPRIMITIVETYPE;
+import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DTEXTUREFILTERTYPE;
+import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DTRANSFORMSTATETYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9Exception;
+import com.fourthskyinteractive.dx4j.d3d9.D3DMATRIX;
 import com.fourthskyinteractive.dx4j.d3d9.D3DRASTER_STATUS;
 import com.fourthskyinteractive.dx4j.d3d9.D3DRECT;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DBACKBUFFER_TYPE;
+import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DCubeTexture9;
+import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DIndexBuffer9;
 import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DSurface9;
+import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DTexture9;
 import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DVertexBuffer9;
+import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DVolumeTexture9;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 import com.fourthskyinteractive.dx4j.windows.HWND;
 import com.fourthskyinteractive.dx4j.windows.gdi.RGNDATA;
@@ -28,7 +37,6 @@ import com.fourthskyinteractive.dx4j.windows.gdi.RGNDATA;
 @IID("d0223b96-bf7a-43fd-92bd-a43b0d82b9eb")
 @Library("d3d9")
 @Runtime(COMRuntime.class)
-@Convention(Style.StdCall)
 public class IDirect3DDevice9 extends IUnknown {
 	
 	@Virtual(0)
@@ -85,32 +93,51 @@ public class IDirect3DDevice9 extends IUnknown {
 	@Virtual(17)
 	public native final int SetDialogBoxMode(int bEnableDialogs);
 	
+	@Virtual(20)
+	public native final int CreateTexture(int Width, int Height, int Levels, int Usage, D3DFORMAT Format, D3DPOOL Pool, Pointer<Pointer<IDirect3DTexture9>> ppTexture, Pointer<HANDLE> pSharedHandle);
+	
+	@Virtual(21)
+	public native final int CreateVolumeTexture(int Width, int Height, int Depth, int Levels, int Usage, D3DFORMAT Format, D3DPOOL Pool, Pointer<Pointer<IDirect3DVolumeTexture9>> ppVolumeTexture, Pointer<HANDLE> pSharedHandle);
+
+	@Virtual(22)
+	public native final int CreateCubeTexture(int EdgeLength, int Levels, int Usage, D3DFORMAT Format, D3DPOOL Pool, Pointer<Pointer<IDirect3DCubeTexture9>> ppCubeTexture, Pointer<HANDLE> pSharedHandle);
+	
 	@Deprecated @Virtual(23)
 	public native final int CreateVertexBuffer(int length, int Usage, int FVF, D3DPOOL Pool, Pointer<Pointer<IDirect3DVertexBuffer9>> ppVertexBuffer, Pointer<HANDLE> pSharedHandle);
-
-	@Virtual(78)
-	public native final int DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, int StartVertex, int PrimitiveCount);
 	
-	@Virtual(86)
-	public native final int SetFVF(int FVF);
+	@Virtual(24)
+	public native final int CreateIndexBuffer(int Length, int Usage, D3DFORMAT Format, D3DPOOL Pool, Pointer<Pointer<IDirect3DIndexBuffer9>> ppIndexBuffer, Pointer<HANDLE> pSharedHandle);
 	
-	@Virtual(97)
-	public native final int SetStreamSource(int StreamNumber, Pointer<IDirect3DVertexBuffer9> pStreamData, int OffsetInBytes, int Stride);
+	@Virtual(25)
+	public native final int CreateRenderTarget(int Width, int Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, int MultisampleQuality, int Lockable, Pointer<Pointer<IDirect3DSurface9>> ppSurface, Pointer<HANDLE> pSharedHandle);
+	
+	@Virtual(26)
+	public native final int CreateDepthStencilSurface(int Width, int Height, D3DFORMAT Format, D3DMULTISAMPLE_TYPE MultiSample, int MultisampleQuality, int bDiscard, Pointer<Pointer<IDirect3DSurface9>> ppSurface, Pointer<HANDLE> pSharedHandle);
+	
+	@Virtual(31)
+	public native final int StretchRect(Pointer<IDirect3DSurface9> pSourceSurface, Pointer<RECT> pSourceRect, Pointer<IDirect3DSurface9> pDestSurface, Pointer<RECT> pDestRect, D3DTEXTUREFILTERTYPE Filter);
+	
+	@Virtual(33)
+	public native final int CreateOffscreenPlainSurface(int Width, int Height, D3DFORMAT Format, D3DPOOL Pool, Pointer<Pointer<IDirect3DSurface9>> ppSurface, Pointer<HANDLE> pSharedHandle);
+    
+	@Virtual(34)
+	public native final int SetRenderTarget(int RenderTargetIndex, Pointer<IDirect3DSurface9> pRenderTarget);
+	
 	/*
     STDMETHOD_(void, SetGammaRamp)(THIS_ UINT iSwapChain,DWORD Flags,CONST D3DGAMMARAMP* pRamp) PURE;
     STDMETHOD_(void, GetGammaRamp)(THIS_ UINT iSwapChain,D3DGAMMARAMP* pRamp) PURE;
     20 STDMETHOD(CreateTexture)(THIS_ UINT Width,UINT Height,UINT Levels,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DTexture9** ppTexture,HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateVolumeTexture)(THIS_ UINT Width,UINT Height,UINT Depth,UINT Levels,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DVolumeTexture9** ppVolumeTexture,HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateCubeTexture)(THIS_ UINT EdgeLength,UINT Levels,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DCubeTexture9** ppCubeTexture,HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateVertexBuffer)(THIS_ UINT Length,DWORD Usage,DWORD FVF,D3DPOOL Pool,IDirect3DVertexBuffer9** ppVertexBuffer,HANDLE* pSharedHandle) PURE;
-    STDMETHOD(CreateIndexBuffer)(THIS_ UINT Length,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DIndexBuffer9** ppIndexBuffer,HANDLE* pSharedHandle) PURE;
+    //STDMETHOD(CreateVolumeTexture)(THIS_ UINT Width,UINT Height,UINT Depth,UINT Levels,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DVolumeTexture9** ppVolumeTexture,HANDLE* pSharedHandle) PURE;
+    //STDMETHOD(CreateCubeTexture)(THIS_ UINT EdgeLength,UINT Levels,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DCubeTexture9** ppCubeTexture,HANDLE* pSharedHandle) PURE;
+    //STDMETHOD(CreateVertexBuffer)(THIS_ UINT Length,DWORD Usage,DWORD FVF,D3DPOOL Pool,IDirect3DVertexBuffer9** ppVertexBuffer,HANDLE* pSharedHandle) PURE;
+    //STDMETHOD(CreateIndexBuffer)(THIS_ UINT Length,DWORD Usage,D3DFORMAT Format,D3DPOOL Pool,IDirect3DIndexBuffer9** ppIndexBuffer,HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateRenderTarget)(THIS_ UINT Width,UINT Height,D3DFORMAT Format,D3DMULTISAMPLE_TYPE MultiSample,DWORD MultisampleQuality,BOOL Lockable,IDirect3DSurface9** ppSurface,HANDLE* pSharedHandle) PURE;
     STDMETHOD(CreateDepthStencilSurface)(THIS_ UINT Width,UINT Height,D3DFORMAT Format,D3DMULTISAMPLE_TYPE MultiSample,DWORD MultisampleQuality,BOOL Discard,IDirect3DSurface9** ppSurface,HANDLE* pSharedHandle) PURE;
     STDMETHOD(UpdateSurface)(THIS_ IDirect3DSurface9* pSourceSurface,CONST RECT* pSourceRect,IDirect3DSurface9* pDestinationSurface,CONST POINT* pDestPoint) PURE;
     STDMETHOD(UpdateTexture)(THIS_ IDirect3DBaseTexture9* pSourceTexture,IDirect3DBaseTexture9* pDestinationTexture) PURE;
     STDMETHOD(GetRenderTargetData)(THIS_ IDirect3DSurface9* pRenderTarget,IDirect3DSurface9* pDestSurface) PURE;
     30 STDMETHOD(GetFrontBufferData)(THIS_ UINT iSwapChain,IDirect3DSurface9* pDestSurface) PURE;
-    STDMETHOD(StretchRect)(THIS_ IDirect3DSurface9* pSourceSurface,CONST RECT* pSourceRect,IDirect3DSurface9* pDestSurface,CONST RECT* pDestRect,D3DTEXTUREFILTERTYPE Filter) PURE;
+    //STDMETHOD(StretchRect)(THIS_ IDirect3DSurface9* pSourceSurface,CONST RECT* pSourceRect,IDirect3DSurface9* pDestSurface,CONST RECT* pDestRect,D3DTEXTUREFILTERTYPE Filter) PURE;
     STDMETHOD(ColorFill)(THIS_ IDirect3DSurface9* pSurface,CONST RECT* pRect,D3DCOLOR color) PURE;
     STDMETHOD(CreateOffscreenPlainSurface)(THIS_ UINT Width,UINT Height,D3DFORMAT Format,D3DPOOL Pool,IDirect3DSurface9** ppSurface,HANDLE* pSharedHandle) PURE;
     STDMETHOD(SetRenderTarget)(THIS_ DWORD RenderTargetIndex,IDirect3DSurface9* pRenderTarget) PURE;
@@ -157,7 +184,7 @@ public class IDirect3DDevice9 extends IUnknown {
     STDMETHOD_(BOOL, GetSoftwareVertexProcessing)(THIS) PURE;
     STDMETHOD(SetNPatchMode)(THIS_ float nSegments) PURE;
     STDMETHOD_(float, GetNPatchMode)(THIS) PURE;
-    STDMETHOD(DrawPrimitive)(THIS_ D3DPRIMITIVETYPE PrimitiveType,UINT StartVertex,UINT PrimitiveCount) PURE;
+    //STDMETHOD(DrawPrimitive)(THIS_ D3DPRIMITIVETYPE PrimitiveType,UINT StartVertex,UINT PrimitiveCount) PURE;
     STDMETHOD(DrawIndexedPrimitive)(THIS_ D3DPRIMITIVETYPE,INT BaseVertexIndex,UINT MinVertexIndex,UINT NumVertices,UINT startIndex,UINT primCount) PURE;
     80 STDMETHOD(DrawPrimitiveUP)(THIS_ D3DPRIMITIVETYPE PrimitiveType,UINT PrimitiveCount,CONST void* pVertexStreamZeroData,UINT VertexStreamZeroStride) PURE;
     STDMETHOD(DrawIndexedPrimitiveUP)(THIS_ D3DPRIMITIVETYPE PrimitiveType,UINT MinVertexIndex,UINT NumVertices,UINT PrimitiveCount,CONST void* pIndexData,D3DFORMAT IndexDataFormat,CONST void* pVertexStreamZeroData,UINT VertexStreamZeroStride) PURE;
@@ -165,7 +192,7 @@ public class IDirect3DDevice9 extends IUnknown {
     STDMETHOD(CreateVertexDeclaration)(THIS_ CONST D3DVERTEXELEMENT9* pVertexElements,IDirect3DVertexDeclaration9** ppDecl) PURE;
     STDMETHOD(SetVertexDeclaration)(THIS_ IDirect3DVertexDeclaration9* pDecl) PURE;
     STDMETHOD(GetVertexDeclaration)(THIS_ IDirect3DVertexDeclaration9** ppDecl) PURE;
-    STDMETHOD(SetFVF)(THIS_ DWORD FVF) PURE;
+    //STDMETHOD(SetFVF)(THIS_ DWORD FVF) PURE;
     STDMETHOD(GetFVF)(THIS_ DWORD* pFVF) PURE;
     STDMETHOD(CreateVertexShader)(THIS_ CONST DWORD* pFunction,IDirect3DVertexShader9** ppShader) PURE;
     STDMETHOD(SetVertexShader)(THIS_ IDirect3DVertexShader9* pShader) PURE;
@@ -207,6 +234,17 @@ public class IDirect3DDevice9 extends IUnknown {
 	@Virtual(40)
 	public native final int Clear(int Count, Pointer<D3DRECT> pRects, int Flags, /*D3DCOLOR*/ int Color, float Z, int Stencil);
 	
+	@Virtual(41)
+	public native final int SetTransform(D3DTRANSFORMSTATETYPE State,Pointer<D3DMATRIX> pMatrix);
+	
+	@Virtual(78)
+	public native final int DrawPrimitive(D3DPRIMITIVETYPE PrimitiveType, int StartVertex, int PrimitiveCount);
+	
+	@Virtual(86)
+	public native final int SetFVF(int FVF);
+	
+	@Virtual(97)
+	public native final int SetStreamSource(int StreamNumber, Pointer<IDirect3DVertexBuffer9> pStreamData, int OffsetInBytes, int Stride);
 	
 	public final IDirect3DVertexBuffer9 CreateVertexBuffer(int length, int Usage, int FVF, D3DPOOL Pool) {
 		Pointer<Pointer<IDirect3DVertexBuffer9>> pp = allocatePointer(IDirect3DVertexBuffer9.class);

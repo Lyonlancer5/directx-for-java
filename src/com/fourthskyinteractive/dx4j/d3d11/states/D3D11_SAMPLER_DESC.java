@@ -6,6 +6,7 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Array;
 import org.bridj.ann.Field;
 
+import com.fourthskyinteractive.dx4j.d3d11.D3D11;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_COMPARISON_FUNC;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_FILTER;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_TEXTURE_ADDRESS_MODE;
@@ -17,13 +18,23 @@ import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_TEXTURE_ADDRESS_MODE;
 public class D3D11_SAMPLER_DESC extends StructObject {
 	public D3D11_SAMPLER_DESC() {
 		super();
+		this.Filter(D3D11_FILTER.D3D11_FILTER_COMPARISON_MIN_MAG_MIP_LINEAR)
+			.AddressU(D3D11_TEXTURE_ADDRESS_MODE.D3D11_TEXTURE_ADDRESS_CLAMP)
+			.AddressV(D3D11_TEXTURE_ADDRESS_MODE.D3D11_TEXTURE_ADDRESS_CLAMP)
+			.AddressW(D3D11_TEXTURE_ADDRESS_MODE.D3D11_TEXTURE_ADDRESS_CLAMP)
+			.MinLOD(Float.MIN_VALUE)
+			.MaxLOD(Float.MAX_VALUE)
+			.MipLODBias(0.0f)
+			.MaxAnisotropy(16)
+			.ComparisonFunc(D3D11_COMPARISON_FUNC.D3D11_COMPARISON_NEVER);
+		this.BorderColor().setArray(new float[] { 0.0f, 0.0f, 0.0f, 0.0f });
 	}
 	public D3D11_SAMPLER_DESC(Pointer pointer) {
 		super(pointer);
 	}
 	/// C type : D3D11_FILTER
 	@Field(0) 
-	public ValuedEnum<D3D11_FILTER > Filter() {
+	public ValuedEnum<D3D11_FILTER> Filter() {
 		return this.io.getEnumField(this, 0);
 	}
 	/// C type : D3D11_FILTER

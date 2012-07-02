@@ -40,7 +40,7 @@ public class D3D11_DEPTH_STENCIL_VIEW_DESC extends StructObject {
 	}
 	/// C type : D3D11_DSV_DIMENSION
 	@Field(1) 
-	public D3D11_DEPTH_STENCIL_VIEW_DESC ViewDimension(D3D11_DSV_DIMENSION ViewDimension) {
+	public D3D11_DEPTH_STENCIL_VIEW_DESC ViewDimension(ValuedEnum<D3D11_DSV_DIMENSION> ViewDimension) {
 		this.io.setEnumField(this, 1, ViewDimension);
 		return this;
 	}
@@ -75,7 +75,7 @@ public class D3D11_DEPTH_STENCIL_VIEW_DESC extends StructObject {
 	}
 	
 	@Field(value = 7, unionWith = 3)
-	public D3D11_TEX2DMS_DSV exture2DMS(){
+	public D3D11_TEX2DMS_DSV Texture2DMS(){
     	return this.io.getNativeObjectField(this, 7);
 	}
 	

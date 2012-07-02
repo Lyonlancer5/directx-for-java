@@ -7,6 +7,7 @@ import org.bridj.ann.Library;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_BIND_FLAG;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_CPU_ACCESS_FLAG;
+import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RESOURCE_MISC_FLAG;
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_USAGE;
 /**
  * <i>native declaration : line 668</i><br>
@@ -20,13 +21,14 @@ public class D3D11_BUFFER_DESC extends StructObject {
 		super();
 	}
 	public D3D11_BUFFER_DESC(ValuedEnum<D3D11_BIND_FLAG> bindFlag, ValuedEnum<D3D11_USAGE> usage,
-			 ValuedEnum<D3D11_CPU_ACCESS_FLAG> cpuAccess, int flags, int byteWidth) {
+			 ValuedEnum<D3D11_CPU_ACCESS_FLAG> cpuAccess, ValuedEnum<D3D11_RESOURCE_MISC_FLAG> flags, 
+			 int byteWidth) {
 		super();
 		this.BindFlags(bindFlag).Usage(usage).CPUAccessFlags(cpuAccess)
 		.MiscFlags(flags).ByteWidth(byteWidth).StructureByteStride(0);
 	}
 	public D3D11_BUFFER_DESC(ValuedEnum<D3D11_BIND_FLAG> bindFlag, ValuedEnum<D3D11_USAGE> usage,
-							 ValuedEnum<D3D11_CPU_ACCESS_FLAG> cpuAccess, int flags, int byteWidth,
+							 ValuedEnum<D3D11_CPU_ACCESS_FLAG> cpuAccess, ValuedEnum<D3D11_RESOURCE_MISC_FLAG> flags, int byteWidth,
 							 int byteStride) {
 		super();
 		this.BindFlags(bindFlag).Usage(usage).CPUAccessFlags(cpuAccess)
@@ -74,12 +76,12 @@ public class D3D11_BUFFER_DESC extends StructObject {
 		return this;
 	}
 	@Field(4) 
-	public int MiscFlags() {
-		return this.io.getIntField(this, 4);
+	public ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags() {
+		return this.io.getEnumField(this, 4);
 	}
 	@Field(4) 
-	public D3D11_BUFFER_DESC MiscFlags(int MiscFlags) {
-		this.io.setIntField(this, 4, MiscFlags);
+	public D3D11_BUFFER_DESC MiscFlags(ValuedEnum<D3D11_RESOURCE_MISC_FLAG> MiscFlags) {
+		this.io.setEnumField(this, 4, MiscFlags);
 		return this;
 	}
 	@Field(5) 

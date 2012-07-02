@@ -14,6 +14,9 @@ import org.bridj.ann.Library;
 public class D3D11_BLEND_DESC extends StructObject {
 	public D3D11_BLEND_DESC() {
 		super();
+		this.AlphaToCoverageEnable(0)
+			.IndependentBlendEnable(0)
+			.RenderTargets().get(0).BlendEnable(0);
 	}
 	public D3D11_BLEND_DESC(Pointer pointer) {
 		super(pointer);
@@ -39,7 +42,7 @@ public class D3D11_BLEND_DESC extends StructObject {
 	/// C type : D3D11_RENDER_TARGET_BLEND_DESC[8]
 	@Array({8}) 
 	@Field(2) 
-	public Pointer<D3D11_RENDER_TARGET_BLEND_DESC > RenderTarget() {
+	public Pointer<D3D11_RENDER_TARGET_BLEND_DESC > RenderTargets() {
 		return this.io.getPointerField(this, 2);
 	}
 }

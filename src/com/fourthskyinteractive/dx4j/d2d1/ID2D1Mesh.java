@@ -7,6 +7,8 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
+import com.fourthskyinteractive.dx4j.d2d1.geometry.ID2D1TessellationSink;
+
 @IID("2cd906c2-12e2-11dc-9fed-001143a055f9")
 @Library("d2d1")
 @Runtime(COMRuntime.class)

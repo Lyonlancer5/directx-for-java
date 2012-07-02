@@ -16,6 +16,10 @@ public class D3DXVECTOR3 extends StructObject {
 		// TODO Auto-generated constructor stub
 	}
 
+	public D3DXVECTOR3(float x, float y, float z) {
+		super();
+		x(x).y(y).z(z);
+	}
 	
 	@Field(0)
 	public float x() {
