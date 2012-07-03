@@ -1,13 +1,7 @@
 package com.fourthskyinteractive.dx4j.xinput;
 
-import java.util.Collections;
-import java.util.Iterator;
-
 import org.bridj.BridJ;
-import org.bridj.FlagSet;
-import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
-import org.bridj.ValuedEnum;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;

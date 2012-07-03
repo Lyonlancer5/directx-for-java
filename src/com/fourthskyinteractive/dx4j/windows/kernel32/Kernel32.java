@@ -8,6 +8,11 @@ import org.bridj.ann.Runtime;
 
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 
+/**
+ * http://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v=vs.85).aspx
+ * @author evandro.paulino
+ *
+ */
 @Library("kernel32")
 @Runtime(CRuntime.class)
 public class Kernel32 {
