@@ -29,7 +29,6 @@ public class XInput {
 	private static final int XINPUT_GAMEPAD_X               = 0x4000;
 	private static final int XINPUT_GAMEPAD_Y               = 0x8000;
 	
-	
 	// Battery information
 	public static final byte BATTERY_TYPE_DISCONNECTED = 0;
 	public static final byte BATTERY_TYPE_WIRED = 1;
@@ -42,6 +41,13 @@ public class XInput {
 	public static final byte BATTERY_LEVEL_MEDIUM = 2;
 	public static final byte BATTERY_LEVEL_FULL = 3;
 	
+	public static final byte BATTERY_DEVTYPE_GAMEPAD = (byte)0x0;
+	public static final byte BATTERY_DEVTYPE_HEADSET = (byte)0x1;
+	
+	// Flags for XInputGetCapabilities
+	public static final int ANY_FLAG_GAMEPAD = 0x0;
+	public static final int XINPUT_FLAG_GAMEPAD = 0x1;
+	
 	
 	public static final native void XInputEnable(int enable);
 	
@@ -49,5 +55,12 @@ public class XInput {
 	
 	public static final native short XInputGetState(short dwUserIndex, Pointer<XINPUT_STATE> pState);
 	
-	public static final native int XInputGetBatteryInformation(int dwUserIndex, byte devType, Pointer<XINPUT_BATTERY_INFORMATION> pBatteryInfo); 
+	public static final native int XInputGetBatteryInformation(int dwUserIndex, byte devType, Pointer<XINPUT_BATTERY_INFORMATION> pBatteryInfo);
+	
+	public static final native int XInputGetCapabilities(int dwUserIndex, int dwFlags, Pointer<XINPUT_CAPABILITIES> pCapabilities);
+	
+	public static final native int XInputGetAudioDeviceIds(int dwUserIndex, Pointer<Character> pRenderDeviceId, Pointer<Integer> pRenderCount, Pointer<Character> pCaptureDeviceId, Pointer<Integer> pCaptureCount);
+	
+	@Deprecated
+	public static final native int XInputGetDSoundAudioDeviceGuids(int dwUserIndex, Pointer<Byte> pDSoundRenderGuid, Pointer<Byte> pDSoundCaptureGuid);
 }
