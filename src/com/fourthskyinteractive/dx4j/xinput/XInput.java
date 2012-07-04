@@ -5,6 +5,7 @@ import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
+import org.bridj.cpp.com.GUID;
 
 @Runtime(COMRuntime.class)
 @Library("XInput1_3")
@@ -14,20 +15,20 @@ public class XInput {
 	}
 	
 	// Button constants 
-	private static final int XINPUT_GAMEPAD_DPAD_UP         = 0x00000001;
-	private static final int XINPUT_GAMEPAD_DPAD_DOWN       = 0x00000002;
-	private static final int XINPUT_GAMEPAD_DPAD_LEFT       = 0x00000004;
-	private static final int XINPUT_GAMEPAD_DPAD_RIGHT      = 0x00000008;
-	private static final int XINPUT_GAMEPAD_START           = 0x00000010;
-	private static final int XINPUT_GAMEPAD_BACK            = 0x00000020;
-	private static final int XINPUT_GAMEPAD_LEFT_THUMB      = 0x00000040;
-	private static final int XINPUT_GAMEPAD_RIGHT_THUMB     = 0x00000080;
-	private static final int XINPUT_GAMEPAD_LEFT_SHOULDER   = 0x0100;
-	private static final int XINPUT_GAMEPAD_RIGHT_SHOULDER  = 0x0200;
-	private static final int XINPUT_GAMEPAD_A               = 0x1000;
-	private static final int XINPUT_GAMEPAD_B               = 0x2000;
-	private static final int XINPUT_GAMEPAD_X               = 0x4000;
-	private static final int XINPUT_GAMEPAD_Y               = 0x8000;
+	public static final int XINPUT_GAMEPAD_DPAD_UP         = 0x00000001;
+	public static final int XINPUT_GAMEPAD_DPAD_DOWN       = 0x00000002;
+	public static final int XINPUT_GAMEPAD_DPAD_LEFT       = 0x00000004;
+	public static final int XINPUT_GAMEPAD_DPAD_RIGHT      = 0x00000008;
+	public static final int XINPUT_GAMEPAD_START           = 0x00000010;
+	public static final int XINPUT_GAMEPAD_BACK            = 0x00000020;
+	public static final int XINPUT_GAMEPAD_LEFT_THUMB      = 0x00000040;
+	public static final int XINPUT_GAMEPAD_RIGHT_THUMB     = 0x00000080;
+	public static final int XINPUT_GAMEPAD_LEFT_SHOULDER   = 0x0100;
+	public static final int XINPUT_GAMEPAD_RIGHT_SHOULDER  = 0x0200;
+	public static final int XINPUT_GAMEPAD_A               = 0x1000;
+	public static final int XINPUT_GAMEPAD_B               = 0x2000;
+	public static final int XINPUT_GAMEPAD_X               = 0x4000;
+	public static final int XINPUT_GAMEPAD_Y               = 0x8000;
 	
 	// Battery information
 	public static final byte BATTERY_TYPE_DISCONNECTED = 0;
@@ -55,12 +56,11 @@ public class XInput {
 	
 	public static final native short XInputGetState(short dwUserIndex, Pointer<XINPUT_STATE> pState);
 	
+	public static final native int XInputGetKeystroke(int dwUserIndex, int dwReserved, Pointer<XINPUT_KEYSTROKE> pKeystroke);
+	
 	public static final native int XInputGetBatteryInformation(int dwUserIndex, byte devType, Pointer<XINPUT_BATTERY_INFORMATION> pBatteryInfo);
 	
 	public static final native int XInputGetCapabilities(int dwUserIndex, int dwFlags, Pointer<XINPUT_CAPABILITIES> pCapabilities);
 	
-	public static final native int XInputGetAudioDeviceIds(int dwUserIndex, Pointer<Character> pRenderDeviceId, Pointer<Integer> pRenderCount, Pointer<Character> pCaptureDeviceId, Pointer<Integer> pCaptureCount);
-	
-	@Deprecated
-	public static final native int XInputGetDSoundAudioDeviceGuids(int dwUserIndex, Pointer<Byte> pDSoundRenderGuid, Pointer<Byte> pDSoundCaptureGuid);
+	public static final native int XInputGetDSoundAudioDeviceGuids(int dwUserIndex, Pointer<GUID> pDSoundRenderGuid, Pointer<GUID> pDSoundCaptureGuid);
 }
