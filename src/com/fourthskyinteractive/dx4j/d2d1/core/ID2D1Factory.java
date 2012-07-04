@@ -36,7 +36,7 @@ import com.fourthskyinteractive.dx4j.d2d1.resources.rendertarget.ID2D1DCRenderTa
 import com.fourthskyinteractive.dx4j.d2d1.resources.rendertarget.ID2D1HwndRenderTarget;
 import com.fourthskyinteractive.dx4j.d2d1.resources.rendertarget.ID2D1RenderTarget;
 import com.fourthskyinteractive.dx4j.dwrite.IDWriteRenderingParams;
-import com.fourthskyinteractive.dx4j.dxgi.IDXGISurface;
+import com.fourthskyinteractive.dx4j.dxgi.device.IDXGISurface;
 import com.fourthskyinteractive.dx4j.wic.IWICBitmap;
 
 @IID("06152247-6f50-465a-9245-118bfd3b6007")

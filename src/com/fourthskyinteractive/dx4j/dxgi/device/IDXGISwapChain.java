@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 
 import static org.bridj.Pointer.allocate;
 import static org.bridj.Pointer.allocateInt;
@@ -14,7 +14,12 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
+import com.fourthskyinteractive.dx4j.dxgi.DXGI;
+import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
+import com.fourthskyinteractive.dx4j.dxgi.DXGI_MODE_DESC;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
+import com.fourthskyinteractive.dx4j.dxgi.adapter.DXGI_FRAME_STATISTICS;
+import com.fourthskyinteractive.dx4j.dxgi.adapter.IDXGIOutput;
 /**
  * <i>native declaration : DXGI.h:1536</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>

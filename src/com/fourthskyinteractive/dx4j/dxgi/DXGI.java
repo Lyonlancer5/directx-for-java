@@ -17,6 +17,7 @@ import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.jawt.JAWTUtils;
 
+import com.fourthskyinteractive.dx4j.dxgi.device.DXGI_SWAP_CHAIN_DESC;
 import com.fourthskyinteractive.dx4j.windows.HWND;
 
 /**
@@ -275,6 +276,126 @@ public class DXGI {
 			return Collections.singleton(this).iterator();
 		}
 		public static FlagSet<DXGI_USAGE> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_CPU_ACCESS implements IntValuedEnum<DXGI_CPU_ACCESS> {
+		DXGI_CPU_ACCESS_NONE(0),
+		DXGI_CPU_ACCESS_DYNAMIC(1),
+		DXGI_CPU_ACCESS_READ_WRITE(2),
+		DXGI_CPU_ACCESS_SCRATCH(3),
+		DDXGI_CPU_ACCESS_FIELD(4);
+		DXGI_CPU_ACCESS(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_CPU_ACCESS> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_CPU_ACCESS> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_SCALING implements IntValuedEnum<DXGI_SCALING> {
+		DXGI_SCALING_STRETCH(0),
+		DXGI_SCALING_NONE(1);
+		DXGI_SCALING(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_SCALING> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_SCALING> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_ALPHA_MODE implements IntValuedEnum<DXGI_ALPHA_MODE> {
+		DXGI_ALPHA_MODE_UNSPECIFIED(0),
+		DXGI_ALPHA_MODE_PREMULTIPLIED(1),
+		DXGI_ALPHA_MODE_STRAIGHT(2),
+		DXGI_ALPHA_MODE_IGNORE(3);
+		DXGI_ALPHA_MODE(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_ALPHA_MODE> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_ALPHA_MODE> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_GRAPHICS_PREEMPTION_GRANULARITY implements IntValuedEnum<DXGI_GRAPHICS_PREEMPTION_GRANULARITY> {
+		DXGI_GRAPHICS_PREEMPTION_DMA_BUFFER_BOUNDARY(0),
+		DXGI_GRAPHICS_PREEMPTION_PRIMITIVE_BOUNDARY(1),
+		DXGI_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY(2),
+		DXGI_GRAPHICS_PREEMPTION_PIXEL_BOUNDARY(3),
+		DXGI_GRAPHICS_PREEMPTION_INSTRUCTION_BOUNDARY(4);
+		DXGI_GRAPHICS_PREEMPTION_GRANULARITY(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_GRAPHICS_PREEMPTION_GRANULARITY> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_GRAPHICS_PREEMPTION_GRANULARITY> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_COMPUTE_PREEMPTION_GRANULARITY implements IntValuedEnum<DXGI_COMPUTE_PREEMPTION_GRANULARITY> {
+		DXGI_COMPUTE_PREEMPTION_DMA_BUFFER_BOUNDARY(0),
+		DXGI_COMPUTE_PREEMPTION_DISPATCH_BOUNDARY(1),
+		DXGI_COMPUTE_PREEMPTION_THREAD_GROUP_BOUNDARY(2),
+		DXGI_COMPUTE_PREEMPTION_THREAD_BOUNDARY(3),
+		DXGI_COMPUTE_PREEMPTION_INSTRUCTION_BOUNDARY(4);
+		DXGI_COMPUTE_PREEMPTION_GRANULARITY(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_COMPUTE_PREEMPTION_GRANULARITY> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_COMPUTE_PREEMPTION_GRANULARITY> fromValue(long value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
+	public enum DXGI_OFFER_RESOURCE_PRIORITY implements IntValuedEnum<DXGI_OFFER_RESOURCE_PRIORITY> {
+		DXGI_OFFER_RESOURCE_PRIORITY_LOW(1),
+		DXGI_OFFER_RESOURCE_PRIORITY_NORMAL(2),
+		DXGI_OFFER_RESOURCE_PRIORITY_HIGH(3);
+		DXGI_OFFER_RESOURCE_PRIORITY(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_OFFER_RESOURCE_PRIORITY> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static FlagSet<DXGI_OFFER_RESOURCE_PRIORITY> fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
 	}

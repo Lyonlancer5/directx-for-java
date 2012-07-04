@@ -62,5 +62,12 @@ public class XInput {
 	
 	public static final native int XInputGetCapabilities(int dwUserIndex, int dwFlags, Pointer<XINPUT_CAPABILITIES> pCapabilities);
 	
+	/**
+	 * To integrate with DirectSound, see: http://msdn.microsoft.com/en-us/library/windows/desktop/ee417001(v=vs.85).aspx
+	 * @param dwUserIndex
+	 * @param pDSoundRenderGuid
+	 * @param pDSoundCaptureGuid
+	 * @return
+	 */
 	public static final native int XInputGetDSoundAudioDeviceGuids(int dwUserIndex, Pointer<GUID> pDSoundRenderGuid, Pointer<GUID> pDSoundCaptureGuid);
 }

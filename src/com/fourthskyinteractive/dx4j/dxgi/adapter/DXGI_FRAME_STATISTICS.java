@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.adapter;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -10,31 +10,38 @@ import org.bridj.ann.Library;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
 @Library("dxgi") 
-public class DXGI_MAPPED_RECT extends StructObject {
-	public DXGI_MAPPED_RECT() {
+public class DXGI_FRAME_STATISTICS extends StructObject {
+	public DXGI_FRAME_STATISTICS() {
 		super();
 	}
-	public DXGI_MAPPED_RECT(Pointer pointer) {
+	public DXGI_FRAME_STATISTICS(Pointer pointer) {
 		super(pointer);
 	}
 	@Field(0) 
-	public int Pitch() {
+	public int PresentCount() {
 		return this.io.getIntField(this, 0);
 	}
 	@Field(0) 
-	public DXGI_MAPPED_RECT Pitch(int Pitch) {
-		this.io.setIntField(this, 0, Pitch);
+	public DXGI_FRAME_STATISTICS PresentCount(int PresentCount) {
+		this.io.setIntField(this, 0, PresentCount);
 		return this;
 	}
-	/// C type : char*
 	@Field(1) 
-	public Pointer<Byte > pBits() {
-		return this.io.getPointerField(this, 1);
+	public int PresentRefreshCount() {
+		return this.io.getIntField(this, 1);
 	}
-	/// C type : char*
 	@Field(1) 
-	public DXGI_MAPPED_RECT pBits(Pointer<Byte > pBits) {
-		this.io.setPointerField(this, 1, pBits);
+	public DXGI_FRAME_STATISTICS PresentRefreshCount(int PresentRefreshCount) {
+		this.io.setIntField(this, 1, PresentRefreshCount);
+		return this;
+	}
+	@Field(2) 
+	public int SyncRefreshCount() {
+		return this.io.getIntField(this, 2);
+	}
+	@Field(2) 
+	public DXGI_FRAME_STATISTICS SyncRefreshCount(int SyncRefreshCount) {
+		this.io.setIntField(this, 2, SyncRefreshCount);
 		return this;
 	}
 }

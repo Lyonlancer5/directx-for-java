@@ -1,10 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
-
-import static org.bridj.Pointer.allocatePointer;
-import static org.bridj.Pointer.pointerTo;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
@@ -12,11 +6,11 @@ import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
-import org.bridj.cpp.com.IUnknown;
+import org.bridj.cpp.com.RECT;
 
-import com.fourthskyinteractive.dx4j.windows.kernel32.LARGE_INTEGER;
+import com.fourthskyinteractive.dx4j.windows.HDC;
 /**
- * <i>native declaration : DXGI.h:1090</i><br>
+ * <i>native declaration : DXGI.h:907</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
  * 	/// Original signature : <code>int SetPrivateData(const GUID&, UINT, const void*)</code><br>
  * 	virtual int SetPrivateData(const GUID& Name, UINT DataSize, const void* pData);<br>
@@ -40,52 +34,18 @@ import com.fourthskyinteractive.dx4j.windows.kernel32.LARGE_INTEGER;
  * a tool written by <a href="http://ochafik.free.fr/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
-@IID("2411e7e1-12ac-4ccf-bd14-9798e8534dc0") 
+@IID("4AE63092-6327-4c1b-80AE-BFE12EA32B86") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIAdapter extends IDXGIObject {
-	public IDXGIAdapter() {
+public class IDXGISurface1 extends IDXGISurface {
+	public IDXGISurface1() {
 		super();
 	}
-//	public IDXGIAdapter(Pointer pointer) {
+//	public IDXGISurface1(Pointer pointer) {
 //		super(pointer);
 //	}
-	@Deprecated @Virtual(0) 
-	public native int EnumOutputs(int Output, Pointer<Pointer<IDXGIOutput > > ppOutput);
+	@Virtual(0) 
+	public native int GetDC(int Discard, Pointer<HDC> phdc);
 	@Virtual(1) 
-	public native int GetDesc(Pointer<DXGI_ADAPTER_DESC> pDesc);
-	@Deprecated @Virtual(2) 
-	public native int CheckInterfaceSupport(Pointer<Byte> InterfaceName, Pointer<LARGE_INTEGER> pUMDVersion);
-	
-	public <I extends IUnknown> long CheckInterfaceSupport(Class<I> type) {
-		Pointer<Byte> pGUID = COMRuntime.getIID(type);
-		LARGE_INTEGER LInteger = new LARGE_INTEGER();
-		
-		int result = this.CheckInterfaceSupport(pGUID, pointerTo(LInteger));
-		if (result != 0) {
-			return -1;
-		}
-		
-		long ret = (long)(LInteger.HighPart()) << 32 | LInteger.LowPart();
-		return ret;
-	}
-	
-	public List<IDXGIOutput> EnumOutputs() {
-		List<IDXGIOutput> outputs = new ArrayList<IDXGIOutput>();
-		Pointer<Pointer<IDXGIOutput>> pp = allocatePointer(IDXGIOutput.class);
-		
-		try {
-			int i = 0;
-			while (this.EnumOutputs(i, pp) != DXGI.DXGI_ERROR_NOT_FOUND) {
-				outputs.add(pp.get().getNativeObject(IDXGIOutput.class));				
-				i++;
-			}			
-			
-		} finally {
-			pp.release();
-			pp = null;
-		}
-		
-		return outputs;
-	}
+	public native int ReleaseDC(Pointer<RECT > pDirtyRect);
 }

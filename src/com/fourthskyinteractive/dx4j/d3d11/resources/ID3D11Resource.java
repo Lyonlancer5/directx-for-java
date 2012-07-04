@@ -11,7 +11,7 @@ import org.bridj.cpp.com.IID;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RESOURCE_DIMENSION;
 import com.fourthskyinteractive.dx4j.d3d11.core.ID3D11DeviceChild;
-import com.fourthskyinteractive.dx4j.dxgi.IDXGIResource;
+import com.fourthskyinteractive.dx4j.dxgi.device.IDXGIResource;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 
 @IID("dc8e63f3-d12b-4952-b47b-5e45026a862d")

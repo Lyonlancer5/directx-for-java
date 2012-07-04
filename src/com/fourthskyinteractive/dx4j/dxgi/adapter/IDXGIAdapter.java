@@ -1,6 +1,10 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.adapter;
 
 import static org.bridj.Pointer.allocatePointer;
+import static org.bridj.Pointer.pointerTo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
@@ -9,8 +13,12 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
+
+import com.fourthskyinteractive.dx4j.dxgi.DXGI;
+import com.fourthskyinteractive.dx4j.dxgi.IDXGIObject;
+import com.fourthskyinteractive.dx4j.windows.kernel32.LARGE_INTEGER;
 /**
- * <i>native declaration : DXGI.h:290</i><br>
+ * <i>native declaration : DXGI.h:1090</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
  * 	/// Original signature : <code>int SetPrivateData(const GUID&, UINT, const void*)</code><br>
  * 	virtual int SetPrivateData(const GUID& Name, UINT DataSize, const void* pData);<br>
@@ -34,33 +42,52 @@ import org.bridj.cpp.com.IUnknown;
  * a tool written by <a href="http://ochafik.free.fr/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
-@IID("3d3e0379-f9de-4d58-bb6c-18d62992f1a6") 
+@IID("2411e7e1-12ac-4ccf-bd14-9798e8534dc0") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIDeviceSubObject extends IDXGIObject {
-	public IDXGIDeviceSubObject() {
+public class IDXGIAdapter extends IDXGIObject {
+	public IDXGIAdapter() {
 		super();
 	}
-//	public IDXGIDeviceSubObject(Pointer pointer) {
+//	public IDXGIAdapter(Pointer pointer) {
 //		super(pointer);
 //	}
 	@Deprecated @Virtual(0) 
-	public native int GetDevice(Pointer<Byte> riid, Pointer<Pointer<? > > ppDevice);
+	public native int EnumOutputs(int Output, Pointer<Pointer<IDXGIOutput > > ppOutput);
+	@Virtual(1) 
+	public native int GetDesc(Pointer<DXGI_ADAPTER_DESC> pDesc);
+	@Deprecated @Virtual(2) 
+	public native int CheckInterfaceSupport(Pointer<Byte> InterfaceName, Pointer<LARGE_INTEGER> pUMDVersion);
 	
-	public <I extends IUnknown> I GetDevice(Class<I> type) {
-		Pointer<Byte> deviceGUID = COMRuntime.getIID(type);
-		Pointer<Pointer<?>> pp = allocatePointer();
+	public <I extends IUnknown> long CheckInterfaceSupport(Class<I> type) {
+		Pointer<Byte> pGUID = COMRuntime.getIID(type);
+		LARGE_INTEGER LInteger = new LARGE_INTEGER();
+		
+		int result = this.CheckInterfaceSupport(pGUID, pointerTo(LInteger));
+		if (result != 0) {
+			return -1;
+		}
+		
+		long ret = (long)(LInteger.HighPart()) << 32 | LInteger.LowPart();
+		return ret;
+	}
+	
+	public List<IDXGIOutput> EnumOutputs() {
+		List<IDXGIOutput> outputs = new ArrayList<IDXGIOutput>();
+		Pointer<Pointer<IDXGIOutput>> pp = allocatePointer(IDXGIOutput.class);
 		
 		try {
-			int result = GetDevice(deviceGUID, pp);
-			if (result != 0) {
-				throw new DXGIException("Could not obtain device", result);
-			}
+			int i = 0;
+			while (this.EnumOutputs(i, pp) != DXGI.DXGI_ERROR_NOT_FOUND) {
+				outputs.add(pp.get().getNativeObject(IDXGIOutput.class));				
+				i++;
+			}			
 			
-			return pp.get().getNativeObject(type);
 		} finally {
 			pp.release();
 			pp = null;
 		}
+		
+		return outputs;
 	}
 }

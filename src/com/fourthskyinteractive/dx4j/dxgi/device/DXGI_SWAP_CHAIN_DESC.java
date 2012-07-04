@@ -1,10 +1,12 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
+import com.fourthskyinteractive.dx4j.dxgi.DXGI;
+import com.fourthskyinteractive.dx4j.dxgi.DXGI_MODE_DESC;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_SWAP_EFFECT;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_USAGE;
 import com.fourthskyinteractive.dx4j.windows.HWND;

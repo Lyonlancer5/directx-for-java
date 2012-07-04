@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -10,38 +10,31 @@ import org.bridj.ann.Library;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
 @Library("dxgi") 
-public class DXGI_FRAME_STATISTICS extends StructObject {
-	public DXGI_FRAME_STATISTICS() {
+public class DXGI_SURFACE_DESC extends StructObject {
+	public DXGI_SURFACE_DESC() {
 		super();
 	}
-	public DXGI_FRAME_STATISTICS(Pointer pointer) {
+	public DXGI_SURFACE_DESC(Pointer pointer) {
 		super(pointer);
 	}
 	@Field(0) 
-	public int PresentCount() {
+	public int Width() {
 		return this.io.getIntField(this, 0);
 	}
 	@Field(0) 
-	public DXGI_FRAME_STATISTICS PresentCount(int PresentCount) {
-		this.io.setIntField(this, 0, PresentCount);
+	public DXGI_SURFACE_DESC Width(int Width) {
+		this.io.setIntField(this, 0, Width);
 		return this;
 	}
 	@Field(1) 
-	public int PresentRefreshCount() {
+	public int Height() {
 		return this.io.getIntField(this, 1);
 	}
 	@Field(1) 
-	public DXGI_FRAME_STATISTICS PresentRefreshCount(int PresentRefreshCount) {
-		this.io.setIntField(this, 1, PresentRefreshCount);
+	public DXGI_SURFACE_DESC Height(int Height) {
+		this.io.setIntField(this, 1, Height);
 		return this;
 	}
-	@Field(2) 
-	public int SyncRefreshCount() {
-		return this.io.getIntField(this, 2);
-	}
-	@Field(2) 
-	public DXGI_FRAME_STATISTICS SyncRefreshCount(int SyncRefreshCount) {
-		this.io.setIntField(this, 2, SyncRefreshCount);
-		return this;
-	}
+	/// Conversion Error : DXGI_FORMAT (Unsupported type)
+	/// Conversion Error : DXGI_SAMPLE_DESC (Unsupported type)
 }

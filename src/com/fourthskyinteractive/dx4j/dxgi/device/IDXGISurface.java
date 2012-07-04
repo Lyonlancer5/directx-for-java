@@ -1,13 +1,12 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
-import org.bridj.cpp.com.IUnknown;
 /**
- * <i>native declaration : DXGI.h:1257</i><br>
+ * <i>native declaration : DXGI.h:749</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
  * 	/// Original signature : <code>int SetPrivateData(const GUID&, UINT, const void*)</code><br>
  * 	virtual int SetPrivateData(const GUID& Name, UINT DataSize, const void* pData);<br>
@@ -31,36 +30,20 @@ import org.bridj.cpp.com.IUnknown;
  * a tool written by <a href="http://ochafik.free.fr/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
-@IID("ae02eedb-c735-4690-8d52-5a8dc20213aa") 
+@IID("cafcb56c-6ac3-4889-bf47-9e23bbd260ec") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIOutput extends IDXGIObject {
-	public IDXGIOutput() {
+public class IDXGISurface extends IDXGIDeviceSubObject {
+	public IDXGISurface() {
 		super();
 	}
-//	public IDXGIOutput(Pointer pointer) {
+//	public IDXGISurface(Pointer pointer) {
 //		super(pointer);
 //	}
 	@Virtual(0) 
-	public native int GetDesc(Pointer<DXGI_OUTPUT_DESC > pDesc);
+	public native int GetDesc(Pointer<DXGI_SURFACE_DESC > pDesc);
+	@Virtual(1) 
+	public native int Map(Pointer<DXGI_MAPPED_RECT > pLockedRect, int MapFlags);
 	@Virtual(2) 
-	public native int FindClosestMatchingMode(Pointer<DXGI_MODE_DESC> pModeToMatch, Pointer<DXGI_MODE_DESC> pClosestMatch, Pointer<IUnknown > pConcernedDevice);
-	@Virtual(3) 
-	public native int WaitForVBlank();
-	@Virtual(4) 
-	public native int TakeOwnership(Pointer<IUnknown> pDevice, int Exclusive);
-	@Virtual(5) 
-	public native void ReleaseOwnership();
-	@Virtual(6) 
-	public native int GetGammaControlCapabilities(Pointer<DXGI_GAMMA_CONTROL_CAPABILITIES> pGammaCaps);
-	@Virtual(7) 
-	public native int SetGammaControl(Pointer<DXGI_GAMMA_CONTROL> pArray);
-	@Virtual(8) 
-	public native int GetGammaControl(Pointer<DXGI_GAMMA_CONTROL> pArray);
-	@Virtual(9) 
-	public native int SetDisplaySurface(Pointer<IDXGISurface > pScanoutSurface);
-	@Virtual(10) 
-	public native int GetDisplaySurfaceData(Pointer<IDXGISurface > pDestination);
-	@Virtual(11) 
-	public native int GetFrameStatistics(Pointer<DXGI_FRAME_STATISTICS > pStats);
+	public native int Unmap();
 }

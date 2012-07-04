@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.adapter;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -6,7 +6,7 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 /**
- * <i>native declaration : DXGI.h:749</i><br>
+ * <i>native declaration : DXGI.h:2412</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
  * 	/// Original signature : <code>int SetPrivateData(const GUID&, UINT, const void*)</code><br>
  * 	virtual int SetPrivateData(const GUID& Name, UINT DataSize, const void* pData);<br>
@@ -30,20 +30,16 @@ import org.bridj.cpp.com.IID;
  * a tool written by <a href="http://ochafik.free.fr/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
-@IID("cafcb56c-6ac3-4889-bf47-9e23bbd260ec") 
-@Library("dxgi") 
-@Runtime(COMRuntime.class)
-public class IDXGISurface extends IDXGIDeviceSubObject {
-	public IDXGISurface() {
+@IID("29038f61-3839-4626-91fd-086879011a05") 
+@Library("dxgi")
+@Runtime(COMRuntime.class) 
+public class IDXGIAdapter1 extends IDXGIAdapter {
+	public IDXGIAdapter1() {
 		super();
 	}
-//	public IDXGISurface(Pointer pointer) {
+//	public IDXGIAdapter1(Pointer pointer) {
 //		super(pointer);
 //	}
 	@Virtual(0) 
-	public native int GetDesc(Pointer<DXGI_SURFACE_DESC > pDesc);
-	@Virtual(1) 
-	public native int Map(Pointer<DXGI_MAPPED_RECT > pLockedRect, int MapFlags);
-	@Virtual(2) 
-	public native int Unmap();
+	public native int GetDesc1(Pointer<DXGI_ADAPTER_DESC1 > pDesc);
 }

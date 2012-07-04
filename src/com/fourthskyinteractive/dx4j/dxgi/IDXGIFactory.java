@@ -14,6 +14,9 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
+import com.fourthskyinteractive.dx4j.dxgi.adapter.IDXGIAdapter;
+import com.fourthskyinteractive.dx4j.dxgi.device.DXGI_SWAP_CHAIN_DESC;
+import com.fourthskyinteractive.dx4j.dxgi.device.IDXGISwapChain;
 import com.fourthskyinteractive.dx4j.windows.HMODULE;
 /**
  * <i>native declaration : DXGI.h:1810</i><br>

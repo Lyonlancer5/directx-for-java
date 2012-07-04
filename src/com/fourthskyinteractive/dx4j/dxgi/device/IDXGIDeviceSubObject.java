@@ -1,12 +1,19 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
+
+import static org.bridj.Pointer.allocatePointer;
+
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
+import org.bridj.cpp.com.IUnknown;
+
+import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
+import com.fourthskyinteractive.dx4j.dxgi.IDXGIObject;
 /**
- * <i>native declaration : DXGI.h:2565</i><br>
+ * <i>native declaration : DXGI.h:290</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
  * 	/// Original signature : <code>int SetPrivateData(const GUID&, UINT, const void*)</code><br>
  * 	virtual int SetPrivateData(const GUID& Name, UINT DataSize, const void* pData);<br>
@@ -30,18 +37,33 @@ import org.bridj.cpp.com.IID;
  * a tool written by <a href="http://ochafik.free.fr/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
-@IID("77db970f-6276-48ba-ba28-070143b4392c") 
+@IID("3d3e0379-f9de-4d58-bb6c-18d62992f1a6") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIDevice1 extends IDXGIDevice {
-	public IDXGIDevice1() {
+public class IDXGIDeviceSubObject extends IDXGIObject {
+	public IDXGIDeviceSubObject() {
 		super();
 	}
-//	public IDXGIDevice1(Pointer pointer) {
+//	public IDXGIDeviceSubObject(Pointer pointer) {
 //		super(pointer);
 //	}
-	@Virtual(0) 
-	public native int SetMaximumFrameLatency(int MaxLatency);
-	@Virtual(1) 
-	public native int GetMaximumFrameLatency(Pointer<Integer > pMaxLatency);
+	@Deprecated @Virtual(0) 
+	public native int GetDevice(Pointer<Byte> riid, Pointer<Pointer<? > > ppDevice);
+	
+	public <I extends IUnknown> I GetDevice(Class<I> type) {
+		Pointer<Byte> deviceGUID = COMRuntime.getIID(type);
+		Pointer<Pointer<?>> pp = allocatePointer();
+		
+		try {
+			int result = GetDevice(deviceGUID, pp);
+			if (result != 0) {
+				throw new DXGIException("Could not obtain device", result);
+			}
+			
+			return pp.get().getNativeObject(type);
+		} finally {
+			pp.release();
+			pp = null;
+		}
+	}
 }

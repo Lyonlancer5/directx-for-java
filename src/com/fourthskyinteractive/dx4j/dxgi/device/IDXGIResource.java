@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 import static org.bridj.Pointer.allocate;
 
 import org.bridj.Pointer;
@@ -8,6 +8,7 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
+import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 /**
  * <i>native declaration : DXGI.h:419</i><br>

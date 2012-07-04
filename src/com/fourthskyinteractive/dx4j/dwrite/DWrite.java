@@ -9,9 +9,12 @@ import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.ValuedEnum;
 import org.bridj.ann.Library;
+import org.bridj.ann.Runtime;
+import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IUnknown;
 
 @Library("dwrite")
+@Runtime(COMRuntime.class)
 public class DWrite {
 	static {
 		BridJ.register();

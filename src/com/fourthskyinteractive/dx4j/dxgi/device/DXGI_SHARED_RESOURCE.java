@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.device;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -10,31 +10,22 @@ import org.bridj.ann.Library;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
 @Library("dxgi") 
-public class DXGI_SURFACE_DESC extends StructObject {
-	public DXGI_SURFACE_DESC() {
+public class DXGI_SHARED_RESOURCE extends StructObject {
+	public DXGI_SHARED_RESOURCE() {
 		super();
 	}
-	public DXGI_SURFACE_DESC(Pointer pointer) {
+	public DXGI_SHARED_RESOURCE(Pointer pointer) {
 		super(pointer);
 	}
+	/// C type : HANDLE
 	@Field(0) 
-	public int Width() {
-		return this.io.getIntField(this, 0);
+	public Pointer<? > Handle() {
+		return this.io.getPointerField(this, 0);
 	}
+	/// C type : HANDLE
 	@Field(0) 
-	public DXGI_SURFACE_DESC Width(int Width) {
-		this.io.setIntField(this, 0, Width);
+	public DXGI_SHARED_RESOURCE Handle(Pointer<? > Handle) {
+		this.io.setPointerField(this, 0, Handle);
 		return this;
 	}
-	@Field(1) 
-	public int Height() {
-		return this.io.getIntField(this, 1);
-	}
-	@Field(1) 
-	public DXGI_SURFACE_DESC Height(int Height) {
-		this.io.setIntField(this, 1, Height);
-		return this;
-	}
-	/// Conversion Error : DXGI_FORMAT (Unsupported type)
-	/// Conversion Error : DXGI_SAMPLE_DESC (Unsupported type)
 }

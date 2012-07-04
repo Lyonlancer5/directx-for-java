@@ -1,9 +1,11 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.adapter;
 
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Array;
 import org.bridj.ann.Field;
+
+import com.fourthskyinteractive.dx4j.dxgi.DXGI_RGB;
 
 public class DXGI_GAMMA_CONTROL extends StructObject {
 

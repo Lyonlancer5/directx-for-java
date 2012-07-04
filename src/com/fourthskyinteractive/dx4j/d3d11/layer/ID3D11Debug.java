@@ -10,7 +10,7 @@ import org.bridj.cpp.com.IUnknown;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RLDO_FLAGS;
 import com.fourthskyinteractive.dx4j.d3d11.core.ID3D11DeviceContext;
-import com.fourthskyinteractive.dx4j.dxgi.IDXGISwapChain;
+import com.fourthskyinteractive.dx4j.dxgi.device.IDXGISwapChain;
 
 @IID("79cf2233-7536-4948-9d36-1e4692dc5760")
 @Library("D3D11")

@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.dxgi;
+package com.fourthskyinteractive.dx4j.dxgi.adapter;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Array;
