@@ -2314,6 +2314,23 @@ public class D3D11 {
 		}
 	};
 	
+	public enum D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG implements IntValuedEnum<D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG> { 
+		D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED(0x1);
+		D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG> iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static IntValuedEnum<D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG> fromValue(int value) {
+			return FlagSet.fromValue(value, values());
+		}
+	}
+	
 	public static final int D3D11_MIN_FILTER_SHIFT = (4);
 	public static final int D3D11_APPEND_ALIGNED_ELEMENT = (-1);
 	public static final int D3D11_MAG_FILTER_SHIFT = (2);
