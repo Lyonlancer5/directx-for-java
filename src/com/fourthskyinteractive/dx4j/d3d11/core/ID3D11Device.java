@@ -4,6 +4,7 @@ package com.fourthskyinteractive.dx4j.d3d11.core;
 import static org.bridj.Pointer.*;
 
 import org.bridj.Pointer;
+import org.bridj.SizeT;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
@@ -87,21 +88,21 @@ public class ID3D11Device extends IUnknown {
 	@Deprecated	@Virtual(7)
 	public final native int CreateDepthStencilView(Pointer<? extends ID3D11Resource> pResource, Pointer<D3D11_DEPTH_STENCIL_VIEW_DESC> pDesc, Pointer<Pointer<ID3D11DepthStencilView>> ppView);
 	@Deprecated	@Virtual(8)
-	public final native int CreateInputLayout(Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs, int NumElements, Pointer<?> pShaderBytecodeWithInputSignature, int BytecodeLength, Pointer<Pointer<ID3D11InputLayout>> ppLayout);
+	public final native int CreateInputLayout(Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs, int NumElements, Pointer<?> pShaderBytecodeWithInputSignature, SizeT BytecodeLength, Pointer<Pointer<ID3D11InputLayout>> ppLayout);
 	@Deprecated	@Virtual(9)
-	public final native int CreateVertexShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11VertexShader>> ppVertexShader);
+	public final native int CreateVertexShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11VertexShader>> ppVertexShader);
 	@Deprecated	@Virtual(10)
-	public final native int CreateGeometryShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
+	public final native int CreateGeometryShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
 	@Deprecated	@Virtual(11)
-	public final native int CreateGeometryShaderWithStreamOutput(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<D3D11_SO_DECLARATION_ENTRY> pSODeclaration, int NumEntries, Pointer<Integer> pBufferStrides, int NumStrides, int RasterizedStream, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
+	public final native int CreateGeometryShaderWithStreamOutput(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<D3D11_SO_DECLARATION_ENTRY> pSODeclaration, int NumEntries, Pointer<Integer> pBufferStrides, int NumStrides, int RasterizedStream, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11GeometryShader>> ppGeometryShader);
 	@Deprecated	@Virtual(12)
-	public final native int CreatePixelShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11PixelShader>> ppVertexShader);
+	public final native int CreatePixelShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11PixelShader>> ppVertexShader);
 	@Deprecated	@Virtual(13)
-	public final native int CreateHullShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11HullShader>> ppVertexShader);
+	public final native int CreateHullShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11HullShader>> ppVertexShader);
 	@Deprecated	@Virtual(14)
-	public final native int CreateDomainShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11DomainShader>> ppVertexShader);
+	public final native int CreateDomainShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11DomainShader>> ppVertexShader);
 	@Deprecated	@Virtual(15)
-	public final native int CreateComputeShader(Pointer<?> pShaderBytecode, int BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11ComputeShader>> ppVertexShader);
+	public final native int CreateComputeShader(Pointer<?> pShaderBytecode, SizeT BytecodeLength, Pointer<ID3D11ClassLinkage> pLinkage, Pointer<Pointer<ID3D11ComputeShader>> ppVertexShader);
 	@Deprecated	@Virtual(16)
 	public final native int CreateClassLinkage(Pointer<Pointer<ID3D11ClassLinkage>> ppLinkage);
 	@Deprecated	@Virtual(17)
@@ -214,7 +215,7 @@ public class ID3D11Device extends IUnknown {
     	Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs = pointerToArray(descs);
     	
     	try {
-    		int result = this.CreateInputLayout(pDescs, descs.length, shaderCode.GetBufferPointer(), (int) shaderCode.GetBufferSize(), pp);
+    		int result = this.CreateInputLayout(pDescs, descs.length, shaderCode.GetBufferPointer(), new SizeT(shaderCode.GetBufferSize()), pp);
     		if(result != 0) {
     			throw new D3D11Exception("Could not create input layout", result);
     		}
@@ -246,7 +247,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11VertexShader CreateVertexShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11VertexShader>> pp = allocatePointer(ID3D11VertexShader.class);
     	try {
-    		int result = CreateVertexShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreateVertexShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -263,7 +264,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11PixelShader CreatePixelShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11PixelShader>> pp = allocatePointer(ID3D11PixelShader.class);
     	try {
-    		int result = CreatePixelShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreatePixelShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -281,7 +282,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11GeometryShader CreateGeometryShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11GeometryShader>> pp = allocatePointer(ID3D11GeometryShader.class);
     	try {
-    		int result = CreateGeometryShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreateGeometryShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -304,7 +305,7 @@ public class ID3D11Device extends IUnknown {
     	Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = pointerToArray(soDeclaration);
     	
     	try {
-    		int result = this.CreateGeometryShaderWithStreamOutput(compiledCode.GetBufferPointer(), (int)compiledCode.GetBufferSize(), 
+    		int result = this.CreateGeometryShaderWithStreamOutput(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()), 
     															   pDescs, soDeclaration.length, 
     															   pointerToInts(bufferStrides), bufferStrides.length, 
     															   RasterizedStream, 
@@ -324,7 +325,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11HullShader CreateHullShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11HullShader>> pp = allocatePointer(ID3D11HullShader.class);
     	try {
-    		int result = CreateHullShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreateHullShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -342,7 +343,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11DomainShader CreateDomainShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11DomainShader>> pp = allocatePointer(ID3D11DomainShader.class);
     	try {
-    		int result = CreateDomainShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreateDomainShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -360,7 +361,7 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11ComputeShader CreateComputeShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
     	Pointer<Pointer<ID3D11ComputeShader>> pp = allocatePointer(ID3D11ComputeShader.class);
     	try {
-    		int result = CreateComputeShader(compiledCode.GetBufferPointer(), (int) compiledCode.GetBufferSize(),
+    		int result = CreateComputeShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {

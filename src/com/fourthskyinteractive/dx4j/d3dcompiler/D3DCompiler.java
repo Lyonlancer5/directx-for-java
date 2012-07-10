@@ -13,6 +13,7 @@ import org.bridj.Callback;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
+import org.bridj.SizeT;
 import org.bridj.StructObject;
 import org.bridj.ValuedEnum;
 import org.bridj.ann.Convention;
@@ -123,7 +124,7 @@ public class D3DCompiler {
 	 */
 	@Deprecated
 	public static native int D3DCompile(Pointer<?> pSrcData,
-										long SrcDataSize,
+										SizeT SrcDataSize,
 										Pointer<Byte> pSourceName,
 										Pointer<D3D_SHADER_MACRO> pDefines,
 										Pointer<? extends ID3DInclude> pInclude,
@@ -186,7 +187,7 @@ public class D3DCompiler {
 			}
 			
 			int result = D3DCompile(shaderCode != null ? pointerToCString(shaderCode) : null, 
-									shaderCode != null ? (long)shaderCode.length() : 0L,
+									shaderCode != null ? new SizeT(shaderCode.length()) : new SizeT(0L),
 									sourceName != null ? pointerToCString(sourceName) : null, 
 									pMacros, 
 									includeHandler != null ? pointerTo(includeHandler) : null, 

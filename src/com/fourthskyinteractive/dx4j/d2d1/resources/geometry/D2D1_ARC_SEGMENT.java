@@ -18,7 +18,7 @@ public class D2D1_ARC_SEGMENT extends StructObject {
 	public D2D1_ARC_SEGMENT() {
 		super();
 	}
-	public D2D1_ARC_SEGMENT(Pointer pointer) {
+	public D2D1_ARC_SEGMENT(Pointer<? extends D2D1_ARC_SEGMENT> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_POINT_2F

@@ -1,6 +1,7 @@
 package com.fourthskyinteractive.dx4j.d3d11.shader;
 
 import org.bridj.Pointer;
+import org.bridj.SizeT;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
@@ -24,7 +25,7 @@ public class ID3D11ClassInstance extends ID3D11DeviceChild {
 	@Virtual(1)
 	public native void GetDesc(Pointer<D3D11_CLASS_INSTANCE_DESC> pDesc);
 	@Virtual(2)
-	public native void GetInstanceName(Pointer<?> pInstanceName, Pointer<Long> pBufferLength);
+	public native void GetInstanceName(Pointer<?> pInstanceName, Pointer<SizeT> pBufferLength);
 	@Virtual(3)
-	public native void GetTypeName(Pointer<?> pInstanceName, Pointer<Long> pBufferLength);
+	public native void GetTypeName(Pointer<?> pInstanceName, Pointer<SizeT> pBufferLength);
 }
