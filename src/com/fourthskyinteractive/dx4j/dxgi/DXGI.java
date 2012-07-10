@@ -400,6 +400,27 @@ public class DXGI {
 		}
 	}
 	
+	public enum DXGI_MODE_ROTATION implements IntValuedEnum<DXGI_MODE_ROTATION > {
+		DXGI_MODE_ROTATION_UNSPECIFIED(0),
+		DXGI_MODE_ROTATION_IDENTITY(1),
+		DXGI_MODE_ROTATION_ROTATE90(2),
+		DXGI_MODE_ROTATION_ROTATE180(3),
+		DXGI_MODE_ROTATION_ROTATE270(4);
+		DXGI_MODE_ROTATION(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DXGI_MODE_ROTATION > iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static IntValuedEnum<DXGI_MODE_ROTATION > fromValue(int value) {
+			return FlagSet.fromValue(value, values());
+		}
+	};
+	
 	// DXGI error codes
 	public static final int DXGI_ERROR_DRIVER_INTERNAL_ERROR = 0x887A0020;
 	public static final int DXGI_ERROR_FRAME_STATISTICS_DISJOINT = 0x887A000B;
@@ -421,6 +442,8 @@ public class DXGI {
 	public static final int DXGI_ERROR_ACCESS_DENIED = 0x887A002B;
 	public static final int DXGI_ERROR_NAME_ALREADY_EXISTS = 0x887A002C;
 	
+	public static final int DXGI_SHARED_RESOURCE_READ = 0x80000000;
+	public static final int DXGI_SHARED_RESOURCE_WRITE = 1;
 	/// <i>native declaration : DXGI.h</i>
 	public static final int DXGI_RESOURCE_PRIORITY_NORMAL = (int)(2013265920);
 	/// <i>native declaration : DXGI.h</i>

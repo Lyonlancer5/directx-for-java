@@ -28,8 +28,29 @@ public class IDXGIFactory2 extends IDXGIFactory1 {
 	public final native int CreateSwapChainForHwnd(Pointer<IUnknown> pDevice, HWND hWnd, Pointer<DXGI_SWAP_CHAIN_DESC1> pDesc, Pointer<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> pFullscreenDesc, Pointer<IDXGIOutput> pRestrictToOutput, Pointer<Pointer<IDXGISwapChain1>> ppSwapChain);
 	
 	@Virtual(1)
-	public final native int IsWindowedStereoEnabled();
+	public final native int CreateSwapChainForCoreWindow(Pointer<IUnknown> pDevice, Pointer<IUnknown> pWindow, Pointer<DXGI_SWAP_CHAIN_DESC1> pDesc, Pointer<IDXGIOutput> pRestrictToOutput, Pointer<Pointer<IDXGISwapChain1>> ppSwapChain);
 	
 	@Virtual(2)
+	public final native int IsWindowedStereoEnabled();
+	
+	@Virtual(3)
 	public final native int GetSharedRersourceAdapterLuid(HANDLE hResource, Pointer<LUID> pLuid);
+	
+	@Virtual(4)
+	public final native int RegisterOcclusionStatusEvent(HANDLE hEvent, Pointer<Integer> pdwCookie);
+	
+	@Virtual(5)
+	public final native int RegisterOcclusionStatusWindow(HWND WindowHandle, int wMsg, Pointer<Integer> pdwCookie);
+	
+	@Virtual(6)
+	public final native int UnregisterOcclusionStatus(int dwCookie);
+	
+	@Virtual(7)
+	public final native int RegisterStereoStatusEvent(HANDLE hEvent, Pointer<Integer> pdwCookie);
+	
+	@Virtual(8)
+	public final native int RegisterStereoStatusWindow(HWND WindowHandle, int wMsg, Pointer<Integer> pdwCookie);
+	
+	@Virtual(9)
+	public final native int UnregisterStereoStatus(int dwCookie);
 }
