@@ -9,7 +9,7 @@ public class XINPUT_KEYSTROKE extends StructObject {
 	public XINPUT_KEYSTROKE() {
 		super();
 	}
-	public XINPUT_KEYSTROKE(Pointer pointer) {
+	public XINPUT_KEYSTROKE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

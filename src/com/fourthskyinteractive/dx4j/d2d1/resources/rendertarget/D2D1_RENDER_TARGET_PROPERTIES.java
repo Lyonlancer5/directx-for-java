@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FEATURE_LEVEL;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_RENDER_TARGET_TYPE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_RENDER_TARGET_USAGE;
@@ -20,7 +19,7 @@ public class D2D1_RENDER_TARGET_PROPERTIES extends StructObject {
 	public D2D1_RENDER_TARGET_PROPERTIES() {
 		super();
 	}
-	public D2D1_RENDER_TARGET_PROPERTIES(Pointer pointer) {
+	public D2D1_RENDER_TARGET_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

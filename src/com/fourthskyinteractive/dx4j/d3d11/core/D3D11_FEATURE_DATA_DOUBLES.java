@@ -13,7 +13,7 @@ public class D3D11_FEATURE_DATA_DOUBLES extends StructObject {
 	public D3D11_FEATURE_DATA_DOUBLES() {
 		super();
 	}
-	public D3D11_FEATURE_DATA_DOUBLES(Pointer pointer) {
+	public D3D11_FEATURE_DATA_DOUBLES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

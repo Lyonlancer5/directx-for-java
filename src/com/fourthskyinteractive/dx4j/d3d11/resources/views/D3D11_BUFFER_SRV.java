@@ -13,7 +13,7 @@ public class D3D11_BUFFER_SRV extends StructObject {
 	public D3D11_BUFFER_SRV() {
 		super();
 	}
-	public D3D11_BUFFER_SRV(Pointer pointer) {
+	public D3D11_BUFFER_SRV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

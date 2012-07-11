@@ -14,7 +14,7 @@ public class D2D1_ROUNDED_RECT extends StructObject {
 	public D2D1_ROUNDED_RECT() {
 		super();
 	}
-	public D2D1_ROUNDED_RECT(Pointer pointer) {
+	public D2D1_ROUNDED_RECT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_RECT_F

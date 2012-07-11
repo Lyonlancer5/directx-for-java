@@ -1,8 +1,5 @@
 package com.fourthskyinteractive.dx4j.d3d9;
 
-import static com.fourthskyinteractive.dx4j.d3d9.D3D9.D3D_SDK_VERSION;
-import static com.fourthskyinteractive.dx4j.d3d9.D3D9.Direct3DCreate9;
-
 import java.util.Collections;
 import java.util.Iterator;
 

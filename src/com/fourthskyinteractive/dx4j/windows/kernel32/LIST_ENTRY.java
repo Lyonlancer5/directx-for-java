@@ -8,7 +8,7 @@ public class LIST_ENTRY extends StructObject {
 	public LIST_ENTRY() {
 		super();
 	}
-	public LIST_ENTRY(Pointer pointer) {
+	public LIST_ENTRY(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : PLIST_ENTRY

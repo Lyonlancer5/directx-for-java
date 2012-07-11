@@ -17,7 +17,7 @@ public class D3D11_RENDER_TARGET_BLEND_DESC1 extends StructObject {
 	public D3D11_RENDER_TARGET_BLEND_DESC1() {
 		super();
 	}
-	public D3D11_RENDER_TARGET_BLEND_DESC1(Pointer pointer) {
+	public D3D11_RENDER_TARGET_BLEND_DESC1(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

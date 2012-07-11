@@ -14,7 +14,7 @@ public class D3D11_SHADER_VARIABLE_DESC extends StructObject {
 	public D3D11_SHADER_VARIABLE_DESC() {
 		super();
 	}
-	public D3D11_SHADER_VARIABLE_DESC(Pointer pointer) {
+	public D3D11_SHADER_VARIABLE_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/**

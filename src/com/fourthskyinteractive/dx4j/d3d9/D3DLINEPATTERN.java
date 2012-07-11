@@ -13,7 +13,7 @@ public class D3DLINEPATTERN extends StructObject {
 	public D3DLINEPATTERN() {
 		super();
 	}
-	public D3DLINEPATTERN(Pointer pointer) {
+	public D3DLINEPATTERN(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

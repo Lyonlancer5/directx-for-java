@@ -6,16 +6,11 @@ import static org.bridj.Pointer.pointerTo;
 
 import org.bridj.Pointer;
 import org.bridj.ValuedEnum;
-import org.bridj.ann.Convention;
-import org.bridj.ann.Convention.Style;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
-import org.bridj.cpp.com.IUnknown;
-
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1Exception;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_ANTIALIAS_MODE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_BITMAP_INTERPOLATION_MODE;

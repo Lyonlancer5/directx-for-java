@@ -13,7 +13,7 @@ public class LARGE_INTEGER extends StructObject {
 	public LARGE_INTEGER() {
 		super();
 	}
-	public LARGE_INTEGER(Pointer pointer) {
+	public LARGE_INTEGER(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

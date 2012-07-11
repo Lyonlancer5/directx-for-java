@@ -13,7 +13,7 @@ public class D3DDEVINFO_D3D9CACHEUTILIZATION extends StructObject {
 	public D3DDEVINFO_D3D9CACHEUTILIZATION() {
 		super();
 	}
-	public D3DDEVINFO_D3D9CACHEUTILIZATION(Pointer pointer) {
+	public D3DDEVINFO_D3D9CACHEUTILIZATION(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

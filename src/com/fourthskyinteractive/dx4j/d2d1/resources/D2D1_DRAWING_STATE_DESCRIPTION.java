@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_ANTIALIAS_MODE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_TEXT_ANTIALIAS_MODE;
 import com.fourthskyinteractive.dx4j.d2d1.resources.geometry.D2D1_MATRIX_3X2_F;
@@ -19,7 +18,7 @@ public class D2D1_DRAWING_STATE_DESCRIPTION extends StructObject {
 	public D2D1_DRAWING_STATE_DESCRIPTION() {
 		super();
 	}
-	public D2D1_DRAWING_STATE_DESCRIPTION(Pointer pointer) {
+	public D2D1_DRAWING_STATE_DESCRIPTION(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_ANTIALIAS_MODE

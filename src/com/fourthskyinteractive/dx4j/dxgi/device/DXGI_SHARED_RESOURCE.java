@@ -14,7 +14,7 @@ public class DXGI_SHARED_RESOURCE extends StructObject {
 	public DXGI_SHARED_RESOURCE() {
 		super();
 	}
-	public DXGI_SHARED_RESOURCE(Pointer pointer) {
+	public DXGI_SHARED_RESOURCE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : HANDLE

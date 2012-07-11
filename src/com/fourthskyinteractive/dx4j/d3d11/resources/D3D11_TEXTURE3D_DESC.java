@@ -19,7 +19,7 @@ public class D3D11_TEXTURE3D_DESC extends StructObject {
 	public D3D11_TEXTURE3D_DESC() {
 		super();
 	}
-	public D3D11_TEXTURE3D_DESC(Pointer pointer) {
+	public D3D11_TEXTURE3D_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

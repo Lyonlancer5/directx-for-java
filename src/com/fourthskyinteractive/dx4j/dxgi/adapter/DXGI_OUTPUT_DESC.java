@@ -17,7 +17,7 @@ public class DXGI_OUTPUT_DESC extends StructObject {
 	public DXGI_OUTPUT_DESC() {
 		super();
 	}
-	public DXGI_OUTPUT_DESC(Pointer pointer) {
+	public DXGI_OUTPUT_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : WCHAR[32]
@@ -42,6 +42,7 @@ public class DXGI_OUTPUT_DESC extends StructObject {
 		return this.io.getTypedPointerField(this, 3);
 	}
 	/// C type : HMONITOR
+	@SuppressWarnings("unchecked")
 	@Field(3) 
 	public DXGI_OUTPUT_DESC Monitor(HMONITOR Monitor) {
 		this.io.setPointerField(this, 3, Monitor);

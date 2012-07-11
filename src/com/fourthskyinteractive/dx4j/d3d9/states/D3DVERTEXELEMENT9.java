@@ -13,7 +13,7 @@ public class D3DVERTEXELEMENT9 extends StructObject {
 	public D3DVERTEXELEMENT9() {
 		super();
 	}
-	public D3DVERTEXELEMENT9(Pointer pointer) {
+	public D3DVERTEXELEMENT9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

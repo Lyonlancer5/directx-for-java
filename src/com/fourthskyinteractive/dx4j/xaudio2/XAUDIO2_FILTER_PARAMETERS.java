@@ -50,7 +50,7 @@ public class XAUDIO2_FILTER_PARAMETERS extends StructObject {
 		this.io.setFloatField(this, 2, OneOverQ);
 		return this;
 	}
-	public XAUDIO2_FILTER_PARAMETERS(Pointer pointer) {
+	public XAUDIO2_FILTER_PARAMETERS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

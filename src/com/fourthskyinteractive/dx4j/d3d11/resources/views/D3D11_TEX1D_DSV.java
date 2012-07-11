@@ -13,7 +13,7 @@ public class D3D11_TEX1D_DSV extends StructObject {
 	public D3D11_TEX1D_DSV() {
 		super();
 	}
-	public D3D11_TEX1D_DSV(Pointer pointer) {
+	public D3D11_TEX1D_DSV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

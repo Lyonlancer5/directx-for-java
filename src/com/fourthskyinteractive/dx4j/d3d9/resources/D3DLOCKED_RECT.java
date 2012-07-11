@@ -13,7 +13,7 @@ public class D3DLOCKED_RECT extends StructObject {
 	public D3DLOCKED_RECT() {
 		super();
 	}
-	public D3DLOCKED_RECT(Pointer pointer) {
+	public D3DLOCKED_RECT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

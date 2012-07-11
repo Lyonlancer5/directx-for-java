@@ -13,7 +13,7 @@ public class D2D_SIZE_U extends StructObject {
 	public D2D_SIZE_U() {
 		super();
 	}
-	public D2D_SIZE_U(Pointer pointer) {
+	public D2D_SIZE_U(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : UINT32

@@ -13,7 +13,7 @@ public class D3DDEVINFO_VCACHE extends StructObject {
 	public D3DDEVINFO_VCACHE() {
 		super();
 	}
-	public D3DDEVINFO_VCACHE(Pointer pointer) {
+	public D3DDEVINFO_VCACHE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// Must be a 4 char code FOURCC (e.g. CACH)

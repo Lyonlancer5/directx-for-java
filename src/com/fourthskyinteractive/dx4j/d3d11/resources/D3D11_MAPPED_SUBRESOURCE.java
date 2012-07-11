@@ -13,7 +13,7 @@ public class D3D11_MAPPED_SUBRESOURCE extends StructObject {
 	public D3D11_MAPPED_SUBRESOURCE() {
 		super();
 	}
-	public D3D11_MAPPED_SUBRESOURCE(Pointer pointer) {
+	public D3D11_MAPPED_SUBRESOURCE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : void*

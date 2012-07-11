@@ -13,7 +13,7 @@ public class D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS extends StructObject {
 	public D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS() {
 		super();
 	}
-	public D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(Pointer pointer) {
+	public D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

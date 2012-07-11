@@ -2,7 +2,6 @@ package com.fourthskyinteractive.dx4j.d3d11.layer;
 
 import org.bridj.Pointer;
 import org.bridj.StructObject;
-import org.bridj.ann.Array;
 import org.bridj.ann.Field;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_MESSAGE_CATEGORY;

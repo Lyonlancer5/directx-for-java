@@ -13,7 +13,7 @@ public class D3D11_TEX2DMS_ARRAY_DSV extends StructObject {
 	public D3D11_TEX2DMS_ARRAY_DSV() {
 		super();
 	}
-	public D3D11_TEX2DMS_ARRAY_DSV(Pointer pointer) {
+	public D3D11_TEX2DMS_ARRAY_DSV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

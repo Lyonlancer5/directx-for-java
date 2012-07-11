@@ -13,7 +13,7 @@ public class D3D11_FEATURE_DATA_THREADING extends StructObject {
 	public D3D11_FEATURE_DATA_THREADING() {
 		super();
 	}
-	public D3D11_FEATURE_DATA_THREADING(Pointer pointer) {
+	public D3D11_FEATURE_DATA_THREADING(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

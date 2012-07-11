@@ -14,7 +14,7 @@ public class DXGI_FRAME_STATISTICS extends StructObject {
 	public DXGI_FRAME_STATISTICS() {
 		super();
 	}
-	public DXGI_FRAME_STATISTICS(Pointer pointer) {
+	public DXGI_FRAME_STATISTICS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

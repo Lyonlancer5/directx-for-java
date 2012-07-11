@@ -18,7 +18,7 @@ public class D3D11_SIGNATURE_PARAMETER_DESC extends StructObject {
 	public D3D11_SIGNATURE_PARAMETER_DESC() {
 		super();
 	}
-	public D3D11_SIGNATURE_PARAMETER_DESC(Pointer pointer) {
+	public D3D11_SIGNATURE_PARAMETER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/**

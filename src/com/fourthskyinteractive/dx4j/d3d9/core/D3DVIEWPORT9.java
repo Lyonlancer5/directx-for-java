@@ -13,7 +13,7 @@ public class D3DVIEWPORT9 extends StructObject {
 	public D3DVIEWPORT9() {
 		super();
 	}
-	public D3DVIEWPORT9(Pointer pointer) {
+	public D3DVIEWPORT9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

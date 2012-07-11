@@ -13,7 +13,7 @@ public class D3D11_VIEWPORT extends StructObject {
 	public D3D11_VIEWPORT() {
 		super();
 	}
-	public D3D11_VIEWPORT(Pointer pointer) {
+	public D3D11_VIEWPORT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	public D3D11_VIEWPORT(float width, float height) {

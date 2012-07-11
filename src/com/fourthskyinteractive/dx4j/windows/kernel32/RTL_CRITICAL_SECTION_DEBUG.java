@@ -9,7 +9,7 @@ public class RTL_CRITICAL_SECTION_DEBUG extends StructObject {
 	public RTL_CRITICAL_SECTION_DEBUG() {
 		super();
 	}
-	public RTL_CRITICAL_SECTION_DEBUG(Pointer pointer) {
+	public RTL_CRITICAL_SECTION_DEBUG(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

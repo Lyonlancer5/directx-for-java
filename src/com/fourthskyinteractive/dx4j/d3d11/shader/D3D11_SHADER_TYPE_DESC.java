@@ -18,7 +18,7 @@ public class D3D11_SHADER_TYPE_DESC extends StructObject {
 	public D3D11_SHADER_TYPE_DESC() {
 		super();
 	}
-	public D3D11_SHADER_TYPE_DESC(Pointer pointer) {
+	public D3D11_SHADER_TYPE_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

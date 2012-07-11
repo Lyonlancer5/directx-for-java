@@ -3,14 +3,12 @@ package com.fourthskyinteractive.dx4j.coreaudio;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
-import org.bridj.ann.Library;
 
-@Library("CoreAudio") 
 public class WAVEFORMATEX extends StructObject {
 	public WAVEFORMATEX() {
 		super();
 	}
-	public WAVEFORMATEX(Pointer pointer) {
+	public WAVEFORMATEX(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	
@@ -76,5 +74,17 @@ public class WAVEFORMATEX extends StructObject {
 	public WAVEFORMATEX cbSize(short cbSize) {
 		this.io.setShortField(this, 6, cbSize);
 		return this;
+	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("Format tag: ").append(wFormatTag());
+		sb.append("\nChannels: ").append(nChannels());
+		sb.append("\nSamples per sec: ").append(nSamplesPerSec());
+		sb.append("\nAvg Bytes Per Sec: ").append(nAvgBytesPerSec());
+		sb.append("\nBlock Align: ").append(nBlockAlign());
+		sb.append("\nBits Per Sample: ").append(wBitsPerSample());
+		sb.append("\ncbSize: ").append(cbSize());
+		return sb.toString();
 	}
 }

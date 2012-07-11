@@ -13,7 +13,7 @@ public class D2D1_QUADRATIC_BEZIER_SEGMENT extends StructObject {
 	public D2D1_QUADRATIC_BEZIER_SEGMENT() {
 		super();
 	}
-	public D2D1_QUADRATIC_BEZIER_SEGMENT(Pointer pointer) {
+	public D2D1_QUADRATIC_BEZIER_SEGMENT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_POINT_2F

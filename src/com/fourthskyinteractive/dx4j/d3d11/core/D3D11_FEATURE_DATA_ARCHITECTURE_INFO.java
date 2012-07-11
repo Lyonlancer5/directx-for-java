@@ -17,7 +17,7 @@ public class D3D11_FEATURE_DATA_ARCHITECTURE_INFO extends StructObject {
 		this.io.setIntField(this, 0, TileBasedDeferredRenderer);
 		return this;
 	}
-	public D3D11_FEATURE_DATA_ARCHITECTURE_INFO(Pointer pointer) {
+	public D3D11_FEATURE_DATA_ARCHITECTURE_INFO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

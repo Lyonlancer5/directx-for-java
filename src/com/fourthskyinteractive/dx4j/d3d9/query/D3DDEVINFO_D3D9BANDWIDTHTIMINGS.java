@@ -13,7 +13,7 @@ public class D3DDEVINFO_D3D9BANDWIDTHTIMINGS extends StructObject {
 	public D3DDEVINFO_D3D9BANDWIDTHTIMINGS() {
 		super();
 	}
-	public D3DDEVINFO_D3D9BANDWIDTHTIMINGS(Pointer pointer) {
+	public D3DDEVINFO_D3D9BANDWIDTHTIMINGS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

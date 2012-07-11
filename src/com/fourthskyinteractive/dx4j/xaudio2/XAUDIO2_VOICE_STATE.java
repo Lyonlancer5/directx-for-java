@@ -55,7 +55,7 @@ public class XAUDIO2_VOICE_STATE extends StructObject {
 		this.io.setLongField(this, 2, SamplesPlayed);
 		return this;
 	}
-	public XAUDIO2_VOICE_STATE(Pointer pointer) {
+	public XAUDIO2_VOICE_STATE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

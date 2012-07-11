@@ -16,7 +16,7 @@ public class D3DLIGHT9 extends StructObject {
 	public D3DLIGHT9() {
 		super();
 	}
-	public D3DLIGHT9(Pointer pointer) {
+	public D3DLIGHT9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3DLIGHTTYPE

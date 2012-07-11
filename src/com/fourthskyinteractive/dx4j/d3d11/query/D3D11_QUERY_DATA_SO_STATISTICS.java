@@ -13,7 +13,7 @@ public class D3D11_QUERY_DATA_SO_STATISTICS extends StructObject {
 	public D3D11_QUERY_DATA_SO_STATISTICS() {
 		super();
 	}
-	public D3D11_QUERY_DATA_SO_STATISTICS(Pointer pointer) {
+	public D3D11_QUERY_DATA_SO_STATISTICS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : UINT64

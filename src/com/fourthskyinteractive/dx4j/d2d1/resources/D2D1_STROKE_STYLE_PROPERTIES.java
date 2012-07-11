@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_CAP_STYLE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_DASH_STYLE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_LINE_JOIN;
@@ -19,7 +18,7 @@ public class D2D1_STROKE_STYLE_PROPERTIES extends StructObject {
 	public D2D1_STROKE_STYLE_PROPERTIES() {
 		super();
 	}
-	public D2D1_STROKE_STYLE_PROPERTIES(Pointer pointer) {
+	public D2D1_STROKE_STYLE_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_CAP_STYLE

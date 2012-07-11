@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DSCANLINEORDERING;
 /**
@@ -18,7 +17,7 @@ public class D3DDISPLAYMODEEX extends StructObject {
 	public D3DDISPLAYMODEEX() {
 		super();
 	}
-	public D3DDISPLAYMODEEX(Pointer pointer) {
+	public D3DDISPLAYMODEEX(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

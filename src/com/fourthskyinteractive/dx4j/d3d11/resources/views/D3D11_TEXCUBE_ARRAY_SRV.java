@@ -13,7 +13,7 @@ public class D3D11_TEXCUBE_ARRAY_SRV extends StructObject {
 	public D3D11_TEXCUBE_ARRAY_SRV() {
 		super();
 	}
-	public D3D11_TEXCUBE_ARRAY_SRV(Pointer pointer) {
+	public D3D11_TEXCUBE_ARRAY_SRV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

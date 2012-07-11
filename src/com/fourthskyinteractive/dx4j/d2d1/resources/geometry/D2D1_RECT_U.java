@@ -13,7 +13,7 @@ public class D2D1_RECT_U extends StructObject {
 	public D2D1_RECT_U() {
 		super();
 	}
-	public D2D1_RECT_U(Pointer pointer) {
+	public D2D1_RECT_U(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : UINT32

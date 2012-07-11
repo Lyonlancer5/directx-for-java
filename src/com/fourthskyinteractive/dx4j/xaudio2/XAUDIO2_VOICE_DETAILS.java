@@ -41,7 +41,7 @@ public class XAUDIO2_VOICE_DETAILS extends StructObject {
 		this.io.setIntField(this, 2, InputSampleRate);
 		return this;
 	}
-	public XAUDIO2_VOICE_DETAILS(Pointer pointer) {
+	public XAUDIO2_VOICE_DETAILS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

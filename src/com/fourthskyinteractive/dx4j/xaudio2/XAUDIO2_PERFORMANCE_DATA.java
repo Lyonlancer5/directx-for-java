@@ -216,7 +216,7 @@ public class XAUDIO2_PERFORMANCE_DATA extends StructObject {
 		this.io.setIntField(this, 13, ActiveXmaStreams);
 		return this;
 	}
-	public XAUDIO2_PERFORMANCE_DATA(Pointer pointer) {
+	public XAUDIO2_PERFORMANCE_DATA(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

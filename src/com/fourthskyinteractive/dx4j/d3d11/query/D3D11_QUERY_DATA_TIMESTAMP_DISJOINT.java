@@ -13,7 +13,7 @@ public class D3D11_QUERY_DATA_TIMESTAMP_DISJOINT extends StructObject {
 	public D3D11_QUERY_DATA_TIMESTAMP_DISJOINT() {
 		super();
 	}
-	public D3D11_QUERY_DATA_TIMESTAMP_DISJOINT(Pointer pointer) {
+	public D3D11_QUERY_DATA_TIMESTAMP_DISJOINT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : UINT64

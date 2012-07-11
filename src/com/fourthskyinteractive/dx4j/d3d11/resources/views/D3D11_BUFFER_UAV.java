@@ -13,7 +13,7 @@ public class D3D11_BUFFER_UAV extends StructObject {
 	public D3D11_BUFFER_UAV() {
 		super();
 	}
-	public D3D11_BUFFER_UAV(Pointer pointer) {
+	public D3D11_BUFFER_UAV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

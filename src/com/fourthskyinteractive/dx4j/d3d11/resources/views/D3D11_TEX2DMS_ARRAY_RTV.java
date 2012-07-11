@@ -13,7 +13,7 @@ public class D3D11_TEX2DMS_ARRAY_RTV extends StructObject {
 	public D3D11_TEX2DMS_ARRAY_RTV() {
 		super();
 	}
-	public D3D11_TEX2DMS_ARRAY_RTV(Pointer pointer) {
+	public D3D11_TEX2DMS_ARRAY_RTV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

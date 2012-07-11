@@ -18,7 +18,7 @@ public class D3D11_RASTERIZER_DESC extends StructObject {
 	public D3D11_RASTERIZER_DESC() {
 		super();
 	}
-	public D3D11_RASTERIZER_DESC(Pointer pointer) {
+	public D3D11_RASTERIZER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3D11_FILL_MODE

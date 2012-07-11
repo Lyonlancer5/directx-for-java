@@ -1,9 +1,10 @@
 package com.fourthskyinteractive.dx4j.d3d9.core;
 
+import static org.bridj.Pointer.allocatePointer;
+import static org.bridj.Pointer.pointerTo;
+
 import org.bridj.LastError;
 import org.bridj.Pointer;
-import org.bridj.ann.Convention;
-import org.bridj.ann.Convention.Style;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
@@ -11,14 +12,11 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import static org.bridj.Pointer.*;
-
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
-import com.fourthskyinteractive.dx4j.d3d9.D3D9Exception;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DDEVTYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DMULTISAMPLE_TYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DRESOURCETYPE;
+import com.fourthskyinteractive.dx4j.d3d9.D3D9Exception;
 import com.fourthskyinteractive.dx4j.windows.HMONITOR;
 import com.fourthskyinteractive.dx4j.windows.HWND;
 

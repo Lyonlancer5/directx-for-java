@@ -21,7 +21,7 @@ public class D3D11_SHADER_DESC extends StructObject {
 	public D3D11_SHADER_DESC() {
 		super();
 	}
-	public D3D11_SHADER_DESC(Pointer pointer) {
+	public D3D11_SHADER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// Shader version

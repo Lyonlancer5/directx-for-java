@@ -19,7 +19,7 @@ public class DXGI_MODE_DESC extends StructObject {
 	public DXGI_MODE_DESC() {
 		super();
 	}
-	public DXGI_MODE_DESC(Pointer pointer) {
+	public DXGI_MODE_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -13,7 +13,7 @@ public class D2D1_TRIANGLE extends StructObject {
 	public D2D1_TRIANGLE() {
 		super();
 	}
-	public D2D1_TRIANGLE(Pointer pointer) {
+	public D2D1_TRIANGLE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_POINT_2F

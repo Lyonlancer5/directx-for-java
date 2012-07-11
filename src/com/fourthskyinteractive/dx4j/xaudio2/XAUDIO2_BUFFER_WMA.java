@@ -36,7 +36,7 @@ public class XAUDIO2_BUFFER_WMA extends StructObject {
 		this.io.setIntField(this, 1, PacketCount);
 		return this;
 	}
-	public XAUDIO2_BUFFER_WMA(Pointer pointer) {
+	public XAUDIO2_BUFFER_WMA(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

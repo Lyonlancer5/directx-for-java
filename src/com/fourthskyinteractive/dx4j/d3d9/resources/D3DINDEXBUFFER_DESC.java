@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DPOOL;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DRESOURCETYPE;
@@ -19,7 +18,7 @@ public class D3DINDEXBUFFER_DESC extends StructObject {
 	public D3DINDEXBUFFER_DESC() {
 		super();
 	}
-	public D3DINDEXBUFFER_DESC(Pointer pointer) {
+	public D3DINDEXBUFFER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3DFORMAT

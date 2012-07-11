@@ -29,7 +29,7 @@ public class XAUDIO2_SEND_DESCRIPTOR extends StructObject {
 		this.io.setPointerField(this, 1, pOutputVoice);
 		return this;
 	}
-	public XAUDIO2_SEND_DESCRIPTOR(Pointer pointer) {
+	public XAUDIO2_SEND_DESCRIPTOR(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

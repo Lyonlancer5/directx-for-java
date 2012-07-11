@@ -14,7 +14,7 @@ public class D3D_SHADER_DATA extends StructObject {
 	public D3D_SHADER_DATA() {
 		super();
 	}
-	public D3D_SHADER_DATA(Pointer pointer) {
+	public D3D_SHADER_DATA(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : LPCVOID

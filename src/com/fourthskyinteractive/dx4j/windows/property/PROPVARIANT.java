@@ -501,11 +501,11 @@ public class PROPVARIANT extends StructObject {
 			this.io.setPointerField(this, 71, pvarVal);
 			return this;
 		}
-		public field1_union(Pointer pointer) {
+		public field1_union(Pointer<? extends StructObject> pointer) {
 			super(pointer);
 		}
 	};
-	public PROPVARIANT(Pointer pointer) {
+	public PROPVARIANT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

@@ -13,7 +13,7 @@ public class D3DRESOURCESTATS extends StructObject {
 	public D3DRESOURCESTATS() {
 		super();
 	}
-	public D3DRESOURCESTATS(Pointer pointer) {
+	public D3DRESOURCESTATS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -13,7 +13,7 @@ public class D3D11_SUBRESOURCE_DATA extends StructObject {
 	public D3D11_SUBRESOURCE_DATA() {
 		super();
 	}
-	public D3D11_SUBRESOURCE_DATA(Pointer pointer) {
+	public D3D11_SUBRESOURCE_DATA(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : const void*

@@ -10,7 +10,6 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DRESOURCETYPE;
 import com.fourthskyinteractive.dx4j.d3d9.core.IDirect3DDevice9;
 

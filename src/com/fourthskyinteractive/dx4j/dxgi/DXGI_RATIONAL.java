@@ -15,7 +15,7 @@ public class DXGI_RATIONAL extends StructObject {
 	public DXGI_RATIONAL() {
 		super();
 	}
-	public DXGI_RATIONAL(Pointer pointer) {
+	public DXGI_RATIONAL(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -9,7 +9,6 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.RECT;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_DC_INITIALIZE_MODE;
 
 @IID("e0db51c3-6f77-4bae-b3d5-e47509b35838")

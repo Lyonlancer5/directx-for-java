@@ -15,7 +15,7 @@ public class DXGI_DISPLAY_COLOR_SPACE extends StructObject {
 	public DXGI_DISPLAY_COLOR_SPACE() {
 		super();
 	}
-	public DXGI_DISPLAY_COLOR_SPACE(Pointer pointer) {
+	public DXGI_DISPLAY_COLOR_SPACE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : FLOAT[8][2]

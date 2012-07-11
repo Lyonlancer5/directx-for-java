@@ -11,8 +11,6 @@ import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
 
-import com.fourthskyinteractive.dx4j.coreaudio.mmdevice.MMDevice.EDataFlow;
-
 /**
  * More information in http://msdn.microsoft.com/en-us/library/windows/desktop/dd371455(v=vs.85).aspx
  * @author evandro.paulino

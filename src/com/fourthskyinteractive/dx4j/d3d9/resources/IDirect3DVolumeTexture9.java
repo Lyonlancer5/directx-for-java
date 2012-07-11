@@ -6,8 +6,6 @@ import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
-import org.bridj.cpp.com.RECT;
-
 import com.fourthskyinteractive.dx4j.d3d9.D3DBOX;
 
 @IID("85C31227-3DE5-4f00-9B3A-F11AC38C18B5")

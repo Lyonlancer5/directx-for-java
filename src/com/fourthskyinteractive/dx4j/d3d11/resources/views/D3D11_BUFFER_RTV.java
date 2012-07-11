@@ -13,7 +13,7 @@ public class D3D11_BUFFER_RTV extends StructObject {
 	public D3D11_BUFFER_RTV() {
 		super();
 	}
-	public D3D11_BUFFER_RTV(Pointer pointer) {
+	public D3D11_BUFFER_RTV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

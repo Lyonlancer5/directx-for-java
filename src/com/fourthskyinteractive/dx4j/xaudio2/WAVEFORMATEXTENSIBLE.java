@@ -80,11 +80,11 @@ public class WAVEFORMATEXTENSIBLE extends StructObject {
 			this.io.setShortField(this, 2, wReserved);
 			return this;
 		}
-		public Samples_union(Pointer pointer) {
+		public Samples_union(Pointer<? extends StructObject> pointer) {
 			super(pointer);
 		}
 	};
-	public WAVEFORMATEXTENSIBLE(Pointer pointer) {
+	public WAVEFORMATEXTENSIBLE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

@@ -11,7 +11,7 @@ public class D3D11_COUNTER_INFO extends StructObject {
 	public D3D11_COUNTER_INFO() {
 		super();
 	}
-	public D3D11_COUNTER_INFO(Pointer pointer) {
+	public D3D11_COUNTER_INFO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3D11_COUNTER

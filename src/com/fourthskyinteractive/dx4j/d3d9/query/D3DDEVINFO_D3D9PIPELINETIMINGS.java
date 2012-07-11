@@ -13,7 +13,7 @@ public class D3DDEVINFO_D3D9PIPELINETIMINGS extends StructObject {
 	public D3DDEVINFO_D3D9PIPELINETIMINGS() {
 		super();
 	}
-	public D3DDEVINFO_D3D9PIPELINETIMINGS(Pointer pointer) {
+	public D3DDEVINFO_D3D9PIPELINETIMINGS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 
