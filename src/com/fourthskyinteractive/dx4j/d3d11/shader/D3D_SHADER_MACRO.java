@@ -13,7 +13,7 @@ public class D3D_SHADER_MACRO extends StructObject {
 	public D3D_SHADER_MACRO() {
 		super();
 	}
-	public D3D_SHADER_MACRO(Pointer pointer) {
+	public D3D_SHADER_MACRO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : LPCSTR

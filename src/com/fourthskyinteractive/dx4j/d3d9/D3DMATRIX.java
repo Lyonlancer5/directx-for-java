@@ -15,7 +15,7 @@ public class D3DMATRIX extends StructObject {
 	public D3DMATRIX() {
 		super();
 	}
-	public D3DMATRIX(Pointer pointer) {
+	public D3DMATRIX(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : DUMMYUNIONNAME_union
@@ -29,7 +29,7 @@ public class D3DMATRIX extends StructObject {
 		public DUMMYUNIONNAME_union() {
 			super();
 		}
-		public DUMMYUNIONNAME_union(Pointer pointer) {
+		public DUMMYUNIONNAME_union(Pointer<? extends StructObject> pointer) {
 			super(pointer);
 		}
 		/// C type : DUMMYSTRUCTNAME_struct
@@ -48,7 +48,7 @@ public class D3DMATRIX extends StructObject {
 			public DUMMYSTRUCTNAME_struct() {
 				super();
 			}
-			public DUMMYSTRUCTNAME_struct(Pointer pointer) {
+			public DUMMYSTRUCTNAME_struct(Pointer<? extends StructObject> pointer) {
 				super(pointer);
 			}
 			@Field(0) 

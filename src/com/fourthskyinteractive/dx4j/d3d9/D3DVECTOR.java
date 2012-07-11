@@ -13,7 +13,7 @@ public class D3DVECTOR extends StructObject {
 	public D3DVECTOR() {
 		super();
 	}
-	public D3DVECTOR(Pointer pointer) {
+	public D3DVECTOR(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

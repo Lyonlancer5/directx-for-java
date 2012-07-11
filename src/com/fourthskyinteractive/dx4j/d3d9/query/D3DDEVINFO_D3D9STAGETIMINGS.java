@@ -13,7 +13,7 @@ public class D3DDEVINFO_D3D9STAGETIMINGS extends StructObject {
 	public D3DDEVINFO_D3D9STAGETIMINGS() {
 		super();
 	}
-	public D3DDEVINFO_D3D9STAGETIMINGS(Pointer pointer) {
+	public D3DDEVINFO_D3D9STAGETIMINGS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

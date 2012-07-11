@@ -42,7 +42,7 @@ public class XAUDIO2_EFFECT_DESCRIPTOR extends StructObject {
 		this.io.setIntField(this, 2, OutputChannels);
 		return this;
 	}
-	public XAUDIO2_EFFECT_DESCRIPTOR(Pointer pointer) {
+	public XAUDIO2_EFFECT_DESCRIPTOR(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

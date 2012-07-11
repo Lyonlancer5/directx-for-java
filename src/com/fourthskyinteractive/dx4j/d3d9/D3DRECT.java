@@ -14,7 +14,7 @@ public class D3DRECT extends StructObject {
 	public D3DRECT() {
 		super();
 	}
-	public D3DRECT(Pointer pointer) {
+	public D3DRECT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@CLong 

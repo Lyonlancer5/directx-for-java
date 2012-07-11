@@ -134,7 +134,7 @@ public class D3D11_FEATURE_DATA_D3D11_OPTIONS extends StructObject {
 		this.io.setIntField(this, 13, ExtendedResourceSharing);
 		return this;
 	}
-	public D3D11_FEATURE_DATA_D3D11_OPTIONS(Pointer pointer) {
+	public D3D11_FEATURE_DATA_D3D11_OPTIONS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

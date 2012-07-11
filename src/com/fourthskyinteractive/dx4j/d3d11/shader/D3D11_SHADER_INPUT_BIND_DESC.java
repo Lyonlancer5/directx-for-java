@@ -19,7 +19,7 @@ public class D3D11_SHADER_INPUT_BIND_DESC extends StructObject {
 	public D3D11_SHADER_INPUT_BIND_DESC() {
 		super();
 	}
-	public D3D11_SHADER_INPUT_BIND_DESC(Pointer pointer) {
+	public D3D11_SHADER_INPUT_BIND_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/**

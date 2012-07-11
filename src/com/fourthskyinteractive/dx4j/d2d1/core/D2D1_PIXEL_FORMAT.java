@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_ALPHA_MODE;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 /**
@@ -18,7 +17,7 @@ public class D2D1_PIXEL_FORMAT extends StructObject {
 	public D2D1_PIXEL_FORMAT() {
 		super();
 	}
-	public D2D1_PIXEL_FORMAT(Pointer pointer) {
+	public D2D1_PIXEL_FORMAT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_ALPHA_MODE

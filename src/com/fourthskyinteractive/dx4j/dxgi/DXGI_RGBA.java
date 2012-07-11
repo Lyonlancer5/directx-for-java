@@ -44,7 +44,7 @@ public class DXGI_RGBA extends StructObject {
 		this.io.setFloatField(this, 3, a);
 		return this;
 	}
-	public DXGI_RGBA(Pointer pointer) {
+	public DXGI_RGBA(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

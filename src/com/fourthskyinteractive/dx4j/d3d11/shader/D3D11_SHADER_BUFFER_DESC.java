@@ -17,7 +17,7 @@ public class D3D11_SHADER_BUFFER_DESC extends StructObject {
 	public D3D11_SHADER_BUFFER_DESC() {
 		super();
 	}
-	public D3D11_SHADER_BUFFER_DESC(Pointer pointer) {
+	public D3D11_SHADER_BUFFER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/**

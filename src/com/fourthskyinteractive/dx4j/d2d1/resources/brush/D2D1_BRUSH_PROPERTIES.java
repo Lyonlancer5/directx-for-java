@@ -15,7 +15,7 @@ public class D2D1_BRUSH_PROPERTIES extends StructObject {
 	public D2D1_BRUSH_PROPERTIES() {
 		super();
 	}
-	public D2D1_BRUSH_PROPERTIES(Pointer pointer) {
+	public D2D1_BRUSH_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

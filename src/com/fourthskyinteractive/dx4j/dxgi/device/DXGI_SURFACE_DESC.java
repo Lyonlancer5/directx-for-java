@@ -14,7 +14,7 @@ public class DXGI_SURFACE_DESC extends StructObject {
 	public DXGI_SURFACE_DESC() {
 		super();
 	}
-	public DXGI_SURFACE_DESC(Pointer pointer) {
+	public DXGI_SURFACE_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -31,7 +31,7 @@ public class POINT extends StructObject {
 		this.io.setCLongField(this, 1, y);
 		return this;
 	}
-	public POINT(Pointer pointer) {
+	public POINT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

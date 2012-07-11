@@ -15,7 +15,7 @@ public class D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES extends StructObject {
 	public D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES() {
 		super();
 	}
-	public D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES(Pointer pointer) {
+	public D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_POINT_2F

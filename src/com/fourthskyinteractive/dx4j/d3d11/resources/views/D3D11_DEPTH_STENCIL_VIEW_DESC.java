@@ -19,7 +19,7 @@ public class D3D11_DEPTH_STENCIL_VIEW_DESC extends StructObject {
 	public D3D11_DEPTH_STENCIL_VIEW_DESC() {
 		super();
 	}
-	public D3D11_DEPTH_STENCIL_VIEW_DESC(Pointer pointer) {
+	public D3D11_DEPTH_STENCIL_VIEW_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : DXGI_FORMAT

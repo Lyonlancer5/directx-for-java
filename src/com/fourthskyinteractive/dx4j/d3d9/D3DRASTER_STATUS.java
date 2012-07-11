@@ -13,7 +13,7 @@ public class D3DRASTER_STATUS extends StructObject {
 	public D3DRASTER_STATUS() {
 		super();
 	}
-	public D3DRASTER_STATUS(Pointer pointer) {
+	public D3DRASTER_STATUS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

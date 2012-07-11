@@ -14,10 +14,9 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.dxgi.DXGI;
+import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI_MODE_DESC;
-import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 import com.fourthskyinteractive.dx4j.dxgi.adapter.DXGI_FRAME_STATISTICS;
 import com.fourthskyinteractive.dx4j.dxgi.adapter.IDXGIOutput;
 /**

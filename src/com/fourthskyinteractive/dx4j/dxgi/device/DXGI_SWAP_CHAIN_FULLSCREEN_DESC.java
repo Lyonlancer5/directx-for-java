@@ -8,7 +8,6 @@ import org.bridj.ann.Field;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_MODE_SCALING;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_MODE_SCANLINE_ORDER;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI_RATIONAL;
-import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
 
 public class DXGI_SWAP_CHAIN_FULLSCREEN_DESC extends StructObject {
 

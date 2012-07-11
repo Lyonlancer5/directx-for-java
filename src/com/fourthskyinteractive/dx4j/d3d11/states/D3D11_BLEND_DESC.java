@@ -18,7 +18,7 @@ public class D3D11_BLEND_DESC extends StructObject {
 			.IndependentBlendEnable(0)
 			.RenderTargets().get(0).BlendEnable(0);
 	}
-	public D3D11_BLEND_DESC(Pointer pointer) {
+	public D3D11_BLEND_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

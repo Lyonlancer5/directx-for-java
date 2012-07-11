@@ -13,7 +13,7 @@ public class D3D11_SO_DECLARATION_ENTRY extends StructObject {
 	public D3D11_SO_DECLARATION_ENTRY() {
 		super();
 	}
-	public D3D11_SO_DECLARATION_ENTRY(Pointer pointer) {
+	public D3D11_SO_DECLARATION_ENTRY(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	public D3D11_SO_DECLARATION_ENTRY(int Stream, String SemanticName, int SemanticIndex, int StartComponent, int ComponentCount, int OutputSlot) {

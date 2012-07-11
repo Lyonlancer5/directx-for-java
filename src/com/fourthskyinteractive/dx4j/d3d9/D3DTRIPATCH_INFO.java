@@ -17,7 +17,7 @@ public class D3DTRIPATCH_INFO extends StructObject {
 	public D3DTRIPATCH_INFO() {
 		super();
 	}
-	public D3DTRIPATCH_INFO(Pointer pointer) {
+	public D3DTRIPATCH_INFO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

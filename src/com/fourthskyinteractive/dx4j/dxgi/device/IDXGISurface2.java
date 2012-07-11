@@ -8,9 +8,6 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.GUID;
 import org.bridj.cpp.com.IID;
 
-import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_OFFER_RESOURCE_PRIORITY;
-import com.fourthskyinteractive.dx4j.windows.HANDLE;
-
 @IID("")
 @Library("DXGI")
 @Runtime(COMRuntime.class)

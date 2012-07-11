@@ -13,7 +13,7 @@ public class D3DVSHADERCAPS2_0 extends StructObject {
 	public D3DVSHADERCAPS2_0() {
 		super();
 	}
-	public D3DVSHADERCAPS2_0(Pointer pointer) {
+	public D3DVSHADERCAPS2_0(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

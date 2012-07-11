@@ -10,10 +10,9 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.dxgi.DXGI;
+import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_RESIDENCY;
 import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
 import com.fourthskyinteractive.dx4j.dxgi.IDXGIObject;
-import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_RESIDENCY;
 import com.fourthskyinteractive.dx4j.dxgi.adapter.IDXGIAdapter;
 /**
  * <i>native declaration : DXGI.h:2005</i><br>

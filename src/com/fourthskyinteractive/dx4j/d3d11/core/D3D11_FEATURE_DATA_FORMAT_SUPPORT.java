@@ -16,7 +16,7 @@ public class D3D11_FEATURE_DATA_FORMAT_SUPPORT extends StructObject {
 	public D3D11_FEATURE_DATA_FORMAT_SUPPORT() {
 		super();
 	}
-	public D3D11_FEATURE_DATA_FORMAT_SUPPORT(Pointer pointer) {
+	public D3D11_FEATURE_DATA_FORMAT_SUPPORT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : DXGI_FORMAT

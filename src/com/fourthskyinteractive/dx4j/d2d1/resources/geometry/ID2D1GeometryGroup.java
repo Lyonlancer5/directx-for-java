@@ -8,7 +8,6 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FILL_MODE;
 
 @IID("2cd906a6-12e2-11dc-9fed-001143a055f9")

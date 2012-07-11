@@ -13,7 +13,7 @@ public class D3DCOLORVALUE extends StructObject {
 	public D3DCOLORVALUE() {
 		super();
 	}
-	public D3DCOLORVALUE(Pointer pointer) {
+	public D3DCOLORVALUE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

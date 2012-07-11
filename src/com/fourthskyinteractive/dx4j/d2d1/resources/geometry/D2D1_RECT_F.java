@@ -13,7 +13,7 @@ public class D2D1_RECT_F extends StructObject {
 	public D2D1_RECT_F() {
 		super();
 	}
-	public D2D1_RECT_F(Pointer pointer) {
+	public D2D1_RECT_F(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

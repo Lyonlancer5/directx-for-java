@@ -13,7 +13,7 @@ public class D2D1_POINT_2F extends StructObject {
 	public D2D1_POINT_2F() {
 		super();
 	}
-	public D2D1_POINT_2F(Pointer pointer) {
+	public D2D1_POINT_2F(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	public D2D1_POINT_2F(float x, float y) {

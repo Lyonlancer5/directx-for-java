@@ -13,7 +13,7 @@ public class D3DX11_IMAGE_INFO extends StructObject {
 	public D3DX11_IMAGE_INFO() {
 		super();
 	}
-	public D3DX11_IMAGE_INFO(Pointer pointer) {
+	public D3DX11_IMAGE_INFO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -13,7 +13,7 @@ public class D2D1_ELLIPSE extends StructObject {
 	public D2D1_ELLIPSE() {
 		super();
 	}
-	public D2D1_ELLIPSE(Pointer pointer) {
+	public D2D1_ELLIPSE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_POINT_2F

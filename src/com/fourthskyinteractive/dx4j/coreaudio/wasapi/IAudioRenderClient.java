@@ -1,6 +1,5 @@
 package com.fourthskyinteractive.dx4j.coreaudio.wasapi;
 
-import org.bridj.CLong;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Virtual;

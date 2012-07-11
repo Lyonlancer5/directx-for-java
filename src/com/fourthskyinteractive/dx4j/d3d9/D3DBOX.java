@@ -13,7 +13,7 @@ public class D3DBOX extends StructObject {
 	public D3DBOX() {
 		super();
 	}
-	public D3DBOX(Pointer pointer) {
+	public D3DBOX(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

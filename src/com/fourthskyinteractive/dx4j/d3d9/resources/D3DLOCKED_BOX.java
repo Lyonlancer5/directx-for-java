@@ -13,7 +13,7 @@ public class D3DLOCKED_BOX extends StructObject {
 	public D3DLOCKED_BOX() {
 		super();
 	}
-	public D3DLOCKED_BOX(Pointer pointer) {
+	public D3DLOCKED_BOX(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

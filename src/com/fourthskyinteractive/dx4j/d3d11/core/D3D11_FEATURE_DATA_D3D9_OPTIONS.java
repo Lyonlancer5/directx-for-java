@@ -17,7 +17,7 @@ public class D3D11_FEATURE_DATA_D3D9_OPTIONS extends StructObject {
 		this.io.setIntField(this, 0, FullNonPow2TextureSupport);
 		return this;
 	}
-	public D3D11_FEATURE_DATA_D3D9_OPTIONS(Pointer pointer) {
+	public D3D11_FEATURE_DATA_D3D9_OPTIONS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

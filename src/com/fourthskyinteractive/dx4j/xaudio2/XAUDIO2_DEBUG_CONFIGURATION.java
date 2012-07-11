@@ -74,7 +74,7 @@ public class XAUDIO2_DEBUG_CONFIGURATION extends StructObject {
 		this.io.setIntField(this, 5, LogTiming);
 		return this;
 	}
-	public XAUDIO2_DEBUG_CONFIGURATION(Pointer pointer) {
+	public XAUDIO2_DEBUG_CONFIGURATION(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

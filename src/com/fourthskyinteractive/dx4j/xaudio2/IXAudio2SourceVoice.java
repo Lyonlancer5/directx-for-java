@@ -7,7 +7,12 @@ import org.bridj.cpp.CPPObject;
 public class IXAudio2SourceVoice extends IXAudio2Voice {
 
 	public IXAudio2SourceVoice() {
+		super();
 	}
+	
+	protected IXAudio2SourceVoice(Pointer<? extends CPPObject> peer) {
+        super(peer);
+    }
 	
 	@Virtual(0)
 	public final native int Start(int Flags, int OperationSet);

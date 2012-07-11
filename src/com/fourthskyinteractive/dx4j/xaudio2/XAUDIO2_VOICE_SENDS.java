@@ -29,7 +29,7 @@ public class XAUDIO2_VOICE_SENDS extends StructObject {
 		this.io.setPointerField(this, 1, pSends);
 		return this;
 	}
-	public XAUDIO2_VOICE_SENDS(Pointer pointer) {
+	public XAUDIO2_VOICE_SENDS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

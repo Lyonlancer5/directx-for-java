@@ -15,7 +15,7 @@ public class D2D1_GRADIENT_STOP extends StructObject {
 	public D2D1_GRADIENT_STOP() {
 		super();
 	}
-	public D2D1_GRADIENT_STOP(Pointer pointer) {
+	public D2D1_GRADIENT_STOP(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

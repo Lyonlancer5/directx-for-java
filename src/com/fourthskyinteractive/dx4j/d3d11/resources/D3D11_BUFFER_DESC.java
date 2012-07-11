@@ -34,7 +34,7 @@ public class D3D11_BUFFER_DESC extends StructObject {
 		this.BindFlags(bindFlag).Usage(usage).CPUAccessFlags(cpuAccess)
 			.MiscFlags(flags).ByteWidth(byteWidth).StructureByteStride(byteStride);
 	}
-	public D3D11_BUFFER_DESC(Pointer pointer) {
+	public D3D11_BUFFER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

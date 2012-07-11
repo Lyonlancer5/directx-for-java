@@ -14,7 +14,7 @@ public class DXGI_MAPPED_RECT extends StructObject {
 	public DXGI_MAPPED_RECT() {
 		super();
 	}
-	public DXGI_MAPPED_RECT(Pointer pointer) {
+	public DXGI_MAPPED_RECT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

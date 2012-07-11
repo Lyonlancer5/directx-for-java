@@ -16,7 +16,7 @@ public class D3DCAPS9 extends StructObject {
 	public D3DCAPS9() {
 		super();
 	}
-	public D3DCAPS9(Pointer pointer) {
+	public D3DCAPS9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(1) 

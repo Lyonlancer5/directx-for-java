@@ -14,7 +14,7 @@ public class D3DGAMMARAMP extends StructObject {
 	public D3DGAMMARAMP() {
 		super();
 	}
-	public D3DGAMMARAMP(Pointer pointer) {
+	public D3DGAMMARAMP(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : WORD[256]

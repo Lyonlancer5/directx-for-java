@@ -13,7 +13,7 @@ public class D3DMATERIAL9 extends StructObject {
 	public D3DMATERIAL9() {
 		super();
 	}
-	public D3DMATERIAL9(Pointer pointer) {
+	public D3DMATERIAL9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3DCOLORVALUE

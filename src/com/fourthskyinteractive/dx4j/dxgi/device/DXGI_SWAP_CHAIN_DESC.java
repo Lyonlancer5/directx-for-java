@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.dxgi.DXGI;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI_MODE_DESC;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_SWAP_EFFECT;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_USAGE;
@@ -20,7 +19,7 @@ public class DXGI_SWAP_CHAIN_DESC extends StructObject {
 	public DXGI_SWAP_CHAIN_DESC() {
 		super();
 	}
-	public DXGI_SWAP_CHAIN_DESC(Pointer pointer) {
+	public DXGI_SWAP_CHAIN_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : DXGI_MODE_DESC
@@ -57,6 +56,7 @@ public class DXGI_SWAP_CHAIN_DESC extends StructObject {
 		return this.io.getTypedPointerField(this, 4);
 	}
 	/// C type : HWND
+	@SuppressWarnings("unchecked")
 	@Field(4) 
 	public DXGI_SWAP_CHAIN_DESC OutputWindow(HWND OutputWindow) {
 		this.io.setPointerField(this, 4, OutputWindow);

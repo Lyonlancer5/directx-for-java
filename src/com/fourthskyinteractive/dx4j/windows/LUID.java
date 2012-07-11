@@ -31,7 +31,7 @@ public class LUID extends StructObject {
 		this.io.setCLongField(this, 1, HighPart);
 		return this;
 	}
-	public LUID(Pointer pointer) {
+	public LUID(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

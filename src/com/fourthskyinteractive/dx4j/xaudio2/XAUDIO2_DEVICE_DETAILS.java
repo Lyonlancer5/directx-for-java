@@ -46,7 +46,7 @@ public class XAUDIO2_DEVICE_DETAILS extends StructObject {
 		this.io.setNativeObjectField(this, 3, OutputFormat);
 		return this;
 	}
-	public XAUDIO2_DEVICE_DETAILS(Pointer pointer) {
+	public XAUDIO2_DEVICE_DETAILS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

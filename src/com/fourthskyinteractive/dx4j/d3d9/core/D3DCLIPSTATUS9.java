@@ -13,7 +13,7 @@ public class D3DCLIPSTATUS9 extends StructObject {
 	public D3DCLIPSTATUS9() {
 		super();
 	}
-	public D3DCLIPSTATUS9(Pointer pointer) {
+	public D3DCLIPSTATUS9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

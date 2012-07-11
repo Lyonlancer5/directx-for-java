@@ -15,7 +15,7 @@ public class D2D1_BITMAP_PROPERTIES extends StructObject {
 	public D2D1_BITMAP_PROPERTIES() {
 		super();
 	}
-	public D2D1_BITMAP_PROPERTIES(Pointer pointer) {
+	public D2D1_BITMAP_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D2D1_PIXEL_FORMAT

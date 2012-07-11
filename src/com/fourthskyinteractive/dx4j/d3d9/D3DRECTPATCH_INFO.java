@@ -17,7 +17,7 @@ public class D3DRECTPATCH_INFO extends StructObject {
 	public D3DRECTPATCH_INFO() {
 		super();
 	}
-	public D3DRECTPATCH_INFO(Pointer pointer) {
+	public D3DRECTPATCH_INFO(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_PRESENT_OPTIONS;
 import com.fourthskyinteractive.dx4j.d2d1.resources.geometry.D2D1_SIZE_U;
 /**
@@ -18,7 +17,7 @@ public class D2D1_HWND_RENDER_TARGET_PROPERTIES extends StructObject {
 	public D2D1_HWND_RENDER_TARGET_PROPERTIES() {
 		super();
 	}
-	public D2D1_HWND_RENDER_TARGET_PROPERTIES(Pointer pointer) {
+	public D2D1_HWND_RENDER_TARGET_PROPERTIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : HWND

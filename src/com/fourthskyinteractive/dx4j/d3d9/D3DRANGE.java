@@ -13,7 +13,7 @@ public class D3DRANGE extends StructObject {
 	public D3DRANGE() {
 		super();
 	}
-	public D3DRANGE(Pointer pointer) {
+	public D3DRANGE(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

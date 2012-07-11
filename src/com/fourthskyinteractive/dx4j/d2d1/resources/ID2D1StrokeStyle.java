@@ -8,7 +8,6 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_CAP_STYLE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_DASH_STYLE;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_LINE_JOIN;

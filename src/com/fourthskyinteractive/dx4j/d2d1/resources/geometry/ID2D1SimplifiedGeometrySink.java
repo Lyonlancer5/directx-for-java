@@ -9,7 +9,6 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FIGURE_BEGIN;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FIGURE_END;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FILL_MODE;

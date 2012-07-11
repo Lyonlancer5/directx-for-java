@@ -125,7 +125,7 @@ public class XAUDIO2_BUFFER extends StructObject {
 		this.io.setPointerField(this, 8, pContext);
 		return this;
 	}
-	public XAUDIO2_BUFFER(Pointer pointer) {
+	public XAUDIO2_BUFFER(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

@@ -13,7 +13,7 @@ public class D3D11_TEX1D_RTV extends StructObject {
 	public D3D11_TEX1D_RTV() {
 		super();
 	}
-	public D3D11_TEX1D_RTV(Pointer pointer) {
+	public D3D11_TEX1D_RTV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

@@ -16,7 +16,7 @@ public class D3DADAPTER_IDENTIFIER9 extends StructObject {
 	public D3DADAPTER_IDENTIFIER9() {
 		super();
 	}
-	public D3DADAPTER_IDENTIFIER9(Pointer pointer) {
+	public D3DADAPTER_IDENTIFIER9(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : char[512]

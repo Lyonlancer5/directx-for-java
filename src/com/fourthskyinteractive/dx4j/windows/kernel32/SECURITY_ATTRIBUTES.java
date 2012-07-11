@@ -37,7 +37,7 @@ public class SECURITY_ATTRIBUTES extends StructObject {
 		this.io.setIntField(this, 2, bInheritHandle);
 		return this;
 	}
-	public SECURITY_ATTRIBUTES(Pointer pointer) {
+	public SECURITY_ATTRIBUTES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

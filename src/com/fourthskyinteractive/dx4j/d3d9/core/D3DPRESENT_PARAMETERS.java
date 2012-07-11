@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DMULTISAMPLE_TYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DSWAPEFFECT;
@@ -19,7 +18,7 @@ public class D3DPRESENT_PARAMETERS extends StructObject {
 	public D3DPRESENT_PARAMETERS() {
 		super();
 	}
-	public D3DPRESENT_PARAMETERS(Pointer pointer) {
+	public D3DPRESENT_PARAMETERS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

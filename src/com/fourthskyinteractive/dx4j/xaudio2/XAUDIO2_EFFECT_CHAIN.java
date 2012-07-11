@@ -30,7 +30,7 @@ public class XAUDIO2_EFFECT_CHAIN extends StructObject {
 		this.io.setPointerField(this, 1, pEffectDescriptors);
 		return this;
 	}
-	public XAUDIO2_EFFECT_CHAIN(Pointer pointer) {
+	public XAUDIO2_EFFECT_CHAIN(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

@@ -16,7 +16,7 @@ public class DXGI_SAMPLE_DESC extends StructObject {
 	public DXGI_SAMPLE_DESC() {
 		super();
 	}
-	public DXGI_SAMPLE_DESC(Pointer pointer) {
+	public DXGI_SAMPLE_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	

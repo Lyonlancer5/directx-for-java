@@ -12,9 +12,8 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.d2d1.D2D1;
-import com.fourthskyinteractive.dx4j.d2d1.D2D1Exception;
 import com.fourthskyinteractive.dx4j.d2d1.D2D1.D2D1_FILL_MODE;
+import com.fourthskyinteractive.dx4j.d2d1.D2D1Exception;
 import com.fourthskyinteractive.dx4j.d2d1.resources.D2D1_DRAWING_STATE_DESCRIPTION;
 import com.fourthskyinteractive.dx4j.d2d1.resources.D2D1_STROKE_STYLE_PROPERTIES;
 import com.fourthskyinteractive.dx4j.d2d1.resources.ID2D1DrawingStateBlock;

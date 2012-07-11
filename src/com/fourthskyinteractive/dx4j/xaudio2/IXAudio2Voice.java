@@ -10,6 +10,10 @@ public class IXAudio2Voice extends CPPObject {
 		super();
 	}
 	
+	protected IXAudio2Voice(Pointer<? extends CPPObject> peer) {
+        super(peer);
+    }
+	
 	@Virtual(0)
 	public final native int GetVoiceDetails(Pointer<XAUDIO2_VOICE_DETAILS> pVoiceDetails);
 	

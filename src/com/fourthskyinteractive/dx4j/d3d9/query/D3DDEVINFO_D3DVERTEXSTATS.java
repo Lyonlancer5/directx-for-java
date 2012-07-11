@@ -13,7 +13,7 @@ public class D3DDEVINFO_D3DVERTEXSTATS extends StructObject {
 	public D3DDEVINFO_D3DVERTEXSTATS() {
 		super();
 	}
-	public D3DDEVINFO_D3DVERTEXSTATS(Pointer pointer) {
+	public D3DDEVINFO_D3DVERTEXSTATS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

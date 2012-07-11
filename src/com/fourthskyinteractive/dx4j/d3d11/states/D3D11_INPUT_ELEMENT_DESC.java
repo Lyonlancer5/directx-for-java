@@ -20,7 +20,7 @@ public class D3D11_INPUT_ELEMENT_DESC extends StructObject {
 	public D3D11_INPUT_ELEMENT_DESC() {
 		super();
 	}
-	public D3D11_INPUT_ELEMENT_DESC(Pointer pointer) {
+	public D3D11_INPUT_ELEMENT_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	public D3D11_INPUT_ELEMENT_DESC(String semanticName, int semanticIndex,

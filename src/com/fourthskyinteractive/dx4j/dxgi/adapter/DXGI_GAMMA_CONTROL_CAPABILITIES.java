@@ -9,7 +9,7 @@ public class DXGI_GAMMA_CONTROL_CAPABILITIES extends StructObject {
 	public DXGI_GAMMA_CONTROL_CAPABILITIES() {
 		super();
 	}
-	public DXGI_GAMMA_CONTROL_CAPABILITIES(Pointer pointer) {
+	public DXGI_GAMMA_CONTROL_CAPABILITIES(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

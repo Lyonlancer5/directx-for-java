@@ -1,11 +1,9 @@
 package com.fourthskyinteractive.dx4j.d3d9.core;
 
 import org.bridj.Pointer;
-import org.bridj.ann.Convention;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
-import org.bridj.ann.Convention.Style;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
@@ -32,7 +30,6 @@ import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DVertexBuffer9;
 import com.fourthskyinteractive.dx4j.d3d9.resources.IDirect3DVolumeTexture9;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 import com.fourthskyinteractive.dx4j.windows.HWND;
-import com.fourthskyinteractive.dx4j.windows.gdi.RGNDATA;
 
 @IID("d0223b96-bf7a-43fd-92bd-a43b0d82b9eb")
 @Library("d3d9")

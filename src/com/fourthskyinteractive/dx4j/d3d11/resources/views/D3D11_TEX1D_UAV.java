@@ -13,7 +13,7 @@ public class D3D11_TEX1D_UAV extends StructObject {
 	public D3D11_TEX1D_UAV() {
 		super();
 	}
-	public D3D11_TEX1D_UAV(Pointer pointer) {
+	public D3D11_TEX1D_UAV(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 

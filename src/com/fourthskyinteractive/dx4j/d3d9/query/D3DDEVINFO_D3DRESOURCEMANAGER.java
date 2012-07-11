@@ -16,7 +16,7 @@ public class D3DDEVINFO_D3DRESOURCEMANAGER extends StructObject {
 	public D3DDEVINFO_D3DRESOURCEMANAGER() {
 		super();
 	}
-	public D3DDEVINFO_D3DRESOURCEMANAGER(Pointer pointer) {
+	public D3DDEVINFO_D3DRESOURCEMANAGER(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : D3DRESOURCESTATS[(D3DRTYPE_INDEXBUFFER + 1)]

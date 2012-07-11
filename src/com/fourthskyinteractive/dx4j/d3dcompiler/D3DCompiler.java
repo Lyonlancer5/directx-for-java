@@ -247,7 +247,7 @@ public class D3DCompiler {
 		ID3DIncludeVtbl() {
 			super();
 		}
-		ID3DIncludeVtbl(Pointer pointer) {
+		ID3DIncludeVtbl(Pointer<? extends StructObject> pointer) {
 			super(pointer);
 		}
 		
@@ -311,7 +311,7 @@ public class D3DCompiler {
 			vTable.Close(pointerTo(closeCB));
 			this.lpVtbl(pointerTo(vTable));
 		}
-		public ID3DInclude(Pointer pointer) {
+		public ID3DInclude(Pointer<? extends CPPObject> pointer) {
 			super(pointer);
 			
 			// Creating virtual table

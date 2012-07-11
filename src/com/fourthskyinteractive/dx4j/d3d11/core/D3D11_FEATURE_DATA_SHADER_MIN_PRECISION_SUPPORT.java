@@ -26,7 +26,7 @@ public class D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT extends StructObjec
 		this.io.setIntField(this, 1, AllOtherShaderStagesMinPrecision);
 		return this;
 	}
-	public D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT(Pointer pointer) {
+	public D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

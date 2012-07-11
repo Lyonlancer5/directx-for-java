@@ -18,7 +18,7 @@ public class DXGI_ADAPTER_DESC extends StructObject {
 	public DXGI_ADAPTER_DESC() {
 		super();
 	}
-	public DXGI_ADAPTER_DESC(Pointer pointer) {
+	public DXGI_ADAPTER_DESC(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	/// C type : WCHAR[128]
