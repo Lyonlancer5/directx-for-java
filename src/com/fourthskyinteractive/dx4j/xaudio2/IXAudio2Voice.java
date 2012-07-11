@@ -1,9 +1,14 @@
 package com.fourthskyinteractive.dx4j.xaudio2;
 
 import org.bridj.Pointer;
+import org.bridj.ann.Library;
+import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.CPPObject;
+import org.bridj.cpp.com.COMRuntime;
 
+@Library("XAudio2_7")
+@Runtime(COMRuntime.class)
 public class IXAudio2Voice extends CPPObject {
 
 	public IXAudio2Voice() {

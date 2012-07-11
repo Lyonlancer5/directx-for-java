@@ -1,9 +1,12 @@
 package com.fourthskyinteractive.dx4j.xaudio2;
 
 import org.bridj.Pointer;
+import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.CPPObject;
+import org.bridj.cpp.CPPRuntime;
 
+@Runtime(CPPRuntime.class)
 public class IXAudio2VoiceCallback extends CPPObject {
 
 	// Called just before this voice's processing pass begins.

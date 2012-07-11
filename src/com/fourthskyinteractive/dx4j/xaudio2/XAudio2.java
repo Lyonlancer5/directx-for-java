@@ -14,7 +14,7 @@ import org.bridj.cpp.com.COMRuntime;
 
 import static org.bridj.cpp.com.COMRuntime.*;
 
-@Library("XAudio2_6")
+@Library("XAudio2_7")
 @Runtime(COMRuntime.class)
 public class XAudio2 {
 	static {
@@ -22,12 +22,12 @@ public class XAudio2 {
 	}
 	
 	public enum XAUDIO2_DEVICE_ROLE implements IntValuedEnum<XAUDIO2_DEVICE_ROLE> {
-	    NotDefaultDevice(0x0),
-	    DefaultConsoleDevice       (0x1),
-	    DefaultMultimediaDevice    (0x2),
-	    DefaultCommunicationsDevice(0x4),
-	    DefaultGameDevice          (0x8),
-	    GlobalDefaultDevice        (0xf),
+	    NotDefaultDevice			(0x0),
+	    DefaultConsoleDevice       	(0x1),
+	    DefaultMultimediaDevice    	(0x2),
+	    DefaultCommunicationsDevice	(0x4),
+	    DefaultGameDevice          	(0x8),
+	    GlobalDefaultDevice        	(0xf),
 	    InvalidDeviceRole(~GlobalDefaultDevice.value());
 	    XAUDIO2_DEVICE_ROLE(long value) {
 			this.value = value;

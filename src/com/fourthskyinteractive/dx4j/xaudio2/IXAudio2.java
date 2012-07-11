@@ -14,7 +14,7 @@ import com.fourthskyinteractive.dx4j.xaudio2.XAudio2.XAUDIO2_PROCESSOR;
 
 @CLSID("5a508685-a254-4fba-9b82-9a24b00306af")
 @IID("8bcf1f58-9fe7-4583-8ac6-e2adc465c8bb")
-@Library("XAudio2_6")
+@Library("XAudio2_7")
 @Runtime(COMRuntime.class)
 public class IXAudio2 extends IUnknown {
 
@@ -38,13 +38,30 @@ public class IXAudio2 extends IUnknown {
 	public final native int UnregisterForCallbacks(Pointer<IXAudio2EngineCallback> pCallback);
 	
 	@Virtual(5)
-	public final native int CreateSourceVoice(Pointer<Pointer<IXAudio2SourceVoice>> ppSourceVoice, Pointer<WAVEFORMATEX> pSourceFormat, int Flags, float MaxFrequencyRatio, Pointer<IXAudio2EngineCallback> pCallback, Pointer<XAUDIO2_VOICE_SENDS> pSendList, Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
+	public final native int CreateSourceVoice(Pointer<Pointer<IXAudio2SourceVoice>> ppSourceVoice, 
+											  Pointer<WAVEFORMATEX> pSourceFormat, 
+											  int Flags, 
+											  float MaxFrequencyRatio, 
+											  Pointer<IXAudio2EngineCallback> pCallback, 
+											  Pointer<XAUDIO2_VOICE_SENDS> pSendList, 
+											  Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
 	
 	@Virtual(6)
-	public final native int CreateSubmixVoice(Pointer<Pointer<IXAudio2SubmixVoice>> ppSubmixVoice, int InputChannels, int InputSampleRate, int Flags, int ProcessingStage, Pointer<XAUDIO2_VOICE_SENDS> pSendList, Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
+	public final native int CreateSubmixVoice(Pointer<Pointer<IXAudio2SubmixVoice>> ppSubmixVoice, 
+											  int InputChannels, 
+											  int InputSampleRate, 
+											  int Flags, 
+											  int ProcessingStage, 
+											  Pointer<XAUDIO2_VOICE_SENDS> pSendList, 
+											  Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
 	
 	@Virtual(7)
-	public final native int CreateMasteringVoice(Pointer<Pointer<IXAudio2MasteringVoice>> ppMasteringVoice, int InputChannels, int InputSampleRate, int Flags, int DeviceIndex, Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
+	public final native int CreateMasteringVoice(Pointer<Pointer<IXAudio2MasteringVoice>> ppMasteringVoice, 
+												 int InputChannels, 
+												 int InputSampleRate, 
+												 int Flags, 
+												 int DeviceIndex, 
+												 Pointer<XAUDIO2_EFFECT_CHAIN> pEffectChain);
 	
 	@Virtual(8)
 	public final native int StartEngine();
