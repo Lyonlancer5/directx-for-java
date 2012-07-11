@@ -1,7 +1,9 @@
 package com.fourthskyinteractive.dx4j.xaudio2;
 
 import org.bridj.Pointer;
+import org.bridj.ann.Runtime;
 import org.bridj.cpp.CPPObject;
+import org.bridj.cpp.CPPRuntime;
 
 /**
  * Contains methods to notify the client when certain events happen
@@ -13,6 +15,7 @@ import org.bridj.cpp.CPPObject;
  * @author Evandro
  *
  */
+@Runtime(CPPRuntime.class)
 public abstract class IXAudio2EngineCallback extends CPPObject {
 
 	public IXAudio2EngineCallback() {
