@@ -642,7 +642,15 @@ public class D2D1 {
 	};
 	public enum D2D1_RENDER_TARGET_USAGE implements IntValuedEnum<D2D1_RENDER_TARGET_USAGE > {
 		D2D1_RENDER_TARGET_USAGE_NONE(0x0),
+		/**
+		 * Rendering will occur locally, if a terminal-services session is established, the
+         * bitmap updates will be sent to the terminal services client.
+		 */
 		D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING(0x1),
+		/**
+		 * The render target will allow a call to GetDC on the IGdiInteropRenderTarget
+         * interface. Rendering will also occur locally.
+		 */
 		D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE(0x2),
 		D2D1_RENDER_TARGET_USAGE_FORCE_DWORD(0x7FFFFFFF);
 		D2D1_RENDER_TARGET_USAGE(long value) {
@@ -661,7 +669,13 @@ public class D2D1 {
 	};
 	public enum D2D1_PRESENT_OPTIONS implements IntValuedEnum<D2D1_PRESENT_OPTIONS > {
 		D2D1_PRESENT_OPTIONS_NONE(0x0),
+		/**
+		 * Keep the target contents intact through present.
+		 */
 		D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS(0x1),
+		/**
+		 * Do not wait for display refresh to commit changes to display.
+		 */
 		D2D1_PRESENT_OPTIONS_IMMEDIATELY(0x2),
 		D2D1_PRESENT_OPTIONS_FORCE_DWORD(0x7FFFFFFF);
 		D2D1_PRESENT_OPTIONS(long value) {
@@ -680,6 +694,11 @@ public class D2D1 {
 	};
 	public enum D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS implements IntValuedEnum<D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS > {
 		D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE(0x0),
+		/**
+		 * The compatible render target will allow a call to GetDC on the
+         * IGdiInteropRenderTarget interface. This can be specified even if the parent
+         * render target is not GDI compatible.
+		 */
 		D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE(0x1),
 		D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD(0x7FFFFFFF);
 		D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(long value) {
@@ -735,7 +754,16 @@ public class D2D1 {
 		}
 	};
 	public enum D2D1_FACTORY_TYPE implements IntValuedEnum<D2D1_FACTORY_TYPE > {
+		/**
+		 * The resulting factory and derived resources may only be invoked serially.
+         * Reference counts on resources are interlocked, however, resource and render
+         * target state is not protected from multi-threaded access.
+		 */
 		D2D1_FACTORY_TYPE_SINGLE_THREADED(0),
+		/**
+		 * The resulting factory may be invoked from multiple threads. Returned resources
+         * use interlocked reference counting and their state is protected.
+		 */
 		D2D1_FACTORY_TYPE_MULTI_THREADED(1),
 		D2D1_FACTORY_TYPE_FORCE_DWORD(0x7FFFFFFF);
 		D2D1_FACTORY_TYPE(long value) {
