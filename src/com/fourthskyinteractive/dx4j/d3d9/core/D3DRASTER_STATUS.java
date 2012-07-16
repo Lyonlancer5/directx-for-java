@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.d3d9;
+package com.fourthskyinteractive.dx4j.d3d9.core;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
@@ -9,29 +9,29 @@ import org.bridj.ann.Library;
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> or <a href="http://bridj.googlecode.com/">BridJ</a> .
  */
 @Library("d3d9") 
-public class D3DCLIPSTATUS9 extends StructObject {
-	public D3DCLIPSTATUS9() {
+public class D3DRASTER_STATUS extends StructObject {
+	public D3DRASTER_STATUS() {
 		super();
 	}
-	public D3DCLIPSTATUS9(Pointer<? extends StructObject> pointer) {
+	public D3DRASTER_STATUS(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 	@Field(0) 
-	public int ClipUnion() {
+	public int InVBlank() {
 		return this.io.getIntField(this, 0);
 	}
 	@Field(0) 
-	public D3DCLIPSTATUS9 ClipUnion(int ClipUnion) {
-		this.io.setIntField(this, 0, ClipUnion);
+	public D3DRASTER_STATUS InVBlank(int InVBlank) {
+		this.io.setIntField(this, 0, InVBlank);
 		return this;
 	}
 	@Field(1) 
-	public int ClipIntersection() {
+	public int ScanLine() {
 		return this.io.getIntField(this, 1);
 	}
 	@Field(1) 
-	public D3DCLIPSTATUS9 ClipIntersection(int ClipIntersection) {
-		this.io.setIntField(this, 1, ClipIntersection);
+	public D3DRASTER_STATUS ScanLine(int ScanLine) {
+		this.io.setIntField(this, 1, ScanLine);
 		return this;
 	}
 }

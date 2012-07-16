@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.d3d9;
+package com.fourthskyinteractive.dx4j.d3d9.core;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Array;
