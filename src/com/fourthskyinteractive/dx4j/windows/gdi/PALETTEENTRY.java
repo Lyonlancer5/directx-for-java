@@ -66,7 +66,7 @@ public class PALETTEENTRY extends StructObject {
 		this.io.setByteField(this, 3, peFlags);
 		return this;
 	}
-	public PALETTEENTRY(Pointer pointer) {
+	public PALETTEENTRY(Pointer<? extends StructObject> pointer) {
 		super(pointer);
 	}
 }

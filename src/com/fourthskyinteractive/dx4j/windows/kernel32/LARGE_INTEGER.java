@@ -38,4 +38,14 @@ public class LARGE_INTEGER extends StructObject {
 		this.io.setIntField(this, 1, HighPart);
 		return this;
 	}
+	
+	public long QuadPart() {
+		long result = this.HighPart() << 32 | this.LowPart();
+		return result;
+	}
+	
+	public LARGE_INTEGER QuadPart(long value) {
+		this.HighPart((int) (value >> 32)).LowPart((int)value);
+		return this;
+	}
 }

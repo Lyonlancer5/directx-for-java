@@ -29,7 +29,7 @@ public class ID3D11ClassLinkage extends ID3D11DeviceChild {
 	@Deprecated @Virtual(1)
 	public native int CreateClassInstance(Pointer<?> pClassInstanceName, int ConstantBufferOffset, int ConstantVectorOffset, int TextureOffset, int SamplerOffset, Pointer<Pointer<ID3D11ClassInstance>> ppInstance);
 	
-	public final ID3D11ClassInstance GetClassInstance(String instanceName, int instanceIndex) {
+	public final ID3D11ClassInstance GetClassInstance(String instanceName, int instanceIndex) throws D3D11Exception {
 		Pointer<Pointer<ID3D11ClassInstance>> pp = allocatePointer(ID3D11ClassInstance.class);
 		
 		try {
@@ -45,7 +45,7 @@ public class ID3D11ClassLinkage extends ID3D11DeviceChild {
 		}
 	}
 	
-	public final ID3D11ClassInstance CreateClassInstance(String instanceName) {
+	public final ID3D11ClassInstance CreateClassInstance(String instanceName) throws D3D11Exception {
 		Pointer<Pointer<ID3D11ClassInstance>> pp = allocatePointer(ID3D11ClassInstance.class);
 		
 		try {
@@ -61,7 +61,7 @@ public class ID3D11ClassLinkage extends ID3D11DeviceChild {
 		}
 	}
 	
-	public final ID3D11ClassInstance CreateClassInstance(String instanceName, int constantBufferOffset, int constantVectorOffset, int textureOffset, int samplerOffset) {
+	public final ID3D11ClassInstance CreateClassInstance(String instanceName, int constantBufferOffset, int constantVectorOffset, int textureOffset, int samplerOffset) throws D3D11Exception {
 		Pointer<Pointer<ID3D11ClassInstance>> pp = allocatePointer(ID3D11ClassInstance.class);
 		
 		try {

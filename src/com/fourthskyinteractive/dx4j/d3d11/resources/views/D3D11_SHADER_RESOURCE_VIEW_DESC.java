@@ -44,7 +44,7 @@ public class D3D11_SHADER_RESOURCE_VIEW_DESC extends StructObject {
 		return this;
 	}
 	
-	@Field(value = 2)
+	@Field(2)
 	public D3D11_BUFFER_SRV        Buffer(){
     	return this.io.getNativeObjectField(this, 2);
 	}

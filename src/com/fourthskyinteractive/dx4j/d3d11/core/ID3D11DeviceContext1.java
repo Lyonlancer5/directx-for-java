@@ -10,6 +10,8 @@ import org.bridj.cpp.com.IID;
 import com.fourthskyinteractive.dx4j.d3d11.resources.ID3D11Resource;
 import com.fourthskyinteractive.dx4j.d3d11.resources.views.ID3D11View;
 
+import static org.bridj.Pointer.*;
+
 @IID("")
 @Library("D3D11_1")
 @Runtime(COMRuntime.class)
@@ -24,5 +26,13 @@ public class ID3D11DeviceContext1 extends ID3D11DeviceContext {
 	
 	@Virtual(1)
 	public final native void DiscardResource(Pointer<ID3D11Resource> pResource);
+	
+	public final void DiscardView(ID3D11View view) {
+		DiscardView(pointerTo(view));
+	}
+	
+	public final void DiscardResource(ID3D11Resource resource) {
+		DiscardResource(pointerTo(resource));
+	}
 			
 }

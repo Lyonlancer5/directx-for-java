@@ -59,4 +59,18 @@ public class Kernel32 {
 	public static final native int TryEnterCriticalSection(Pointer<CRITICAL_SECTION> cs);
 	public static final native int LeaveCriticalSection(Pointer<CRITICAL_SECTION> cs);
 	public static final native int DeleteCriticalSection(Pointer<CRITICAL_SECTION> cs);
+	
+	/**
+	 * Return number of counts per seconds
+	 * @param pCounter number of counts per seconds
+	 * @return true if successful
+	 */
+	public static final native int QueryPerformanceFrequency(Pointer<LARGE_INTEGER> pCounter);
+	
+	/**
+	 * Retrieves the current value of the high-resolution performance counter.
+	 * @param pCounter current performance counter, in counts
+	 * @return true if successful
+	 */
+	public static final native int QueryPerformanceCounter(Pointer<LARGE_INTEGER> pCounter);
 }
