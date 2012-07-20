@@ -153,7 +153,7 @@ public class ID3D11Device extends IUnknown {
     public final native int GetExceptionMode();
     
     // "Javanized" methods
-    public final ID3D11DeviceContext CreateDeferredContext(int ContextFlags) {
+    public final ID3D11DeviceContext CreateDeferredContext(int ContextFlags) throws D3D11Exception {
     	Pointer<Pointer<ID3D11DeviceContext>> pp = allocatePointer(ID3D11DeviceContext.class);
     	try {
     		int result = CreateDeferredContext(ContextFlags, pp);
@@ -168,12 +168,12 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11RenderTargetView CreateRenderTargetView(ID3D11Resource resource, D3D11_RENDER_TARGET_VIEW_DESC desc) {
+    public final ID3D11RenderTargetView CreateRenderTargetView(ID3D11Resource resource, D3D11_RENDER_TARGET_VIEW_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11RenderTargetView>> pp = allocatePointer(ID3D11RenderTargetView.class);
     	try {
     		int result = CreateRenderTargetView(pointerTo(resource), pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("", result);
+    			throw new D3D11Exception("Error creating render target", result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11RenderTargetView.class);
@@ -183,7 +183,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11DepthStencilView CreateDepthStencilView(ID3D11Resource resource, D3D11_DEPTH_STENCIL_VIEW_DESC desc) {
+    public final ID3D11DepthStencilView CreateDepthStencilView(ID3D11Resource resource, D3D11_DEPTH_STENCIL_VIEW_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11DepthStencilView>> pp = allocatePointer(ID3D11DepthStencilView.class);
     	try {
     		int result = this.CreateDepthStencilView(pointerTo(resource), pointerTo(desc), pp);
@@ -210,7 +210,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11InputLayout CreateInputLayout(D3D11_INPUT_ELEMENT_DESC[] descs, ID3D10Blob shaderCode) {
+    public final ID3D11InputLayout CreateInputLayout(D3D11_INPUT_ELEMENT_DESC[] descs, ID3D10Blob shaderCode) throws D3D11Exception {
     	Pointer<Pointer<ID3D11InputLayout>> pp = allocatePointer(ID3D11InputLayout.class);
     	Pointer<D3D11_INPUT_ELEMENT_DESC> pDescs = pointerToArray(descs);
     	
@@ -229,7 +229,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11ClassLinkage CreateClassLinkage() {
+    public final ID3D11ClassLinkage CreateClassLinkage() throws D3D11Exception {
     	Pointer<Pointer<ID3D11ClassLinkage>> pp = allocatePointer(ID3D11ClassLinkage.class);
     	try {
     		int result = this.CreateClassLinkage(pp);
@@ -244,7 +244,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11VertexShader CreateVertexShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11VertexShader CreateVertexShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11VertexShader>> pp = allocatePointer(ID3D11VertexShader.class);
     	try {
     		int result = CreateVertexShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -261,7 +261,7 @@ public class ID3D11Device extends IUnknown {
     	}    	
     }
     
-    public final ID3D11PixelShader CreatePixelShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11PixelShader CreatePixelShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11PixelShader>> pp = allocatePointer(ID3D11PixelShader.class);
     	try {
     		int result = CreatePixelShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -279,7 +279,7 @@ public class ID3D11Device extends IUnknown {
     	
     }
     
-    public final ID3D11GeometryShader CreateGeometryShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11GeometryShader CreateGeometryShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11GeometryShader>> pp = allocatePointer(ID3D11GeometryShader.class);
     	try {
     		int result = CreateGeometryShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -300,7 +300,7 @@ public class ID3D11Device extends IUnknown {
     																	   D3D11_SO_DECLARATION_ENTRY[] soDeclaration, 
     																	   int[] bufferStrides, 
     																	   int RasterizedStream, 
-    																	   ID3D11ClassLinkage linkage) {
+    																	   ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11GeometryShader>> pp = allocatePointer(ID3D11GeometryShader.class);
     	Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = pointerToArray(soDeclaration);
     	
@@ -322,7 +322,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11HullShader CreateHullShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11HullShader CreateHullShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11HullShader>> pp = allocatePointer(ID3D11HullShader.class);
     	try {
     		int result = CreateHullShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -340,7 +340,7 @@ public class ID3D11Device extends IUnknown {
     	
     }
     
-    public final ID3D11DomainShader CreateDomainShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11DomainShader CreateDomainShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11DomainShader>> pp = allocatePointer(ID3D11DomainShader.class);
     	try {
     		int result = CreateDomainShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -358,7 +358,7 @@ public class ID3D11Device extends IUnknown {
     	
     }
     
-    public final ID3D11ComputeShader CreateComputeShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) {
+    public final ID3D11ComputeShader CreateComputeShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11ComputeShader>> pp = allocatePointer(ID3D11ComputeShader.class);
     	try {
     		int result = CreateComputeShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
@@ -376,7 +376,7 @@ public class ID3D11Device extends IUnknown {
     	
     }
     
-    public final ID3D11Buffer CreateBuffer(D3D11_BUFFER_DESC desc, D3D11_SUBRESOURCE_DATA initialData) {
+    public final ID3D11Buffer CreateBuffer(D3D11_BUFFER_DESC desc, D3D11_SUBRESOURCE_DATA initialData) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Buffer>> pp = allocatePointer(ID3D11Buffer.class);
     	try {
     		int result = CreateBuffer(pointerTo(desc), pointerTo(initialData), pp);
@@ -390,7 +390,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}    	
     }
-    public final ID3D11Texture1D CreateTexture1D(D3D11_TEXTURE1D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) {
+    public final ID3D11Texture1D CreateTexture1D(D3D11_TEXTURE1D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Texture1D>> pp = allocatePointer(ID3D11Texture1D.class);
     	try {
     		int result = CreateTexture1D(pointerTo(desc), pointerTo(initialData), pp);
@@ -404,7 +404,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}    	
     }
-    public final ID3D11Texture2D CreateTexture2D(D3D11_TEXTURE2D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) {
+    public final ID3D11Texture2D CreateTexture2D(D3D11_TEXTURE2D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Texture2D>> pp = allocatePointer(ID3D11Texture2D.class);
     	try {
     		int result = this.CreateTexture2D(pointerTo(desc), pointerTo(initialData), pp);
@@ -418,7 +418,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}    	
     }
-    public final ID3D11Texture3D CreateTexture3D(D3D11_TEXTURE3D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) {
+    public final ID3D11Texture3D CreateTexture3D(D3D11_TEXTURE3D_DESC desc, D3D11_SUBRESOURCE_DATA initialData) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Texture3D>> pp = allocatePointer(ID3D11Texture3D.class);
     	try {
     		int result = this.CreateTexture3D(pointerTo(desc), pointerTo(initialData), pp);
@@ -433,7 +433,37 @@ public class ID3D11Device extends IUnknown {
     	}    	
     }
     
-    public final ID3D11BlendState CreateBlendState(D3D11_BLEND_DESC desc) {
+    public final ID3D11ShaderResourceView CreateShaderResourceView(ID3D11Resource resource, D3D11_SHADER_RESOURCE_VIEW_DESC desc) throws D3D11Exception {
+    	Pointer<Pointer<ID3D11ShaderResourceView>> pp = allocatePointer(ID3D11ShaderResourceView.class);
+    	try {
+    		int result = this.CreateShaderResourceView(pointerTo(resource), pointerTo(desc), pp);
+    		if(result != 0) {
+    			throw new D3D11Exception("Could not create shader resource view", result);
+    		} 
+    		
+    		return pp.get().getNativeObject(ID3D11ShaderResourceView.class);
+    	} finally {
+    		pp.release();
+   			pp = null;
+    	} 
+    }
+    
+    public final ID3D11UnorderedAccessView CreateUnorderedAccessView(ID3D11Resource resource, D3D11_UNORDERED_ACCESS_VIEW_DESC desc) throws D3D11Exception {
+    	Pointer<Pointer<ID3D11UnorderedAccessView>> pp = allocatePointer(ID3D11UnorderedAccessView.class);
+    	try {
+    		int result = this.CreateUnorderedAccessView(pointerTo(resource), pointerTo(desc), pp);
+    		if(result != 0) {
+    			throw new D3D11Exception("Could not create 3D texture", result);
+    		} 
+    		
+    		return pp.get().getNativeObject(ID3D11UnorderedAccessView.class);
+    	} finally {
+    		pp.release();
+   			pp = null;
+    	} 
+    }
+        
+    public final ID3D11BlendState CreateBlendState(D3D11_BLEND_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11BlendState>> pp = allocatePointer(ID3D11BlendState.class);
     	try {
     		int result = this.CreateBlendState(pointerTo(desc), pp);
@@ -447,7 +477,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}
     }
-    public final ID3D11DepthStencilState CreateDepthStencilState(D3D11_DEPTH_STENCIL_DESC desc) {
+    public final ID3D11DepthStencilState CreateDepthStencilState(D3D11_DEPTH_STENCIL_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11DepthStencilState>> pp = allocatePointer(ID3D11DepthStencilState.class);
     	try {
     		int result = this.CreateDepthStencilState(pointerTo(desc), pp);
@@ -461,7 +491,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}
     }
-    public final ID3D11RasterizerState CreateRasterizerState(D3D11_RASTERIZER_DESC desc) {
+    public final ID3D11RasterizerState CreateRasterizerState(D3D11_RASTERIZER_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11RasterizerState>> pp = allocatePointer(ID3D11RasterizerState.class);
     	try {
     		int result = this.CreateRasterizerState(pointerTo(desc), pp);
@@ -475,7 +505,7 @@ public class ID3D11Device extends IUnknown {
    			pp = null;
     	}
     }
-    public final ID3D11SamplerState CreateSamplerState(D3D11_SAMPLER_DESC desc) {
+    public final ID3D11SamplerState CreateSamplerState(D3D11_SAMPLER_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11SamplerState>> pp = allocatePointer(ID3D11SamplerState.class);
     	try {
     		int result = this.CreateSamplerState(pointerTo(desc), pp);
@@ -490,7 +520,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11Query CreateQuery(D3D11_QUERY_DESC desc) {
+    public final ID3D11Query CreateQuery(D3D11_QUERY_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Query>> pp = allocatePointer(ID3D11Query.class);
     	try {
     		int result = this.CreateQuery(pointerTo(desc), pp);
@@ -505,7 +535,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11Predicate CreatePredicate(D3D11_QUERY_DESC desc) {
+    public final ID3D11Predicate CreatePredicate(D3D11_QUERY_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Predicate>> pp = allocatePointer(ID3D11Predicate.class);
     	try {
     		int result = this.CreatePredicate(pointerTo(desc), pp);
@@ -520,7 +550,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final ID3D11Counter CreateCounter(D3D11_COUNTER_DESC desc) {
+    public final ID3D11Counter CreateCounter(D3D11_COUNTER_DESC desc) throws D3D11Exception {
     	Pointer<Pointer<ID3D11Counter>> pp = allocatePointer(ID3D11Counter.class);
     	try {
     		int result = this.CreateCounter(pointerTo(desc), pp);
@@ -535,7 +565,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final <R extends ID3D11Resource> R OpenSharedResource(HANDLE hResource, Class<R> type) {
+    public final <R extends ID3D11Resource> R OpenSharedResource(HANDLE hResource, Class<R> type) throws D3D11Exception {
     	Pointer<Byte> resourceGUID = COMRuntime.getIID(type);
     	Pointer<Pointer<R>> pp = allocatePointer(type);
     	try {
@@ -551,7 +581,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final int CheckFormatSupport(DXGI_FORMAT format) {
+    public final int CheckFormatSupport(DXGI_FORMAT format) throws D3D11Exception {
     	Pointer<Integer> pInt = allocateInt();
     	try {
     		int result = this.CheckFormatSupport(format, pInt);
@@ -565,7 +595,7 @@ public class ID3D11Device extends IUnknown {
     	}
     }
     
-    public final int CheckMultisampleQualityLevels(DXGI_FORMAT format, int SampleCount) {
+    public final int CheckMultisampleQualityLevels(DXGI_FORMAT format, int SampleCount) throws D3D11Exception {
     	Pointer<Integer> pInt = allocateInt();
     	try {
     		int result = this.CheckMultisampleQualityLevels(format, SampleCount, pInt);

@@ -306,7 +306,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		IASetInputLayout(pointerTo(layout));
 	}
 	
-	public final D3D11_MAPPED_SUBRESOURCE Map(ID3D11Resource resource, int subResource, ValuedEnum<D3D11_MAP> MapType, int MapFlags) {
+	public final D3D11_MAPPED_SUBRESOURCE Map(ID3D11Resource resource, int subResource, ValuedEnum<D3D11_MAP> MapType, int MapFlags) throws D3D11Exception {
 		D3D11_MAPPED_SUBRESOURCE mappedData = new D3D11_MAPPED_SUBRESOURCE();
 
 		int result = Map(pointerTo(resource), subResource, MapType, MapFlags, pointerTo(mappedData));
@@ -328,7 +328,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		End(pointerTo(async));
 	}
 
-	public final void GetData(ID3D11Asynchronous pAsync, Pointer<?> pData, int DataSize, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) {
+	public final void GetData(ID3D11Asynchronous pAsync, Pointer<?> pData, int DataSize, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
 		int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
 		if(result != 0) {
 			throw new D3D11Exception("Could not get data from query", result);
@@ -339,7 +339,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		this.RSSetViewports(1, pointerTo(viewport));
 	}
 	
-	public final ID3D11CommandList FinishCommandList(int RestoreDeferredContextState) {
+	public final ID3D11CommandList FinishCommandList(int RestoreDeferredContextState) throws D3D11Exception {
 		Pointer<Pointer<ID3D11CommandList>> pp = allocatePointer(ID3D11CommandList.class);
 		try {
 			int result = this.FinishCommandList(RestoreDeferredContextState, pp);

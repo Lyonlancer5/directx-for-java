@@ -5,7 +5,6 @@ import org.bridj.ValuedEnum;
 import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 
-import com.fourthskyinteractive.dx4j.d3d9.D3D9;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DBASISTYPE;
 import com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DDEGREETYPE;
 /**

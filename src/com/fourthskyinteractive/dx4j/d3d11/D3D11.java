@@ -2374,7 +2374,7 @@ public class D3D11 {
 	public static ID3D11Device D3D11CreateDevice(IDXGIAdapter adapter,
 											ValuedEnum<D3D_DRIVER_TYPE> driverType,
 											int Flags,
-											D3D_FEATURE_LEVEL[] requiredLevels) {
+											D3D_FEATURE_LEVEL[] requiredLevels) throws D3D11Exception {
 		
 		Pointer<Pointer<ID3D11Device>> ppDevice = null;
 		try {

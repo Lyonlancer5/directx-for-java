@@ -1,6 +1,6 @@
 package com.fourthskyinteractive.dx4j.d3d11;
 
-public class D3D11Exception extends RuntimeException {
+public class D3D11Exception extends Exception {
 
 	/**
 	 * 

@@ -48,12 +48,12 @@ public class D3D11_BUFFER_DESC extends StructObject {
 	}
 	/// C type : D3D11_USAGE
 	@Field(1) 
-	public ValuedEnum<D3D11_USAGE > Usage() {
+	public ValuedEnum<D3D11_USAGE> Usage() {
 		return this.io.getEnumField(this, 1);
 	}
 	/// C type : D3D11_USAGE
 	@Field(1) 
-	public D3D11_BUFFER_DESC Usage(ValuedEnum<D3D11_USAGE > Usage) {
+	public D3D11_BUFFER_DESC Usage(ValuedEnum<D3D11_USAGE> Usage) {
 		this.io.setEnumField(this, 1, Usage);
 		return this;
 	}

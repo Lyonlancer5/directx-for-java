@@ -9,21 +9,15 @@ import java.util.Collections;
 import java.util.Iterator;
 
 import org.bridj.BridJ;
-import org.bridj.Callback;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
 import org.bridj.Pointer;
 import org.bridj.SizeT;
-import org.bridj.StructObject;
 import org.bridj.ValuedEnum;
-import org.bridj.ann.Convention;
-import org.bridj.ann.Field;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
-import org.bridj.cpp.CPPObject;
 import org.bridj.cpp.com.COMRuntime;
 
-import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D_INCLUDE_TYPE;
 import com.fourthskyinteractive.dx4j.d3d11.core.ID3D10Blob;
 import com.fourthskyinteractive.dx4j.d3d11.shader.D3D_SHADER_MACRO;
 
@@ -243,6 +237,7 @@ public class D3DCompiler {
 		}
 	}
 	
+	/*
 	static class ID3DIncludeVtbl extends StructObject {
 		ID3DIncludeVtbl() {
 			super();
@@ -270,9 +265,7 @@ public class D3DCompiler {
 			return this;
 		}
 		
-		/*
-		 * Callbacks that must be implemented
-		 */
+		//Callbacks that must be implemented
 	    @Convention(Convention.Style.StdCall)
 	    public static abstract class OpenCB extends Callback<OpenCB> {
 	            public abstract int apply(Pointer<ID3DInclude> This, D3D_INCLUDE_TYPE IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
@@ -320,7 +313,8 @@ public class D3DCompiler {
 			this.lpVtbl(pointerTo(vTable));
 		}
 		/// C type : ISampleGrabberCBVtbl*
-        @Field(0) 
+        @SuppressWarnings("unused")
+		@Field(0) 
         private Pointer<ID3DIncludeVtbl > lpVtbl() {
             return this.io.getPointerField(this, 0);
         }
@@ -331,22 +325,9 @@ public class D3DCompiler {
             return this;
         }
         
-        /**
-         * 
-         * @param IncludeType
-         * @param pFileName
-         * @param pParentData
-         * @param ppData
-         * @param pBytes
-         * @return
-         */
         public abstract int Open(D3D_INCLUDE_TYPE IncludeType, Pointer<Byte > pFileName, Pointer<? > pParentData, Pointer<Pointer<? > > ppData, Pointer<Integer > pBytes);
         
-        /**
-         * 
-         * @param pData
-         * @return
-         */
         public abstract int Close(Pointer<?> pData);
 	}
+	*/
 }
