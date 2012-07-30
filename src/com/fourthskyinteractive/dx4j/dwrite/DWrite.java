@@ -361,6 +361,54 @@ public class DWrite {
 
 	};
 	
+	public enum DWRITE_INFORMATIONAL_STRING_ID implements IntValuedEnum<DWRITE_INFORMATIONAL_STRING_ID > {
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_NONE(0),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_COPYRIGHT_NOTICE(1),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_VERSION_STRINGS(2),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_TRADEMARK(3),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_MANUFACTURER(4),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_DESIGNER(5),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_DESIGNER_URL(6),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_DESCRIPTION(7),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_FONT_VENDOR_URL(8),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_LICENSE_DESCRIPTION(9),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_LICENSE_INFO_URL(10),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_WIN32_FAMILY_NAMES(11),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_WIN32_SUBFAMILY_NAMES(12),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_PREFERRED_FAMILY_NAMES(13),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_PREFERRED_SUBFAMILY_NAMES(14),
+		/// </summary>
+		DWRITE_INFORMATIONAL_STRING_SAMPLE_TEXT(15);
+		DWRITE_INFORMATIONAL_STRING_ID(long value) {
+			this.value = value;
+		}
+		public final long value;
+		public long value() {
+			return this.value;
+		}
+		public Iterator<DWRITE_INFORMATIONAL_STRING_ID > iterator() {
+			return Collections.singleton(this).iterator();
+		}
+		public static IntValuedEnum<DWRITE_INFORMATIONAL_STRING_ID > fromValue(int value) {
+			return FlagSet.fromValue(value, values());
+		}
+	};
+	
 	public enum DWRITE_MEASURING_MODE implements IntValuedEnum<DWRITE_MEASURING_MODE> {
 		DWRITE_MEASURING_MODE_NATURAL(0),
 		DWRITE_MEASURING_MODE_GDI_CLASSIC(1),
