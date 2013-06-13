@@ -497,27 +497,27 @@ public class DXGI {
 	public static native int CreateDXGIFactory1(Pointer<Byte> pointer, Pointer<Pointer<?>> ppFactory);
 	
 	// "Javanized" methods
-	public IDXGIFactory CreateDXGIFactory() {
+	public static final IDXGIFactory CreateDXGIFactory() throws DXGIException {
 		Pointer<Byte> pGUID = COMRuntime.getIID(IDXGIFactory.class); 
 		Pointer<Pointer<?>> pp = allocatePointer();
 		
 		int result = CreateDXGIFactory(pGUID, pp);
 		if(result != 0) {
 			pp.release();
-			throw new DXGIException("", result);
+			throw new DXGIException(result);
 		}
 		
 		return pp.get().getNativeObject(IDXGIFactory.class);
 	}
 	
-	public IDXGIFactory1 CreateDXGIFactory1() {
+	public static final IDXGIFactory1 CreateDXGIFactory1() throws DXGIException {
 		Pointer<Byte> pGUID = COMRuntime.getIID(IDXGIFactory1.class); 
 		Pointer<Pointer<?>> pp = allocatePointer();
 		
 		int result = CreateDXGIFactory1(pGUID, pp);
 		if(result != 0) {
 			pp.release();
-			throw new DXGIException("Could not create DXGIFactory", result);
+			throw new DXGIException(result);
 		}
 		
 		return pp.get().getNativeObject(IDXGIFactory1.class);

@@ -60,13 +60,13 @@ public class IDXGIDevice extends IDXGIObject {
 	@Virtual(4) 
 	public native int GetGPUThreadPriority(Pointer<Integer > pPriority);
 	
-	public IDXGIAdapter GetAdapter() {
+	public IDXGIAdapter GetAdapter() throws DXGIException {
 		Pointer<Pointer<IDXGIAdapter>> pp = allocatePointer(IDXGIAdapter.class);
 		
 		try {
 			int result = this.GetAdapter(pp);
 			if (result != 0) {
-				throw new DXGIException("Could not obtain adapter", result);
+				throw new DXGIException(result);
 			}
 			
 			return pp.get().getNativeObject(IDXGIAdapter.class);

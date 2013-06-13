@@ -11,6 +11,7 @@ import org.bridj.cpp.com.IID;
 
 import com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_RESOURCE_DIMENSION;
 import com.fourthskyinteractive.dx4j.d3d11.core.ID3D11DeviceChild;
+import com.fourthskyinteractive.dx4j.dxgi.DXGIException;
 import com.fourthskyinteractive.dx4j.dxgi.device.IDXGIResource;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 
@@ -42,8 +43,9 @@ public class ID3D11Resource extends ID3D11DeviceChild {
 	/**
 	 * Utility method to obtain shared handle
 	 * @return the shared handle
+	 * @throws DXGIException 
 	 */
-	public final HANDLE GetSharedHandle() {
+	public final HANDLE GetSharedHandle() throws DXGIException {
 		IDXGIResource dxgiResource = this.QueryInterface(IDXGIResource.class);
 		try {
 			return dxgiResource.GetSharedHandle();

@@ -65,14 +65,14 @@ public class IDXGIFactory extends IDXGIObject {
 	public native int CreateSoftwareAdapter(HMODULE Module, Pointer<Pointer<IDXGIAdapter > > ppAdapter);
 	
 	// "Javanized" methods
-	public IDXGISwapChain CreateSwapChain(IUnknown device, DXGI_SWAP_CHAIN_DESC desc) {
+	public IDXGISwapChain CreateSwapChain(IUnknown device, DXGI_SWAP_CHAIN_DESC desc) throws DXGIException {
 		Pointer<Pointer<IDXGISwapChain>> ppSwapChain = null;
 		
 		try {
 			ppSwapChain = allocatePointer(IDXGISwapChain.class);
 			int result = CreateSwapChain(pointerTo(device), pointerTo(desc), ppSwapChain);
 			if(result != 0) {
-				throw new DXGIException("", result);
+				throw new DXGIException(result);
 			}
 			
 			return ppSwapChain.get().getNativeObject(IDXGISwapChain.class);

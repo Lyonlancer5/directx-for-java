@@ -54,12 +54,12 @@ public class IDXGIResource extends IDXGIDeviceSubObject {
 	@Virtual(3) 
 	public native int GetEvictionPriority(Pointer<Integer > pEvictionPriority);
 	
-	public final HANDLE GetSharedHandle() {
+	public final HANDLE GetSharedHandle() throws DXGIException {
 		Pointer<HANDLE> pHandle = allocate(HANDLE.class);
 		try {
 			int result = this.GetSharedHandle(pHandle);
 			if (result != 0) {
-				throw new DXGIException("Could not get shared handle", result);
+				throw new DXGIException(result);
 			}
 			
 			return pHandle.get();

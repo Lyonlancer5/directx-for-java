@@ -166,7 +166,7 @@ public class D3DCompiler {
 											 String entrypoint,
 											 String target,
 											 int Flags1,
-											 int Flags2) {
+											 int Flags2) throws D3DCompilerException {
 		Pointer<Pointer<ID3D10Blob>> ppCode = allocatePointer(ID3D10Blob.class);
 		Pointer<Pointer<ID3D10Blob>> ppErrors = allocatePointer(ID3D10Blob.class);
 		Pointer<D3D_SHADER_MACRO> pMacros = null;
@@ -218,7 +218,7 @@ public class D3DCompiler {
 		}
 	}
 	
-	public ID3D11ShaderReflection D3DReflect(ID3D10Blob compiledShader) {
+	public ID3D11ShaderReflection D3DReflect(ID3D10Blob compiledShader) throws D3DCompilerException {
 		Pointer<Pointer<?>> pp = allocatePointer();
 		
 		try {

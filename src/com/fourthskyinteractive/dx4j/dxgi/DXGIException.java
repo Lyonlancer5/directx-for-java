@@ -1,18 +1,19 @@
 package com.fourthskyinteractive.dx4j.dxgi;
 
-public class DXGIException extends RuntimeException {
+import com.fourthskyinteractive.dx4j.windows.WindowsException;
+
+public class DXGIException extends WindowsException {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1137607257985787559L;
-	private long code;
+	
+	public DXGIException(long code) {
+		super(code);
+	}
 	
 	public DXGIException(String message, long code) {
-		super(message);
-		this.code = code;
+		super(message, code);
 	}
 	
-	public long getCode() {
-		return code;
-	}
 }
