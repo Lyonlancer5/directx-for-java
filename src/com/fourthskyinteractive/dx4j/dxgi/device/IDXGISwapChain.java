@@ -76,7 +76,7 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 	public native int GetLastPresentCount(Pointer<Integer > pLastPresentCount);
 	
 	// "Javanized" methods
-	public <T extends IUnknown> T GetBuffer(int Buffer, Class<T> klass) {
+	public <T extends IUnknown> T GetBuffer(int Buffer, Class<T> klass) throws DXGIException {
 		// Get GUID of class
 		Pointer<Byte> guid = COMRuntime.getIID(klass);
 		
@@ -86,7 +86,7 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 		try {
 			int result = this.GetBuffer(Buffer, guid, pp);
 			if(result != 0) {
-				throw new DXGIException("Could not get back buffer from swap chain", result);
+				throw new DXGIException(result);
 			}
 			
 			return pp.get().getNativeObject(klass);
@@ -96,12 +96,12 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 		}
 	}
 	
-	public final int GetLastPresentCount() {
+	public final int GetLastPresentCount() throws DXGIException {
 		Pointer<Integer> pp = allocate(Integer.class);
 		try {
 			int result = this.GetLastPresentCount(pp);
 			if(result != 0) {
-				throw new DXGIException("Could not get last present count", result);
+				throw new DXGIException(result);
 			}
 			
 			return pp.get();
@@ -110,22 +110,22 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 		}
 	}
 	
-	public final DXGI_FRAME_STATISTICS GetFrameStatistics() {
+	public final DXGI_FRAME_STATISTICS GetFrameStatistics() throws DXGIException {
 		DXGI_FRAME_STATISTICS stats = new DXGI_FRAME_STATISTICS();
 		int result = this.GetFrameStatistics(pointerTo(stats));
 		if(result != 0) {
-			throw new DXGIException("Could not get frame statistics", result);
+			throw new DXGIException(result);
 		}
 		
 		return stats;
 	}
 	
-	public final IDXGIOutput GetContainingOutput() {
+	public final IDXGIOutput GetContainingOutput() throws DXGIException {
 		Pointer<Pointer<IDXGIOutput>> pp = allocatePointer(IDXGIOutput.class);
 		try {
 			int result = this.GetContainingOutput(pp);
 			if(result != 0) {
-				throw new DXGIException("Could not get monitor output", result);
+				throw new DXGIException(result);
 			}
 			
 			return pp.get().getNativeObject(IDXGIOutput.class);
@@ -134,26 +134,26 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 		}
 	}
 	
-	public final void ResizeTarget(DXGI_MODE_DESC newTargetParameters) {
+	public final void ResizeTarget(DXGI_MODE_DESC newTargetParameters) throws DXGIException {
 		int result = this.ResizeTarget(pointerTo(newTargetParameters));
 		if(result != 0) {
-			throw new DXGIException("Could not resize target", result);
+			throw new DXGIException(result);
 		}
 	}
 	
-	public final void SetFullscreenState(int Fullscreen, IDXGIOutput target) {
+	public final void SetFullscreenState(int Fullscreen, IDXGIOutput target) throws DXGIException {
 		int result = this.SetFullscreenState(Fullscreen, pointerTo(target));
 		if(result != 0) {
-			throw new DXGIException("Could set fullscreen state", result);
+			throw new DXGIException(result);
 		}
 	}
 	
-	public final boolean GetFullscreenState(IDXGIOutput target) {
+	public final boolean GetFullscreenState(IDXGIOutput target) throws DXGIException {
 		Pointer<Integer> pInt = allocateInt();
 		try {
 			int result = this.GetFullscreenState(pInt, pointerToPointer(pointerTo(target)));
 			if(result != 0) {
-				throw new DXGIException("Could get fullscreen state", result);
+				throw new DXGIException(result);
 			}
 			
 			return pInt.get() > 0 ? true : false;

@@ -35,7 +35,7 @@ public class IDXGIObject extends org.bridj.cpp.com.IUnknown {
 	public native int GetParent(Pointer<Byte> riid, Pointer<Pointer<? > > ppParent);
 	
 	// "Javanized methods
-	public <T extends IDXGIObject> T GetParent(Class<T> klass) {
+	public <T extends IDXGIObject> T GetParent(Class<T> klass) throws DXGIException {
 		Pointer<Pointer<?>> pp = null;
 		
 		try {
@@ -43,7 +43,7 @@ public class IDXGIObject extends org.bridj.cpp.com.IUnknown {
 			Pointer<Byte> pGUID = COMRuntime.getIID(klass);
 			int result = GetParent(pGUID, pp);
 			if(result != 0) {
-				throw new DXGIException("", result);
+				throw new DXGIException(result);
 			}
 			
 			return pp.get().getNativeObject(klass);

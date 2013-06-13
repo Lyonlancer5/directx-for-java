@@ -1,0 +1,317 @@
+typedef char BYTE;
+typedef wchar_t WCHAR;
+typedef wchar_t* LPWSTR;
+typedef const wchar_t* LPCWSTR;
+typedef long LONG;
+typedef unsigned long ULONG;
+typedef double ULONGLONG;
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
+typedef void* SPSTATEHANDLE;
+typedef unsigned int WPARAM;
+typedef long LPARAM;
+typedef char* GUID;
+
+
+typedef WCHAR SPPHONEID;
+
+typedef LPWSTR PSPPHONEID;
+
+typedef LPCWSTR PCSPPHONEID;
+
+typedef /* [hidden] */ 
+enum SPADAPTATIONRELEVANCE
+    {	SPAR_Unknown	= 0,
+	SPAR_Low	= 1,
+	SPAR_Medium	= 2,
+	SPAR_High	= 3
+    } 	SPADAPTATIONRELEVANCE;
+
+typedef /* [hidden] */ 
+enum SPGRAMMARWORDTYPE
+    {	SPWT_DISPLAY	= 0,
+	SPWT_LEXICAL	= ( SPWT_DISPLAY + 1 ) ,
+	SPWT_PRONUNCIATION	= ( SPWT_LEXICAL + 1 ) ,
+	SPWT_LEXICAL_NO_SPECIAL_CHARS	= ( SPWT_PRONUNCIATION + 1 ) 
+    } 	SPGRAMMARWORDTYPE;
+
+typedef /* [hidden] */ 
+enum SPEVENTENUM
+    {	SPEI_UNDEFINED	= 0,
+	SPEI_START_INPUT_STREAM	= 1,
+	SPEI_END_INPUT_STREAM	= 2,
+	SPEI_VOICE_CHANGE	= 3,
+	SPEI_TTS_BOOKMARK	= 4,
+	SPEI_WORD_BOUNDARY	= 5,
+	SPEI_PHONEME	= 6,
+	SPEI_SENTENCE_BOUNDARY	= 7,
+	SPEI_VISEME	= 8,
+	SPEI_TTS_AUDIO_LEVEL	= 9,
+	SPEI_TTS_PRIVATE	= 15,
+	SPEI_MIN_TTS	= 1,
+	SPEI_MAX_TTS	= 15,
+	SPEI_END_SR_STREAM	= 34,
+	SPEI_SOUND_START	= 35,
+	SPEI_SOUND_END	= 36,
+	SPEI_PHRASE_START	= 37,
+	SPEI_RECOGNITION	= 38,
+	SPEI_HYPOTHESIS	= 39,
+	SPEI_SR_BOOKMARK	= 40,
+	SPEI_PROPERTY_NUM_CHANGE	= 41,
+	SPEI_PROPERTY_STRING_CHANGE	= 42,
+	SPEI_FALSE_RECOGNITION	= 43,
+	SPEI_INTERFERENCE	= 44,
+	SPEI_REQUEST_UI	= 45,
+	SPEI_RECO_STATE_CHANGE	= 46,
+	SPEI_ADAPTATION	= 47,
+	SPEI_START_SR_STREAM	= 48,
+	SPEI_RECO_OTHER_CONTEXT	= 49,
+	SPEI_SR_AUDIO_LEVEL	= 50,
+	SPEI_SR_RETAINEDAUDIO	= 51,
+	SPEI_SR_PRIVATE	= 52,
+	SPEI_RESERVED4	= 53,
+	SPEI_RESERVED5	= 54,
+	SPEI_RESERVED6	= 55,
+	SPEI_MIN_SR	= 34,
+	SPEI_MAX_SR	= 55,
+	SPEI_RESERVED1	= 30,
+	SPEI_RESERVED2	= 33,
+	SPEI_RESERVED3	= 63
+    } 	SPEVENTENUM;
+
+typedef /* [hidden] */ 
+enum SPEVENTLPARAMTYPE
+    {	SPET_LPARAM_IS_UNDEFINED	= 0,
+	SPET_LPARAM_IS_TOKEN	= ( SPET_LPARAM_IS_UNDEFINED + 1 ) ,
+	SPET_LPARAM_IS_OBJECT	= ( SPET_LPARAM_IS_TOKEN + 1 ) ,
+	SPET_LPARAM_IS_POINTER	= ( SPET_LPARAM_IS_OBJECT + 1 ) ,
+	SPET_LPARAM_IS_STRING	= ( SPET_LPARAM_IS_POINTER + 1 ) 
+    } 	SPEVENTLPARAMTYPE;
+
+typedef /* [hidden] */ 
+enum SPRULESTATE
+    {	SPRS_INACTIVE	= 0,
+	SPRS_ACTIVE	= 1,
+	SPRS_ACTIVE_WITH_AUTO_PAUSE	= 3,
+	SPRS_ACTIVE_USER_DELIMITED	= 4
+    } 	SPRULESTATE;
+
+typedef /* [hidden] */ 
+enum SPINTERFERENCE
+    {	SPINTERFERENCE_NONE	= 0,
+	SPINTERFERENCE_NOISE	= ( SPINTERFERENCE_NONE + 1 ) ,
+	SPINTERFERENCE_NOSIGNAL	= ( SPINTERFERENCE_NOISE + 1 ) ,
+	SPINTERFERENCE_TOOLOUD	= ( SPINTERFERENCE_NOSIGNAL + 1 ) ,
+	SPINTERFERENCE_TOOQUIET	= ( SPINTERFERENCE_TOOLOUD + 1 ) ,
+	SPINTERFERENCE_TOOFAST	= ( SPINTERFERENCE_TOOQUIET + 1 ) ,
+	SPINTERFERENCE_TOOSLOW	= ( SPINTERFERENCE_TOOFAST + 1 ) 
+    } 	SPINTERFERENCE;
+
+typedef /* [hidden] */ 
+enum SPENDSRSTREAMFLAGS
+    {	SPESF_NONE	= 0,
+	SPESF_STREAM_RELEASED	= ( 1 << 0 ) ,
+	SPESF_EMULATED	= ( 1 << 1 ) 
+    } 	SPENDSRSTREAMFLAGS;
+
+typedef /* [hidden] */ 
+enum SPVFEATURE
+    {	SPVFEATURE_STRESSED	= ( 1L << 0 ) ,
+	SPVFEATURE_EMPHASIS	= ( 1L << 1 ) 
+    } 	SPVFEATURE;
+
+typedef /* [hidden] */ 
+enum SPVISEMES
+    {	SP_VISEME_0	= 0,
+	SP_VISEME_1	= ( SP_VISEME_0 + 1 ) ,
+	SP_VISEME_2	= ( SP_VISEME_1 + 1 ) ,
+	SP_VISEME_3	= ( SP_VISEME_2 + 1 ) ,
+	SP_VISEME_4	= ( SP_VISEME_3 + 1 ) ,
+	SP_VISEME_5	= ( SP_VISEME_4 + 1 ) ,
+	SP_VISEME_6	= ( SP_VISEME_5 + 1 ) ,
+	SP_VISEME_7	= ( SP_VISEME_6 + 1 ) ,
+	SP_VISEME_8	= ( SP_VISEME_7 + 1 ) ,
+	SP_VISEME_9	= ( SP_VISEME_8 + 1 ) ,
+	SP_VISEME_10	= ( SP_VISEME_9 + 1 ) ,
+	SP_VISEME_11	= ( SP_VISEME_10 + 1 ) ,
+	SP_VISEME_12	= ( SP_VISEME_11 + 1 ) ,
+	SP_VISEME_13	= ( SP_VISEME_12 + 1 ) ,
+	SP_VISEME_14	= ( SP_VISEME_13 + 1 ) ,
+	SP_VISEME_15	= ( SP_VISEME_14 + 1 ) ,
+	SP_VISEME_16	= ( SP_VISEME_15 + 1 ) ,
+	SP_VISEME_17	= ( SP_VISEME_16 + 1 ) ,
+	SP_VISEME_18	= ( SP_VISEME_17 + 1 ) ,
+	SP_VISEME_19	= ( SP_VISEME_18 + 1 ) ,
+	SP_VISEME_20	= ( SP_VISEME_19 + 1 ) ,
+	SP_VISEME_21	= ( SP_VISEME_20 + 1 ) 
+    } 	SPVISEMES;
+
+typedef /* [hidden] */ 
+enum SPAUDIOOPTIONS
+    {	SPAO_NONE	= 0,
+	SPAO_RETAIN_AUDIO	= ( 1 << 0 ) 
+    } 	SPAUDIOOPTIONS;
+
+typedef /* [hidden] */ 
+enum SPBOOKMARKOPTIONS
+    {	SPBO_NONE	= 0,
+	SPBO_PAUSE	= ( 1 << 0 ) ,
+	SPBO_AHEAD	= ( 1 << 1 ) ,
+	SPBO_TIME_UNITS	= ( 1 << 2 ) 
+    } 	SPBOOKMARKOPTIONS;
+
+typedef /* [hidden] */ 
+enum SPCONTEXTSTATE
+    {	SPCS_DISABLED	= 0,
+	SPCS_ENABLED	= 1
+    } 	SPCONTEXTSTATE;
+
+typedef /* [hidden] */ 
+enum SPRECOSTATE
+    {	SPRST_INACTIVE	= 0,
+	SPRST_ACTIVE	= ( SPRST_INACTIVE + 1 ) ,
+	SPRST_ACTIVE_ALWAYS	= ( SPRST_ACTIVE + 1 ) ,
+	SPRST_INACTIVE_WITH_PURGE	= ( SPRST_ACTIVE_ALWAYS + 1 ) ,
+	SPRST_NUM_STATES	= ( SPRST_INACTIVE_WITH_PURGE + 1 ) 
+    } 	SPRECOSTATE;
+
+
+typedef struct test {
+ULONGLONG testVal;
+};
+
+typedef /* [hidden] */ struct tagSPPROPERTYINFO
+    {
+    LPCWSTR pszName;
+    ULONG ulId;
+    LPCWSTR pszValue;
+    VARIANT vValue;
+    } 	SPPROPERTYINFO;
+
+typedef struct SPEVENT
+{
+    SPEVENTENUM        eEventId : 16;
+    SPEVENTLPARAMTYPE  elParamType : 16;
+    ULONG       ulStreamNum;
+    ULONGLONG   ullAudioStreamOffset;
+    WPARAM      wParam;
+    LPARAM      lParam;
+} SPEVENT;
+
+typedef /* [hidden][restricted] */ struct SPEVENTSOURCEINFO
+    {
+    ULONGLONG ullEventInterest;
+    ULONGLONG ullQueuedInterest;
+    ULONG ulCount;
+    } 	SPEVENTSOURCEINFO;
+
+typedef /* [hidden][restricted] */ struct SPRECOCONTEXTSTATUS
+    {
+    SPINTERFERENCE eInterference;
+    WCHAR szRequestTypeOfUI[ 255 ];
+    DWORD dwReserved1;
+    DWORD dwReserved2;
+    } 	SPRECOCONTEXTSTATUS;
+
+typedef struct SPPHRASERULE
+    {
+    LPCWSTR pszName;
+    ULONG ulId;
+    ULONG ulFirstElement;
+    ULONG ulCountOfElements;
+    const SPPHRASERULE *pNextSibling;
+    const SPPHRASERULE *pFirstChild;
+    float SREngineConfidence;
+    signed char Confidence;
+    } ;
+
+struct SPPHRASEPROPERTY
+    {
+    LPCWSTR pszName;
+    union 
+        {
+        ULONG ulId;
+        struct 
+            {
+            byte bType;
+            byte bReserved;
+            unsigned short usArrayIndex;
+            } 	;
+        } 	;
+    LPCWSTR pszValue;
+    VARIANT vValue;
+    ULONG ulFirstElement;
+    ULONG ulCountOfElements;
+    const SPPHRASEPROPERTY *pNextSibling;
+    const SPPHRASEPROPERTY *pFirstChild;
+    float SREngineConfidence;
+    signed char Confidence;
+    } ;
+
+typedef /* [hidden][restricted] */ struct SPPHRASEELEMENT
+    {
+    ULONG ulAudioTimeOffset;
+    ULONG ulAudioSizeTime;
+    ULONG ulAudioStreamOffset;
+    ULONG ulAudioSizeBytes;
+    ULONG ulRetainedStreamOffset;
+    ULONG ulRetainedSizeBytes;
+    LPCWSTR pszDisplayText;
+    LPCWSTR pszLexicalForm;
+    const SPPHONEID *pszPronunciation;
+    BYTE bDisplayAttributes;
+    signed char RequiredConfidence;
+    signed char ActualConfidence;
+    BYTE Reserved;
+    float SREngineConfidence;
+    } 	SPPHRASEELEMENT;
+
+typedef /* [hidden][restricted] */ struct SPPHRASEREPLACEMENT
+    {
+    BYTE bDisplayAttributes;
+    LPCWSTR pszReplacementText;
+    ULONG ulFirstElement;
+    ULONG ulCountOfElements;
+    } 	SPPHRASEREPLACEMENT;
+
+typedef /* [hidden][restricted] */ struct SPSEMANTICERRORINFO
+    {
+    ULONG ulLineNumber;
+    LPWSTR pszScriptLine;
+    LPWSTR pszSource;
+    LPWSTR pszDescription;
+    HRESULT hrResultCode;
+    } 	SPSEMANTICERRORINFO;
+
+typedef /* [hidden][restricted] */ struct SPPHRASE
+    {
+    ULONG cbSize;
+    WORD LangID;
+    WORD wHomophoneGroupId;
+    ULONGLONG ullGrammarID;
+    ULONGLONG ftStartTime;
+    ULONGLONG ullAudioStreamPosition;
+    ULONG ulAudioSizeBytes;
+    ULONG ulRetainedSizeBytes;
+    ULONG ulAudioSizeTime;
+    SPPHRASERULE Rule;
+    const SPPHRASEPROPERTY *pProperties;
+    const SPPHRASEELEMENT *pElements;
+    ULONG cReplacements;
+    const SPPHRASEREPLACEMENT *pReplacements;
+    GUID SREngineID;
+    ULONG ulSREnginePrivateDataSize;
+    const BYTE *pSREnginePrivateData;
+    LPWSTR pSML;
+    SPSEMANTICERRORINFO *pSemanticErrorInfo;
+    } 	SPPHRASE;
+
+typedef /* [hidden][restricted] */ struct SPSERIALIZEDPHRASE
+    {
+    ULONG ulSerializedSize;
+    } 	SPSERIALIZEDPHRASE;
+
+typedef /* [hidden] */ struct SPSERIALIZEDRESULT
+    {
+    ULONG ulSerializedSize;
+    } 	SPSERIALIZEDRESULT;

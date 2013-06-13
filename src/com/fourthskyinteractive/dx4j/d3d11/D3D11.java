@@ -2371,7 +2371,7 @@ public class D3D11 {
 														   Pointer<ID3D11DeviceContext> ppImmediateContext);
 	
 	// "Javanized" methods
-	public static ID3D11Device D3D11CreateDevice(IDXGIAdapter adapter,
+	public static ID3D11Device CreateDevice(IDXGIAdapter adapter,
 											ValuedEnum<D3D_DRIVER_TYPE> driverType,
 											int Flags,
 											D3D_FEATURE_LEVEL[] requiredLevels) throws D3D11Exception {
@@ -2388,7 +2388,7 @@ public class D3D11 {
 				}
 			}			
 			
-			int result = D3D11CreateDevice(pointerTo(adapter),
+			int result = D3D11CreateDevice(adapter != null ? pointerTo(adapter) : null,
 										   driverType,
 										   null,
 										   Flags,
