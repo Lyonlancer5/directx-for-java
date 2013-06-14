@@ -158,7 +158,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = CreateDeferredContext(ContextFlags, pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create deferred context", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11DeviceContext.class);
@@ -173,7 +173,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = CreateRenderTargetView(pointerTo(resource), pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Error creating render target", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11RenderTargetView.class);
@@ -217,7 +217,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateInputLayout(pDescs, descs.length, shaderCode.GetBufferPointer(), new SizeT(shaderCode.GetBufferSize()), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create input layout", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11InputLayout.class);
@@ -234,7 +234,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateClassLinkage(pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create class linkage", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11ClassLinkage.class);
@@ -247,11 +247,12 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11VertexShader CreateVertexShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11VertexShader>> pp = allocatePointer(ID3D11VertexShader.class);
     	try {
-    		int result = CreateVertexShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
+    		int result = CreateVertexShader(compiledCode.GetBufferPointer(), 
+    										new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create vertex shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11VertexShader.class);
@@ -268,7 +269,7 @@ public class ID3D11Device extends IUnknown {
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create pixel shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11PixelShader.class);
@@ -286,7 +287,7 @@ public class ID3D11Device extends IUnknown {
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create geometry shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11GeometryShader.class);
@@ -312,7 +313,7 @@ public class ID3D11Device extends IUnknown {
     															   pointerTo(linkage), 
     															   pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create geometry shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11GeometryShader.class);
@@ -329,7 +330,7 @@ public class ID3D11Device extends IUnknown {
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create hull shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11HullShader.class);
@@ -347,7 +348,7 @@ public class ID3D11Device extends IUnknown {
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create domain shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11DomainShader.class);
@@ -365,7 +366,7 @@ public class ID3D11Device extends IUnknown {
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create compute shader", result);
+    			throw new D3D11Exception(result);
     		}    		
     		
     		return pp.get().getNativeObject(ID3D11ComputeShader.class);
@@ -381,7 +382,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = CreateBuffer(pointerTo(desc), pointerTo(initialData), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create buffer", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11Buffer.class);
@@ -395,7 +396,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = CreateTexture1D(pointerTo(desc), pointerTo(initialData), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create 1D texture", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11Texture1D.class);
@@ -409,7 +410,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateTexture2D(pointerTo(desc), pointerTo(initialData), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create 2D texture", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11Texture2D.class);
@@ -423,7 +424,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateTexture3D(pointerTo(desc), pointerTo(initialData), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create 3D texture", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11Texture3D.class);
@@ -438,7 +439,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateShaderResourceView(pointerTo(resource), pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create shader resource view", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11ShaderResourceView.class);
@@ -453,7 +454,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateUnorderedAccessView(pointerTo(resource), pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create 3D texture", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11UnorderedAccessView.class);
@@ -468,7 +469,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateBlendState(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create blend state", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11BlendState.class);
@@ -482,7 +483,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateDepthStencilState(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create depth stencil state", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11DepthStencilState.class);
@@ -496,7 +497,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateRasterizerState(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create rasterizer state", result);
+    			throw new D3D11Exception(result);
     		} 
     		
     		return pp.get().getNativeObject(ID3D11RasterizerState.class);
@@ -510,7 +511,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateSamplerState(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create sampler state", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11SamplerState.class);
@@ -525,7 +526,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateQuery(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create query", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11Query.class);
@@ -540,7 +541,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreatePredicate(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create predicate query", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11Predicate.class);
@@ -555,7 +556,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CreateCounter(pointerTo(desc), pp);
     		if(result != 0) {
-    			throw new D3D11Exception("Could not create counter", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(ID3D11Counter.class);
@@ -571,7 +572,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.OpenSharedResource(hResource, resourceGUID, pp);
     		if (result != 0) {
-    			throw new D3D11Exception("Could not open shared resource", result);
+    			throw new D3D11Exception(result);
     		}
     		
     		return pp.get().getNativeObject(type);
@@ -586,7 +587,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CheckFormatSupport(format, pInt);
     		if (result != 0) {
-    			throw new D3D11Exception("Could not check format support", result);
+    			throw new D3D11Exception(result);
     		}
     		return pInt.getInt();
     	} finally {
@@ -600,7 +601,7 @@ public class ID3D11Device extends IUnknown {
     	try {
     		int result = this.CheckMultisampleQualityLevels(format, SampleCount, pInt);
     		if (result != 0) {
-    			throw new D3D11Exception("Could not check format support", result);
+    			throw new D3D11Exception(result);
     		}
     		return pInt.getInt();
     	} finally {
