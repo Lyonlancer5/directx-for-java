@@ -77,16 +77,34 @@ public class D3D11 {
 		}
 	};
 	public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
-		D3D_FEATURE_LEVEL_9_1(0x9100),
-		D3D_FEATURE_LEVEL_9_2(0x9200),
-		D3D_FEATURE_LEVEL_9_3(0x9300),
-		D3D_FEATURE_LEVEL_10_0(0xA000),
-		D3D_FEATURE_LEVEL_10_1(0xA100),
-		D3D_FEATURE_LEVEL_11_0(0xB000);
-		D3D_FEATURE_LEVEL(long value) {
-			this.value = value;
-		}
+		D3D_FEATURE_LEVEL_9_1(0x9100, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
+		D3D_FEATURE_LEVEL_9_2(0x9200, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
+		D3D_FEATURE_LEVEL_9_3(0x9300, "vs_4_0_level_9_3", "ps_4_0_level_9_3", "gs_4_0_level_9_3", "", "", ""),
+		D3D_FEATURE_LEVEL_10_0(0xA000, "vs_4_0", "ps_4_0", "gs_4_0", "cs_4_0", "hs_4_0", "ds_4_0"),
+		D3D_FEATURE_LEVEL_10_1(0xA100, "vs_4_1", "ps_4_1", "gs_4_1", "cs_4_1", "hs_4_1", "ds_4_1"),
+		D3D_FEATURE_LEVEL_11_0(0xB000, "vs_5_0", "ps_5_0", "gs_5_0", "cs_5_0", "hs_5_0", "ds_5_0"),
+		D3D_FEATURE_LEVEL_11_1(0xB100, "vs_5_1", "ps_5_1", "gs_5_1", "cs_5_1", "hs_5_1", "ds_5_1");
+		
 		public final long value;
+		public final String vsShaderVersion;
+		public final String psShaderVersion;
+		public final String gsShaderVersion;
+		public final String hsShaderVersion;
+		public final String dsShaderVersion;
+		public final String csShaderVersion;
+		
+		D3D_FEATURE_LEVEL(long value, String vsVersion, String psVersion, 
+									  String gsVersion, String csVersion,
+									  String hsVersion, String dsVersion) {
+			this.value = value;
+			vsShaderVersion = vsVersion;
+			psShaderVersion = psVersion;
+			gsShaderVersion = gsVersion;
+			csShaderVersion = csVersion;
+			hsShaderVersion = hsVersion;
+			dsShaderVersion = dsVersion;
+		}
+		
 		public long value() {
 			return this.value;
 		}

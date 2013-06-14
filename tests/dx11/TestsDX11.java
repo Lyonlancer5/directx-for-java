@@ -66,11 +66,13 @@ public class TestsDX11 {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 
+		D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_10_0;
+		
 		// Create device
 		final ID3D11Device device = CreateDevice(null, 
 												 D3D_DRIVER_TYPE_WARP, 
 												 0, 
-												 new D3D_FEATURE_LEVEL[] { D3D_FEATURE_LEVEL_10_0 });
+												 new D3D_FEATURE_LEVEL[] { featureLevel });
 		final ID3D11DeviceContext immediateContext = device.GetImmediateContext();
 
 		IDXGIDevice1 DXGIDevice = device.QueryInterface(IDXGIDevice1.class);
@@ -89,18 +91,18 @@ public class TestsDX11 {
 		immediateContext.RSSetViewport(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
 
 		// Shader
-		String shaders = "float4 VS( float4 Pos : POSITION ) : SV_POSITION              \n" +
-				"{                                                                                                             \n" +
-				"      return Pos;                                                                                     \n" +
-				"}                                                                                                             \n" +
-				"                                                                                                              \n" +
-				"float4 PS( float4 Pos : SV_POSITION ) : SV_Target             \n" +
-				"{                                                                                                             \n" +
-				"  return float4( 0.0f, 1.0f, 0.0f, 1.0f );                    \n" +
-				"}";
+		String shaders = "float4 VS( float4 Pos : POSITION ) : SV_POSITION        \n" +
+						"{                                                        \n" +
+						"      return Pos;                                        \n" +
+						"}                                                        \n" +
+						"                                                         \n" +
+						"float4 PS( float4 Pos : SV_POSITION ) : SV_Target        \n" +
+						"{                                                        \n" +
+						"  return float4( 0.0f, 1.0f, 0.0f, 1.0f );               \n" +
+						"}";
 
 		// Compiling for vertex shader and input layout
-		ID3D10Blob code = D3DCompile(shaders, null, null, null, "VS", "vs_5_0", 0, 0);
+		ID3D10Blob code = D3DCompile(shaders, null, null, null, "VS", featureLevel.vsShaderVersion, 0, 0);
 
 		// Create input layout
 		D3D11_INPUT_ELEMENT_DESC layoutDesc = new D3D11_INPUT_ELEMENT_DESC("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0);
@@ -112,7 +114,7 @@ public class TestsDX11 {
 		code.Release();
 
 		// Creating pixel shader
-		code = D3DCompile(shaders, null, null, null, "PS", "ps_5_0", 0, 0);
+		code = D3DCompile(shaders, null, null, null, "PS", featureLevel.psShaderVersion, 0, 0);
 		final ID3D11PixelShader ps = device.CreatePixelShader(code, null);
 		code.Release();
 
@@ -148,6 +150,8 @@ public class TestsDX11 {
 						immediateContext.Draw(3, 0);
 
 						swapChain.Present(0, 0);
+						
+						//immediateContext.ClearState();
 					}
 				});
 
