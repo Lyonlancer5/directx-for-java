@@ -3,10 +3,12 @@ package com.fourthskyinteractive.dx4j.dxgi.device;
 import org.bridj.Pointer;
 import org.bridj.StructObject;
 import org.bridj.ann.Field;
+import org.bridj.ann.Library;
 import org.bridj.cpp.com.RECT;
 
 import com.fourthskyinteractive.dx4j.windows.POINT;
 
+@Library("dxgi")
 public class DXGI_PRESENT_PARAMETERS extends StructObject {
 
 	public DXGI_PRESENT_PARAMETERS() {

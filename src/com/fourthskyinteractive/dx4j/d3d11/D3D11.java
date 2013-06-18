@@ -54,7 +54,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_INCLUDE_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_DRIVER_TYPE implements IntValuedEnum<D3D_DRIVER_TYPE> {
 		D3D_DRIVER_TYPE_UNKNOWN(0),
 		D3D_DRIVER_TYPE_HARDWARE(1),
@@ -75,7 +75,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_DRIVER_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
 		D3D_FEATURE_LEVEL_9_1(0x9100, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
 		D3D_FEATURE_LEVEL_9_2(0x9200, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
@@ -114,7 +114,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_FEATURE_LEVEL > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_PRIMITIVE_TOPOLOGY implements IntValuedEnum<D3D_PRIMITIVE_TOPOLOGY > {
 		D3D_PRIMITIVE_TOPOLOGY_UNDEFINED(0),
 		D3D_PRIMITIVE_TOPOLOGY_POINTLIST(1),
@@ -171,7 +171,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_PRIMITIVE_TOPOLOGY > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_PRIMITIVE implements IntValuedEnum<D3D_PRIMITIVE > {
 		D3D_PRIMITIVE_UNDEFINED(0),
 		D3D_PRIMITIVE_POINT(1),
@@ -224,7 +224,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_PRIMITIVE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SRV_DIMENSION implements IntValuedEnum<D3D_SRV_DIMENSION > {
 		D3D_SRV_DIMENSION_UNKNOWN(0),
 		D3D_SRV_DIMENSION_BUFFER(1),
@@ -251,7 +251,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SRV_DIMENSION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_VARIABLE_CLASS implements IntValuedEnum<D3D_SHADER_VARIABLE_CLASS > {
 		D3D_SVC_SCALAR(0),
 		D3D_SVC_VECTOR((1)),
@@ -275,7 +275,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_VARIABLE_CLASS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_VARIABLE_FLAGS implements IntValuedEnum<D3D_SHADER_VARIABLE_FLAGS > {
 		D3D_SVF_USERPACKED(1),
 		D3D_SVF_USED(2),
@@ -295,7 +295,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_VARIABLE_FLAGS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_VARIABLE_TYPE implements IntValuedEnum<D3D_SHADER_VARIABLE_TYPE > {
 		D3D_SVT_VOID(0),
 		D3D_SVT_BOOL(1),
@@ -363,7 +363,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_VARIABLE_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_INPUT_FLAGS implements IntValuedEnum<D3D_SHADER_INPUT_FLAGS > {
 		D3D_SIF_USERPACKED(1),
 		D3D_SIF_COMPARISON_SAMPLER(2),
@@ -384,7 +384,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_INPUT_FLAGS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_INPUT_TYPE implements IntValuedEnum<D3D_SHADER_INPUT_TYPE > {
 		D3D_SIT_CBUFFER(0),
 		D3D_SIT_TBUFFER((1)),
@@ -411,7 +411,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_INPUT_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_SHADER_CBUFFER_FLAGS implements IntValuedEnum<D3D_SHADER_CBUFFER_FLAGS > {
 		D3D_CBF_USERPACKED(1),
 		D3D_CBF_FORCE_DWORD(0x7FFFFFFF);
@@ -428,7 +428,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_SHADER_CBUFFER_FLAGS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_CBUFFER_TYPE implements IntValuedEnum<D3D_CBUFFER_TYPE > {
 		D3D_CT_CBUFFER(0),
 		D3D_CT_TBUFFER((1)),
@@ -447,7 +447,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_CBUFFER_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_NAME implements IntValuedEnum<D3D_NAME > {
 		D3D_NAME_UNDEFINED(0),
 		D3D_NAME_POSITION(1),
@@ -484,7 +484,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_NAME > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_RESOURCE_RETURN_TYPE implements IntValuedEnum<D3D_RESOURCE_RETURN_TYPE > {
 		D3D_RETURN_TYPE_UNORM(1),
 		D3D_RETURN_TYPE_SNORM(2),
@@ -507,7 +507,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_RESOURCE_RETURN_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_REGISTER_COMPONENT_TYPE implements IntValuedEnum<D3D_REGISTER_COMPONENT_TYPE > {
 		D3D_REGISTER_COMPONENT_UNKNOWN(0),
 		D3D_REGISTER_COMPONENT_UINT32(1),
@@ -526,7 +526,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_REGISTER_COMPONENT_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_TESSELLATOR_DOMAIN implements IntValuedEnum<D3D_TESSELLATOR_DOMAIN > {
 		D3D_TESSELLATOR_DOMAIN_UNDEFINED(0),
 		D3D_TESSELLATOR_DOMAIN_ISOLINE(1),
@@ -545,7 +545,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_TESSELLATOR_DOMAIN > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_TESSELLATOR_PARTITIONING implements IntValuedEnum<D3D_TESSELLATOR_PARTITIONING > {
 		D3D_TESSELLATOR_PARTITIONING_UNDEFINED(0),
 		D3D_TESSELLATOR_PARTITIONING_INTEGER(1),
@@ -565,7 +565,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_TESSELLATOR_PARTITIONING > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_TESSELLATOR_OUTPUT_PRIMITIVE implements IntValuedEnum<D3D_TESSELLATOR_OUTPUT_PRIMITIVE > {
 		D3D_TESSELLATOR_OUTPUT_UNDEFINED(0),
 		D3D_TESSELLATOR_OUTPUT_POINT(1),
@@ -585,7 +585,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D_TESSELLATOR_OUTPUT_PRIMITIVE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_INPUT_CLASSIFICATION implements IntValuedEnum<D3D11_INPUT_CLASSIFICATION > {
 		D3D11_INPUT_PER_VERTEX_DATA(0),
 		D3D11_INPUT_PER_INSTANCE_DATA(1);
@@ -602,7 +602,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_INPUT_CLASSIFICATION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FILL_MODE implements IntValuedEnum<D3D11_FILL_MODE > {
 		D3D11_FILL_WIREFRAME(2),
 		D3D11_FILL_SOLID(3);
@@ -619,7 +619,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FILL_MODE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_CULL_MODE implements IntValuedEnum<D3D11_CULL_MODE > {
 		D3D11_CULL_NONE(1),
 		D3D11_CULL_FRONT(2),
@@ -637,7 +637,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_CULL_MODE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_RESOURCE_DIMENSION implements IntValuedEnum<D3D11_RESOURCE_DIMENSION > {
 		D3D11_RESOURCE_DIMENSION_UNKNOWN(0),
 		D3D11_RESOURCE_DIMENSION_BUFFER(1),
@@ -657,7 +657,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_RESOURCE_DIMENSION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_DSV_DIMENSION implements IntValuedEnum<D3D11_DSV_DIMENSION > {
 		D3D11_DSV_DIMENSION_UNKNOWN(0),
 		D3D11_DSV_DIMENSION_TEXTURE1D(1),
@@ -679,7 +679,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_DSV_DIMENSION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_RTV_DIMENSION implements IntValuedEnum<D3D11_RTV_DIMENSION > {
 		D3D11_RTV_DIMENSION_UNKNOWN(0),
 		D3D11_RTV_DIMENSION_BUFFER(1),
@@ -703,7 +703,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_RTV_DIMENSION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_UAV_DIMENSION implements IntValuedEnum<D3D11_UAV_DIMENSION > {
 		D3D11_UAV_DIMENSION_UNKNOWN(0),
 		D3D11_UAV_DIMENSION_BUFFER(1),
@@ -725,7 +725,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_UAV_DIMENSION > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_USAGE implements IntValuedEnum<D3D11_USAGE > {
 		D3D11_USAGE_DEFAULT(0),
 		D3D11_USAGE_IMMUTABLE(1),
@@ -744,7 +744,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_USAGE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_BIND_FLAG implements IntValuedEnum<D3D11_BIND_FLAG > {
 		D3D11_BIND_NONE(0x0),
 		D3D11_BIND_VERTEX_BUFFER(0x1),
@@ -768,7 +768,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_BIND_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_CPU_ACCESS_FLAG implements IntValuedEnum<D3D11_CPU_ACCESS_FLAG > {
 		D3D11_CPU_ACCESS_NONE(0x00000),
 		D3D11_CPU_ACCESS_WRITE(0x10000),
@@ -787,7 +787,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_CPU_ACCESS_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_RESOURCE_MISC_FLAG implements IntValuedEnum<D3D11_RESOURCE_MISC_FLAG > {
 		D3D11_RESOURCE_MISC_NONE(0x0),
 		D3D11_RESOURCE_MISC_GENERATE_MIPS(0x1),
@@ -812,7 +812,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_RESOURCE_MISC_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_MAP implements IntValuedEnum<D3D11_MAP > {
 		D3D11_MAP_READ(1),
 		D3D11_MAP_WRITE(2),
@@ -832,7 +832,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_MAP > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_MAP_FLAG implements IntValuedEnum<D3D11_MAP_FLAG > {
 		D3D11_MAP_FLAG_NONE(0),
 		D3D11_MAP_FLAG_DO_NOT_WAIT(0x100000);
@@ -849,7 +849,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_MAP_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_RAISE_FLAG implements IntValuedEnum<D3D11_RAISE_FLAG > {
 		D3D11_RAISE_FLAG_DRIVER_INTERNAL_ERROR(0x1);
 		D3D11_RAISE_FLAG(long value) {
@@ -865,7 +865,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_RAISE_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_CLEAR_FLAG implements IntValuedEnum<D3D11_CLEAR_FLAG > {
 		D3D11_CLEAR_DEPTH(0x1),
 		D3D11_CLEAR_STENCIL(0x2),
@@ -883,7 +883,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_CLEAR_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_COMPARISON_FUNC implements IntValuedEnum<D3D11_COMPARISON_FUNC > {
 		D3D11_COMPARISON_NEVER(1),
 		D3D11_COMPARISON_LESS(2),
@@ -906,7 +906,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_COMPARISON_FUNC > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_DEPTH_WRITE_MASK implements IntValuedEnum<D3D11_DEPTH_WRITE_MASK > {
 		D3D11_DEPTH_WRITE_MASK_ZERO(0),
 		D3D11_DEPTH_WRITE_MASK_ALL(1);
@@ -923,7 +923,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_DEPTH_WRITE_MASK > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_STENCIL_OP implements IntValuedEnum<D3D11_STENCIL_OP > {
 		D3D11_STENCIL_OP_KEEP(1),
 		D3D11_STENCIL_OP_ZERO(2),
@@ -946,7 +946,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_STENCIL_OP > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_BLEND implements IntValuedEnum<D3D11_BLEND > {
 		D3D11_BLEND_ZERO(1),
 		D3D11_BLEND_ONE(2),
@@ -978,7 +978,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_BLEND > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_BLEND_OP implements IntValuedEnum<D3D11_BLEND_OP > {
 		D3D11_BLEND_OP_ADD(1),
 		D3D11_BLEND_OP_SUBTRACT(2),
@@ -998,7 +998,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_BLEND_OP > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_COLOR_WRITE_ENABLE implements IntValuedEnum<D3D11_COLOR_WRITE_ENABLE > {
 		D3D11_COLOR_WRITE_ENABLE_RED(1),
 		D3D11_COLOR_WRITE_ENABLE_GREEN(2),
@@ -1018,7 +1018,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_COLOR_WRITE_ENABLE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_TEXTURECUBE_FACE implements IntValuedEnum<D3D11_TEXTURECUBE_FACE > {
 		D3D11_TEXTURECUBE_FACE_POSITIVE_X(0),
 		D3D11_TEXTURECUBE_FACE_NEGATIVE_X(1),
@@ -1039,7 +1039,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_TEXTURECUBE_FACE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_BUFFEREX_SRV_FLAG implements IntValuedEnum<D3D11_BUFFEREX_SRV_FLAG > {
 		D3D11_BUFFEREX_SRV_FLAG_RAW(0x1);
 		D3D11_BUFFEREX_SRV_FLAG(long value) {
@@ -1055,7 +1055,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_BUFFEREX_SRV_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_DSV_FLAG implements IntValuedEnum<D3D11_DSV_FLAG > {
 		D3D11_DSV_READ_NONE(0x0),
 		D3D11_DSV_READ_ONLY_DEPTH(0x1),
@@ -1073,7 +1073,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_DSV_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_BUFFER_UAV_FLAG implements IntValuedEnum<D3D11_BUFFER_UAV_FLAG > {
 		D3D11_BUFFER_UAV_FLAG_RAW(0x1),
 		D3D11_BUFFER_UAV_FLAG_APPEND(0x2),
@@ -1091,7 +1091,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_BUFFER_UAV_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FILTER implements IntValuedEnum<D3D11_FILTER > {
 		D3D11_FILTER_MIN_MAG_MIP_POINT(0),
 		D3D11_FILTER_MIN_MAG_POINT_MIP_LINEAR(0x1),
@@ -1124,7 +1124,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FILTER > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FILTER_TYPE implements IntValuedEnum<D3D11_FILTER_TYPE > {
 		D3D11_FILTER_TYPE_POINT(0),
 		D3D11_FILTER_TYPE_LINEAR(1);
@@ -1141,7 +1141,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FILTER_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_TEXTURE_ADDRESS_MODE implements IntValuedEnum<D3D11_TEXTURE_ADDRESS_MODE > {
 		D3D11_TEXTURE_ADDRESS_WRAP(1),
 		D3D11_TEXTURE_ADDRESS_MIRROR(2),
@@ -1161,7 +1161,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_TEXTURE_ADDRESS_MODE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FORMAT_SUPPORT implements IntValuedEnum<D3D11_FORMAT_SUPPORT > {
 		D3D11_FORMAT_SUPPORT_BUFFER(0x1),
 		D3D11_FORMAT_SUPPORT_IA_VERTEX_BUFFER(0x2),
@@ -1203,7 +1203,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FORMAT_SUPPORT > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FORMAT_SUPPORT2 implements IntValuedEnum<D3D11_FORMAT_SUPPORT2 > {
 		D3D11_FORMAT_SUPPORT2_UAV_ATOMIC_ADD(0x1),
 		D3D11_FORMAT_SUPPORT2_UAV_ATOMIC_BITWISE_OPS(0x2),
@@ -1226,7 +1226,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FORMAT_SUPPORT2 > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_ASYNC_GETDATA_FLAG implements IntValuedEnum<D3D11_ASYNC_GETDATA_FLAG > {
 		D3D11_ASYNC_GETDATA_NONE(0x0),
 		D3D11_ASYNC_GETDATA_DONOTFLUSH(0x1);
@@ -1243,7 +1243,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_ASYNC_GETDATA_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_QUERY implements IntValuedEnum<D3D11_QUERY > {
 		D3D11_QUERY_EVENT(0),
 		D3D11_QUERY_OCCLUSION(1),
@@ -1274,7 +1274,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_QUERY > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_QUERY_MISC_FLAG implements IntValuedEnum<D3D11_QUERY_MISC_FLAG > {
 		D3D11_QUERY_MISC_PREDICATEHINT(0x1);
 		D3D11_QUERY_MISC_FLAG(long value) {
@@ -1290,7 +1290,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_QUERY_MISC_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_COUNTER implements IntValuedEnum<D3D11_COUNTER > {
 		D3D11_COUNTER_DEVICE_DEPENDENT_0(0x40000000);
 		D3D11_COUNTER(long value) {
@@ -1306,7 +1306,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_COUNTER > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_COUNTER_TYPE implements IntValuedEnum<D3D11_COUNTER_TYPE > {
 		D3D11_COUNTER_TYPE_FLOAT32(0),
 		D3D11_COUNTER_TYPE_UINT16(1),
@@ -1325,7 +1325,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_COUNTER_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS implements IntValuedEnum<D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS > {
 		D3D11_STANDARD_MULTISAMPLE_PATTERN(0xFFFFFFFF),
 		D3D11_CENTER_MULTISAMPLE_PATTERN(0xFFFFFFF);
@@ -1342,7 +1342,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_STANDARD_MULTISAMPLE_QUALITY_LEVELS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_DEVICE_CONTEXT_TYPE implements IntValuedEnum<D3D11_DEVICE_CONTEXT_TYPE > {
 		D3D11_DEVICE_CONTEXT_IMMEDIATE(0),
 		D3D11_DEVICE_CONTEXT_DEFERRED(1);
@@ -1359,7 +1359,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_DEVICE_CONTEXT_TYPE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_FEATURE implements IntValuedEnum<D3D11_FEATURE > {
 		D3D11_FEATURE_THREADING(0),
 		D3D11_FEATURE_DOUBLES(1),
@@ -1379,7 +1379,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_FEATURE > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	
 	public enum D3D11_COPY_FLAGS implements IntValuedEnum<D3D11_COPY_FLAGS> {
 		D3D11_COPY_NO_OVERWRITE(0x1),
@@ -1443,7 +1443,7 @@ public class D3D11 {
 		public static ValuedEnum<D3D11_CREATE_DEVICE_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D11_SHADER_VERSION_TYPE implements IntValuedEnum<D3D11_SHADER_VERSION_TYPE> {
 	    D3D11_SHVER_PIXEL_SHADER(0),
 	    D3D11_SHVER_VERTEX_SHADER(1),
@@ -2274,7 +2274,7 @@ public class D3D11 {
 		public static IntValuedEnum<D3D11_MESSAGE_ID> fromValue(int value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	
 	public static final int D3D11_SDK_LAYERS_VERSION = 1;
 	public static final int D3D11_DEBUG_FEATURE_FLUSH_PER_RENDER_OP = 0x1;
@@ -2330,7 +2330,7 @@ public class D3D11 {
 		public static IntValuedEnum<D3D11_LOGIC_OP> fromValue(int value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	
 	public enum D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG implements IntValuedEnum<D3D11_1_CREATE_DEVICE_CONTEXT_STATE_FLAG> { 
 		D3D11_1_CREATE_DEVICE_CONTEXT_STATE_SINGLETHREADED(0x1);
@@ -2389,6 +2389,13 @@ public class D3D11 {
 														   Pointer<ID3D11DeviceContext> ppImmediateContext);
 	
 	// "Javanized" methods
+    public static ID3D11Device CreateDevice(ValuedEnum<D3D_DRIVER_TYPE> driverType,
+                                            int Flags,
+                                            D3D_FEATURE_LEVEL[] requiredLevels) throws D3D11Exception {
+
+        return CreateDevice(null, driverType, Flags, requiredLevels);
+    }
+
 	public static ID3D11Device CreateDevice(IDXGIAdapter adapter,
 											ValuedEnum<D3D_DRIVER_TYPE> driverType,
 											int Flags,

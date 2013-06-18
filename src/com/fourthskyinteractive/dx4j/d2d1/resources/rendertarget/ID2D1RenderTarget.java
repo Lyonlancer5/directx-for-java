@@ -407,7 +407,7 @@ public class ID2D1RenderTarget extends ID2D1Resource {
 	
 	// "Javanized" methods
 	
-	public ID2D1SolidColorBrush CreateSolidColorBrush(D2D1_COLOR_F color, D2D1_BRUSH_PROPERTIES brushProperties) {
+	public ID2D1SolidColorBrush CreateSolidColorBrush(D2D1_COLOR_F color, D2D1_BRUSH_PROPERTIES brushProperties) throws D2D1Exception {
 		Pointer<Pointer<ID2D1SolidColorBrush>> pp = allocatePointer(ID2D1SolidColorBrush.class);
 		
 		try {
@@ -415,7 +415,7 @@ public class ID2D1RenderTarget extends ID2D1Resource {
 											  		brushProperties != null ? pointerTo(brushProperties) : null, 
 											  		pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create solid color brush", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1SolidColorBrush.class);

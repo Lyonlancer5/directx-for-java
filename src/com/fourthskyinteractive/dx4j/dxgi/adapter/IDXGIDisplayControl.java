@@ -7,7 +7,7 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-@IID("")
+@IID("ea9dbf1a-c88e-4486-854a-98aa0138f30c")
 @Library("DXGI")
 @Runtime(COMRuntime.class)
 public class IDXGIDisplayControl extends IUnknown {

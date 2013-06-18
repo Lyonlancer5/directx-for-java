@@ -76,9 +76,9 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 	public native int GetLastPresentCount(Pointer<Integer > pLastPresentCount);
 	
 	// "Javanized" methods
-	public <T extends IUnknown> T GetBuffer(int Buffer, Class<T> klass) throws DXGIException {
+	public <T extends IUnknown> T GetBuffer(int Buffer, Class<T> bufferClass) throws DXGIException {
 		// Get GUID of class
-		Pointer<Byte> guid = COMRuntime.getIID(klass);
+		Pointer<Byte> guid = COMRuntime.getIID(bufferClass);
 		
 		// Get back buffer pointer
 		Pointer<Pointer<?>> pp = allocatePointer();
@@ -89,7 +89,7 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 				throw new DXGIException(result);
 			}
 			
-			return pp.get().getNativeObject(klass);
+			return pp.get().getNativeObject(bufferClass);
 			
 		} finally {
 			pp.release();

@@ -47,19 +47,19 @@ public class IDXGIDeviceSubObject extends IDXGIObject {
 //	public IDXGIDeviceSubObject(Pointer pointer) {
 //		super(pointer);
 //	}
-	@Deprecated @Virtual(0) 
+	@Deprecated @Virtual(0)
 	public native int GetDevice(Pointer<Byte> riid, Pointer<Pointer<? > > ppDevice);
 	
 	public <I extends IUnknown> I GetDevice(Class<I> type) throws DXGIException {
 		Pointer<Byte> deviceGUID = COMRuntime.getIID(type);
 		Pointer<Pointer<?>> pp = allocatePointer();
-		
+
 		try {
 			int result = GetDevice(deviceGUID, pp);
 			if (result != 0) {
 				throw new DXGIException(result);
 			}
-			
+
 			return pp.get().getNativeObject(type);
 		} finally {
 			pp.release();
