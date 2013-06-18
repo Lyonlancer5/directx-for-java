@@ -31,7 +31,8 @@ public class IDXGIObject extends org.bridj.cpp.com.IUnknown {
 	public native int SetPrivateDataInterface(Pointer<Byte > Name, Pointer<IUnknown > pUnknown);
 	@Virtual(2) 
 	public native int GetPrivateData(Pointer<Byte > Name, Pointer<Integer > pDataSize, Pointer<? > pData);
-	@Virtual(3) 
+	@Deprecated
+    @Virtual(3)
 	public native int GetParent(Pointer<Byte> riid, Pointer<Pointer<? > > ppParent);
 	
 	// "Javanized methods

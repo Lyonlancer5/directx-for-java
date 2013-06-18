@@ -144,13 +144,13 @@ public class ID2D1Factory extends IUnknown {
 	
 	// "Javanized" methods
 	
-	public ID2D1RectangleGeometry CreateRectangleGeometry(D2D1_RECT_F rect) {
+	public ID2D1RectangleGeometry CreateRectangleGeometry(D2D1_RECT_F rect) throws D2D1Exception {
 		Pointer<Pointer<ID2D1RectangleGeometry>> pp = allocatePointer(ID2D1RectangleGeometry.class);
 		
 		try {
 			int result = CreateRectangleGeometry(pointerTo(rect), pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create rectangle geometry", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1RectangleGeometry.class);
@@ -159,13 +159,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1RoundedRectangleGeometry CreateRoundedRectangleGeometry(D2D1_ROUNDED_RECT rect) {
+	public ID2D1RoundedRectangleGeometry CreateRoundedRectangleGeometry(D2D1_ROUNDED_RECT rect) throws D2D1Exception {
 		Pointer<Pointer<ID2D1RoundedRectangleGeometry>> pp = allocatePointer(ID2D1RoundedRectangleGeometry.class);
 		
 		try {
 			int result = CreateRoundedRectangleGeometry(pointerTo(rect), pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create rounded rectangle geometry", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1RoundedRectangleGeometry.class);
@@ -174,13 +174,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1EllipseGeometry CreateEllipseGeometry(D2D1_ELLIPSE rect) {
+	public ID2D1EllipseGeometry CreateEllipseGeometry(D2D1_ELLIPSE rect) throws D2D1Exception {
 		Pointer<Pointer<ID2D1EllipseGeometry>> pp = allocatePointer(ID2D1EllipseGeometry.class);
 		
 		try {
 			int result = CreateEllipseGeometry(pointerTo(rect), pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create ellipse geometry", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1EllipseGeometry.class);
@@ -189,13 +189,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1TransformedGeometry CreateTransformedGeometry(ID2D1Geometry geometry, D2D1_MATRIX_3X2_F transform) {
+	public ID2D1TransformedGeometry CreateTransformedGeometry(ID2D1Geometry geometry, D2D1_MATRIX_3X2_F transform) throws D2D1Exception {
 		Pointer<Pointer<ID2D1TransformedGeometry>> pp = allocatePointer(ID2D1TransformedGeometry.class);
 		
 		try {
 			int result = CreateTransformedGeometry(pointerTo(geometry), pointerTo(transform), pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create transformed geometry", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1TransformedGeometry.class);
@@ -204,13 +204,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1StrokeStyle CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES props, Pointer<Float> dashes, int dashesCount) {
+	public ID2D1StrokeStyle CreateStrokeStyle(D2D1_STROKE_STYLE_PROPERTIES props, Pointer<Float> dashes, int dashesCount) throws D2D1Exception {
 		Pointer<Pointer<ID2D1StrokeStyle>> pp = allocatePointer(ID2D1StrokeStyle.class);
 		
 		try {
 			int result = CreateStrokeStyle(pointerTo(props), dashes, dashesCount, pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create stroke style", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1StrokeStyle.class);
@@ -219,13 +219,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1DrawingStateBlock CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION desc) {
+	public ID2D1DrawingStateBlock CreateDrawingStateBlock(D2D1_DRAWING_STATE_DESCRIPTION desc) throws D2D1Exception {
 		Pointer<Pointer<ID2D1DrawingStateBlock>> pp = allocatePointer(ID2D1DrawingStateBlock.class);
 		
 		try {
 			int result = CreateDrawingStateBlock(pointerTo(desc), null, pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create drawing state", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1DrawingStateBlock.class);
@@ -234,7 +234,7 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1HwndRenderTarget CreateHwndRenderTarget(D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES hwndRenderTargetProperties) {
+	public ID2D1HwndRenderTarget CreateHwndRenderTarget(D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties, D2D1_HWND_RENDER_TARGET_PROPERTIES hwndRenderTargetProperties) throws D2D1Exception {
 		Pointer<Pointer<ID2D1HwndRenderTarget>> pp = allocatePointer(ID2D1HwndRenderTarget.class);
 		
 		try {
@@ -242,7 +242,7 @@ public class ID2D1Factory extends IUnknown {
 												hwndRenderTargetProperties != null ? pointerTo(hwndRenderTargetProperties) : null, 
 												pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create hwnd render target", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1HwndRenderTarget.class);
@@ -251,13 +251,13 @@ public class ID2D1Factory extends IUnknown {
 		}
 	}
 	
-	public ID2D1RenderTarget CreateDxgiSurfaceRenderTarget(IDXGISurface dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties) {
+	public ID2D1RenderTarget CreateDxgiSurfaceRenderTarget(IDXGISurface dxgiSurface, D2D1_RENDER_TARGET_PROPERTIES renderTargetProperties) throws D2D1Exception {
 		Pointer<Pointer<ID2D1RenderTarget>> pp = allocatePointer(ID2D1RenderTarget.class);
 		
 		try {
 			int result = CreateDxgiSurfaceRenderTarget(pointerTo(dxgiSurface), pointerTo(renderTargetProperties), pp);
 			if(result != 0) {
-				throw new D2D1Exception("Could not create DXGI render target", result);
+				throw new D2D1Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID2D1RenderTarget.class);

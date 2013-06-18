@@ -60,7 +60,7 @@ public class TestsDX11 {
 	public static void main(String[] args) throws D3D11Exception, D3DCompilerException, DXGIException {
 
 		// Create JFrame
-		JFrame frame = new JFrame("D3D11 Tutorial 2");
+		JFrame frame = new JFrame("D3D11 Tutorial");
 		frame.setSize(800, 600);
 		frame.setIgnoreRepaint(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,8 +69,7 @@ public class TestsDX11 {
 		D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_10_0;
 		
 		// Create device
-		final ID3D11Device device = CreateDevice(null, 
-												 D3D_DRIVER_TYPE_WARP, 
+		final ID3D11Device device = CreateDevice(D3D_DRIVER_TYPE_WARP,
 												 0, 
 												 new D3D_FEATURE_LEVEL[] { featureLevel });
 		final ID3D11DeviceContext immediateContext = device.GetImmediateContext();
@@ -102,7 +101,7 @@ public class TestsDX11 {
 						"}";
 
 		// Compiling for vertex shader and input layout
-		ID3D10Blob code = D3DCompile(shaders, null, null, null, "VS", featureLevel.vsShaderVersion, 0, 0);
+		ID3D10Blob code = D3DCompile(shaders, "VS", featureLevel.vsShaderVersion, 0, 0);
 
 		// Create input layout
 		D3D11_INPUT_ELEMENT_DESC layoutDesc = new D3D11_INPUT_ELEMENT_DESC("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0);
@@ -114,7 +113,7 @@ public class TestsDX11 {
 		code.Release();
 
 		// Creating pixel shader
-		code = D3DCompile(shaders, null, null, null, "PS", featureLevel.psShaderVersion, 0, 0);
+		code = D3DCompile(shaders, "PS", featureLevel.psShaderVersion, 0, 0);
 		final ID3D11PixelShader ps = device.CreatePixelShader(code, null);
 		code.Release();
 

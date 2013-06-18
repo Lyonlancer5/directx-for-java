@@ -46,7 +46,7 @@ public class D3DCompiler {
 		public static ValuedEnum<D3DCOMPILER_STRIP_FLAGS > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum D3D_BLOB_PART implements IntValuedEnum<D3D_BLOB_PART > {
 		D3D_BLOB_INPUT_SIGNATURE_BLOB(0),
 		D3D_BLOB_OUTPUT_SIGNATURE_BLOB(1),
@@ -73,7 +73,7 @@ public class D3DCompiler {
 		public static ValuedEnum<D3D_BLOB_PART > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public static final int D3DCOMPILE_WARNINGS_ARE_ERRORS = (int)(1 << 18);
 	public static final int D3DCOMPILE_SKIP_OPTIMIZATION = (int)(1 << 2);
 	public static final int D3D_DISASM_ENABLE_COLOR_CODE = (int)1;
@@ -108,8 +108,8 @@ public class D3DCompiler {
 	 * @param pSourceName
 	 * @param pDefines
 	 * @param pInclude
-	 * @param pointer
-	 * @param pointer2
+	 * @param pEntrypoint
+	 * @param pTarget
 	 * @param Flags1
 	 * @param Flags2
 	 * @param ppCode
@@ -159,6 +159,14 @@ public class D3DCompiler {
 	
 	
 	// "Javanized" methods
+    public static final ID3D10Blob D3DCompile(String shaderCode,
+                                              String entrypoint,
+                                              String target,
+                                              int Flags1,
+                                              int Flags2) throws D3DCompilerException {
+        return D3DCompile(shaderCode, null, null, null, entrypoint, target, Flags1, Flags2);
+    }
+
 	public static final ID3D10Blob D3DCompile(String shaderCode,
 											 String sourceName,
 											 D3D_SHADER_MACRO[] defines,

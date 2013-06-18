@@ -17,7 +17,7 @@ public class IAudioRenderClient extends IUnknown {
 	}
 
 	@Virtual(0)
-	public final native int GetBuffer(Pointer<Pointer<?>> ppData, int NumFramesToRead, Pointer<Integer> fwFlags, Pointer<Long> pu64DevicePosition, Pointer<Long> ú64QPCPosition);
+	public final native int GetBuffer(Pointer<Pointer<?>> ppData, int NumFramesToRead, Pointer<Integer> fwFlags, Pointer<Long> pu64DevicePosition, Pointer<Long> QPCPosition);
 	
 	@Virtual(1)
 	public final native int ReleaseBuffer(int NumFramesRead);

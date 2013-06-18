@@ -70,13 +70,13 @@ public class IDirect3D9 extends IUnknown {
 	@Deprecated @Virtual(13)
 	public native final int CreateDevice(int Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, int BehaviorFlags, Pointer<D3DPRESENT_PARAMETERS> pPresentationParameters, Pointer<Pointer<IDirect3DDevice9>> ppReturnedDeviceInterface) throws LastError;
 	
-	public final IDirect3DDevice9 CreateDevice(int Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, int BehaviorFlags, D3DPRESENT_PARAMETERS pPresentationParameters) {
+	public final IDirect3DDevice9 CreateDevice(int Adapter, D3DDEVTYPE DeviceType, HWND hFocusWindow, int BehaviorFlags, D3DPRESENT_PARAMETERS pPresentationParameters) throws D3D9Exception {
 		Pointer<Pointer<IDirect3DDevice9>> pp = allocatePointer(IDirect3DDevice9.class);
 		
 		try {
 			int result = this.CreateDevice(Adapter, DeviceType, hFocusWindow, BehaviorFlags, pointerTo(pPresentationParameters), pp);
 			if(result != 0) {
-				throw new D3D9Exception("Error creating device", result);
+				throw new D3D9Exception(result);
 			}
 			
 			return pp.get().getNativeObject(IDirect3DDevice9.class);

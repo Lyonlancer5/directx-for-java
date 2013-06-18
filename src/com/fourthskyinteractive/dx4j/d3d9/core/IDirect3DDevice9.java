@@ -397,13 +397,13 @@ public class IDirect3DDevice9 extends IUnknown {
 	@Virtual(115) 
     public native final int CreateQuery(D3DQUERYTYPE Type, Pointer<Pointer<IDirect3DQuery9>> ppQuery);
     
-	public final IDirect3DVertexBuffer9 CreateVertexBuffer(int length, int Usage, int FVF, D3DPOOL Pool) {
+	public final IDirect3DVertexBuffer9 CreateVertexBuffer(int length, int Usage, int FVF, D3DPOOL Pool) throws D3D9Exception {
 		Pointer<Pointer<IDirect3DVertexBuffer9>> pp = allocatePointer(IDirect3DVertexBuffer9.class);
 		
 		try {
 			int result = this.CreateVertexBuffer(length, Usage, FVF, Pool, pp, null);
 			if (result != 0) {
-				throw new D3D9Exception("Error creating vertex buffer", result);
+				throw new D3D9Exception(result);
 			}
 			
 			return pp.get().getNativeObject(IDirect3DVertexBuffer9.class);

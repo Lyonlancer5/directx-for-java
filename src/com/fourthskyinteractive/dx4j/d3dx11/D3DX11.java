@@ -161,9 +161,9 @@ public class D3DX11 {
 	}
 	
 	
-	public static native final int D3DX11CreateThreadPump(int cIoThreads, int cProcThreads, Pointer<Pointer<ID3DX11ThreadPump>> ppThreadPump);
+	public static native int D3DX11CreateThreadPump(int cIoThreads, int cProcThreads, Pointer<Pointer<ID3DX11ThreadPump>> ppThreadPump);
 	
-	public static native final int D3DX11CreateShaderResourceViewFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11ShaderResourceView>> ppSRV, Pointer<Integer> pHResult);
+	public static native int D3DX11CreateShaderResourceViewFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11ShaderResourceView>> ppSRV, Pointer<Integer> pHResult);
 	
-	public static native final int D3DX11CreateTextureFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11Resource>> ppTexture, Pointer<Integer> pHResult);
+	public static native int D3DX11CreateTextureFromFileA(Pointer<ID3D11Device> pDevice, Pointer<Byte> pSrcFile, Pointer<D3DX11_IMAGE_LOAD_INFO> pLoadInfo, Pointer<ID3DX11ThreadPump> pPump, Pointer<Pointer<ID3D11Resource>> ppTexture, Pointer<Integer> pHResult);
 }

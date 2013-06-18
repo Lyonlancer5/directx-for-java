@@ -48,7 +48,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_MODE_SCALING > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	
 	public enum DXGI_MODE_SCANLINE_ORDER implements IntValuedEnum<DXGI_MODE_SCANLINE_ORDER > {
 		DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED(0),
@@ -68,7 +68,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_MODE_SCANLINE_ORDER > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_FORMAT implements IntValuedEnum<DXGI_FORMAT > {
 		DXGI_FORMAT_FROM_FILE(-3),
 		DXGI_FORMAT_UNKNOWN(0),
@@ -185,7 +185,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_FORMAT> fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_RESIDENCY implements IntValuedEnum<DXGI_RESIDENCY > {
 		DXGI_RESIDENCY_FULLY_RESIDENT(1),
 		DXGI_RESIDENCY_RESIDENT_IN_SHARED_MEMORY(2),
@@ -203,7 +203,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_RESIDENCY > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_SWAP_EFFECT implements IntValuedEnum<DXGI_SWAP_EFFECT > {
 		DXGI_SWAP_EFFECT_DISCARD(0),
 		DXGI_SWAP_EFFECT_SEQUENTIAL(1);
@@ -220,7 +220,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_SWAP_EFFECT > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_SWAP_CHAIN_FLAG implements IntValuedEnum<DXGI_SWAP_CHAIN_FLAG > {
 		DXGI_SWAP_CHAIN_FLAG_NONPREROTATED(1),
 		DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH(2),
@@ -238,7 +238,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_SWAP_CHAIN_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_ADAPTER_FLAG implements IntValuedEnum<DXGI_ADAPTER_FLAG > {
 		DXGI_ADAPTER_FLAG_NONE(0),
 		DXGI_ADAPTER_FLAG_REMOTE(1),
@@ -256,7 +256,7 @@ public class DXGI {
 		public static ValuedEnum<DXGI_ADAPTER_FLAG > fromValue(long value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
 	public enum DXGI_USAGE implements IntValuedEnum<DXGI_USAGE> {
 		DXGI_USAGE_SHADER_INPUT(1 << (0 + 4)),
 		DXGI_USAGE_RENDER_TARGET_OUTPUT(1 << (1 + 4)),
@@ -419,7 +419,26 @@ public class DXGI {
 		public static IntValuedEnum<DXGI_MODE_ROTATION > fromValue(int value) {
 			return FlagSet.fromValue(value, values());
 		}
-	};
+	}
+
+    public enum DXGI_OUTDUPL_POINTER_SHAPE_TYPE implements IntValuedEnum<DXGI_OUTDUPL_POINTER_SHAPE_TYPE > {
+        DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MONOCHROME(0x1),
+        DXGI_OUTDUPL_POINTER_SHAPE_TYPE_COLOR(0x2),
+        DXGI_OUTDUPL_POINTER_SHAPE_TYPE_MASKED_COLOR(0x4);
+        DXGI_OUTDUPL_POINTER_SHAPE_TYPE(long value) {
+            this.value = value;
+        }
+        public final long value;
+        public long value() {
+            return this.value;
+        }
+        public Iterator<DXGI_OUTDUPL_POINTER_SHAPE_TYPE > iterator() {
+            return Collections.singleton(this).iterator();
+        }
+        public static IntValuedEnum<DXGI_OUTDUPL_POINTER_SHAPE_TYPE > fromValue(int value) {
+            return FlagSet.fromValue(value, values());
+        }
+    }
 	
 	// DXGI error codes
 	public static final int DXGI_ERROR_DRIVER_INTERNAL_ERROR = 0x887A0020;
@@ -441,9 +460,7 @@ public class DXGI {
 	public static final int DXGI_ERROR_CANNOT_PROTECT_CONTENT = 0x887A002A;
 	public static final int DXGI_ERROR_ACCESS_DENIED = 0x887A002B;
 	public static final int DXGI_ERROR_NAME_ALREADY_EXISTS = 0x887A002C;
-	
-	public static final int DXGI_SHARED_RESOURCE_READ = 0x80000000;
-	public static final int DXGI_SHARED_RESOURCE_WRITE = 1;
+
 	/// <i>native declaration : DXGI.h</i>
 	public static final int DXGI_RESOURCE_PRIORITY_NORMAL = (int)(2013265920);
 	/// <i>native declaration : DXGI.h</i>
@@ -490,6 +507,11 @@ public class DXGI {
 	public static final int DXGI_RESOURCE_PRIORITY_MINIMUM = (int)(671088640);
 	/// <i>native declaration : DXGI.h</i>
 	public static final int DXGI_MWA_NO_WINDOW_CHANGES = (int)(1 << 0);
+
+    public static final int DXGI_ENUM_MODES_STEREO			= 4;
+    public static final int DXGI_ENUM_MODES_DISABLED_STEREO	= 8;
+    public static final int DXGI_SHARED_RESOURCE_READ		= 0x80000000;
+    public static final int DXGI_SHARED_RESOURCE_WRITE		= 1;
 	
 	@Deprecated
 	public static native int CreateDXGIFactory(Pointer<Byte> riid, Pointer<Pointer<?> > ppFactory);
