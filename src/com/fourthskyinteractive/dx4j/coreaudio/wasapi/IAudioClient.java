@@ -8,7 +8,7 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.coreaudio.WAVEFORMATEX;
+import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 import com.fourthskyinteractive.dx4j.coreaudio.wasapi.WASAPI.AUDCLNT_SHAREMODE;
 import com.fourthskyinteractive.dx4j.windows.HANDLE;
 

@@ -7,7 +7,7 @@ import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
-import com.fourthskyinteractive.dx4j.coreaudio.WAVEFORMATEX;
+import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 import com.fourthskyinteractive.dx4j.windows.ole.IStream;
 
 @IID("BED530BE-2606-4F4D-A1C0-54C5CDA5566F")

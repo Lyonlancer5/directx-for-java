@@ -165,12 +165,12 @@ public class XAudio2 {
 	public static final int XAUDIO2_PLAY_TAILS = (int)32;
 	
 	// Audio formats (little endian, because of this the bytes are inverted
-	public static final int fourccRIFF = 'F' << 24 | 'F' << 16 | 'I' << 8 | 'R';
-	public static final int fourccDATA = 'a' << 24 | 't' << 16 | 'a' << 8 | 'd';
-	public static final int fourccFMT = ' ' << 24 | 't' << 16 | 'm' << 8 | 'f';
-	public static final int fourccWAVE = 'E' << 24 | 'V' << 16 | 'A' << 8 | 'W';
-	public static final int fourccXWMA = 'A' << 24 | 'M' << 16 | 'W' << 8 | 'X';
-	public static final int fourccDPDS = 's' << 24 | 'd' << 16 | 'p' << 8 | 'd';
+	public static final int fourCCRIFF = 'F' << 24 | 'F' << 16 | 'I' << 8 | 'R';
+	public static final int fourCCDATA = 'a' << 24 | 't' << 16 | 'a' << 8 | 'd';
+	public static final int fourCCFMT = ' ' << 24 | 't' << 16 | 'm' << 8 | 'f';
+	public static final int fourCCWAVE = 'E' << 24 | 'V' << 16 | 'A' << 8 | 'W';
+	public static final int fourCCXWMA = 'A' << 24 | 'M' << 16 | 'W' << 8 | 'X';
+	public static final int fourCCDPDS = 's' << 24 | 'd' << 16 | 'p' << 8 | 'd';
 	
 	public static final String CLSID_XAudio2 = "5a508685-a254-4fba-9b82-9a24b00306af";
 	public static final String CLSID_XAudio2_Debug = "db05ea35-0329-4d4b-a53a-6dead03d3852";

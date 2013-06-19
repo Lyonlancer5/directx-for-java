@@ -6,7 +6,7 @@ import org.bridj.ann.Field;
 import org.bridj.ann.Union;
 import org.bridj.cpp.com.GUID;
 
-import com.fourthskyinteractive.dx4j.coreaudio.WAVEFORMATEX;
+import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 
 public class WAVEFORMATEXTENSIBLE extends StructObject {
 	public WAVEFORMATEXTENSIBLE() {

@@ -4,11 +4,10 @@ import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
-import org.bridj.cpp.com.CLSID;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 
-import com.fourthskyinteractive.dx4j.coreaudio.WAVEFORMATEX;
+import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 import com.fourthskyinteractive.dx4j.sapi.SAPI.SPAUDIOOPTIONS;
 import com.fourthskyinteractive.dx4j.sapi.SAPI.SPBOOKMARKOPTIONS;
 import com.fourthskyinteractive.dx4j.sapi.SAPI.SPCONTEXTSTATE;

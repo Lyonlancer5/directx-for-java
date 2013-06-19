@@ -65,14 +65,15 @@ public class TestsDX11 {
 		frame.setIgnoreRepaint(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
-
-		D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_10_0;
 		
 		// Create device
+        D3D_FEATURE_LEVEL featureLevel = D3D_FEATURE_LEVEL_10_0;
 		final ID3D11Device device = CreateDevice(D3D_DRIVER_TYPE_WARP,
 												 0, 
 												 new D3D_FEATURE_LEVEL[] { featureLevel });
 		final ID3D11DeviceContext immediateContext = device.GetImmediateContext();
+
+        featureLevel = device.GetFeatureLevel();
 
 		IDXGIDevice1 DXGIDevice = device.QueryInterface(IDXGIDevice1.class);
 		IDXGIFactory1 DXGIFactory= DXGIDevice.GetParent(IDXGIAdapter1.class)
@@ -124,8 +125,9 @@ public class TestsDX11 {
 															 D3D11_RESOURCE_MISC_NONE,
 															 (int)(9 * sizeOf(Float.class)));
 		D3D11_SUBRESOURCE_DATA initData = new D3D11_SUBRESOURCE_DATA();
-		initData.pSysMem(pointerToFloats(0.0f, 1.0f, 0.5f, 1f, -0.5f, 0.5f, -0.5f, -0.5f, 0.5f));
-		initData.SysMemPitch(0).SysMemSlicePitch(0);
+		initData.SysMemPitch(0)
+                .SysMemSlicePitch(0)
+                .pSysMem(0.0f, 1.0f, 0.5f, 1f, -0.5f, 0.5f, -0.5f, -0.5f, 0.5f);
 		final ID3D11Buffer vertexBuffer = device.CreateBuffer(bufferDesc, initData);
 
 		JNIEnv env = JAWTUtils.getJNIEnv();
@@ -136,21 +138,21 @@ public class TestsDX11 {
 				JAWTUtils.withLockedSurface(env, jawt, frame, new LockedComponentRunnable() {
 					@Override
 					public void run(Component comp, long peer) {
-						immediateContext.ClearRenderTargetView(pointerTo(rtView), pointerToFloats(0.0f, 0.125f, 0.3f, 1.0f));
+                    immediateContext.ClearRenderTargetView(pointerTo(rtView), pointerToFloats(0.0f, 0.125f, 0.3f, 1.0f));
 
-						int stride = (int) (sizeOf(Float.class) * 3);
-						immediateContext.IASetVertexBuffers(0, 1, pointerToPointer(pointerTo(vertexBuffer)), pointerToInt(stride), pointerToInt(0));
+                    int stride = (int) (sizeOf(Float.class) * 3);
+                    immediateContext.IASetVertexBuffers(0, 1, pointerToPointer(pointerTo(vertexBuffer)), pointerToInt(stride), pointerToInt(0));
 
-						immediateContext.IASetInputLayout(layout);
-						immediateContext.VSSetShader(pointerTo(vs), null, 0);
-						immediateContext.PSSetShader(pointerTo(ps), null, 0);
+                    immediateContext.IASetInputLayout(layout);
+                    immediateContext.VSSetShader(pointerTo(vs), null, 0);
+                    immediateContext.PSSetShader(pointerTo(ps), null, 0);
 
-						immediateContext.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-						immediateContext.Draw(3, 0);
+                    immediateContext.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+                    immediateContext.Draw(3, 0);
 
-						swapChain.Present(0, 0);
-						
-						//immediateContext.ClearState();
+                    swapChain.Present(0, 0);
+
+                    //immediateContext.ClearState();
 					}
 				});
 

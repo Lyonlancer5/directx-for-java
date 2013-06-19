@@ -74,11 +74,17 @@ public class D3DCompiler {
 			return FlagSet.fromValue(value, values());
 		}
 	}
-	public static final int D3DCOMPILE_WARNINGS_ARE_ERRORS = (int)(1 << 18);
-	public static final int D3DCOMPILE_SKIP_OPTIMIZATION = (int)(1 << 2);
-	public static final int D3D_DISASM_ENABLE_COLOR_CODE = (int)1;
-	public static final int D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING = (int)4;
-	public static final int D3D_DISASM_ENABLE_INSTRUCTION_CYCLE = (int)8;
+
+    public static final int D3D_DISASM_ENABLE_COLOR_CODE = (int)1;
+    public static final int D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS = (int)2;
+    public static final int D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING = (int)4;
+    public static final int D3D_DISASM_ENABLE_INSTRUCTION_CYCLE = (int)8;
+    public static final int D3D_DISASM_DISABLE_DEBUG_INFO = (int)16;
+
+    public static final int D3DCOMPILE_OPTIMIZATION_LEVEL0 = (int)(1 << 14);
+    public static final int D3DCOMPILE_OPTIMIZATION_LEVEL1 = (int)0;
+    public static final int D3DCOMPILE_SKIP_VALIDATION = (int)(1 << 1);
+    public static final int D3DCOMPILE_SKIP_OPTIMIZATION = (int)(1 << 2);
 	public static final int D3DCOMPILE_FORCE_VS_SOFTWARE_NO_OPT = (int)(1 << 6);
 	public static final int D3DCOMPILE_PARTIAL_PRECISION = (int)(1 << 5);
 	public static final int D3DCOMPILE_IEEE_STRICTNESS = (int)(1 << 13);
@@ -89,15 +95,11 @@ public class D3DCompiler {
 	public static final int D3DCOMPILE_DEBUG = (int)(1 << 0);
 	public static final int D3DCOMPILE_RESERVED16 = (int)(1 << 16);
 	public static final int D3DCOMPILE_ENABLE_STRICTNESS = (int)(1 << 11);
-	public static final int D3DCOMPILE_SKIP_VALIDATION = (int)(1 << 1);
-	public static final int D3D_DISASM_DISABLE_DEBUG_INFO = (int)16;
-	public static final int D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS = (int)2;
 	public static final int D3DCOMPILE_ENABLE_BACKWARDS_COMPATIBILITY = (int)(1 << 12);
 	public static final int D3DCOMPILE_AVOID_FLOW_CONTROL = (int)(1 << 9);
-	public static final int D3DCOMPILE_OPTIMIZATION_LEVEL0 = (int)(1 << 14);
 	public static final int D3DCOMPILE_PACK_MATRIX_COLUMN_MAJOR = (int)(1 << 4);
 	public static final int D3DCOMPILE_OPTIMIZATION_LEVEL2 = (int)((1 << 14) | (1 << 15));
-	public static final int D3DCOMPILE_OPTIMIZATION_LEVEL1 = (int)0;
+    public static final int D3DCOMPILE_WARNINGS_ARE_ERRORS = (int)(1 << 18);
 	public static final int D3DCOMPILE_PACK_MATRIX_ROW_MAJOR = (int)(1 << 3);
 	public static final int D3DCOMPILE_PREFER_FLOW_CONTROL = (int)(1 << 10);
 	

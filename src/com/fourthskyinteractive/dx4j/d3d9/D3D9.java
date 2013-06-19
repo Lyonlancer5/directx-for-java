@@ -3,6 +3,7 @@ package com.fourthskyinteractive.dx4j.d3d9;
 import java.util.Collections;
 import java.util.Iterator;
 
+import com.fourthskyinteractive.dx4j.d3d9.core.D3DPRESENT_PARAMETERS;
 import org.bridj.BridJ;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
@@ -15,6 +16,10 @@ import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
 
 import com.fourthskyinteractive.dx4j.d3d9.core.IDirect3D9;
+
+import static com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DFORMAT.D3DFMT_UNKNOWN;
+import static com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DMULTISAMPLE_TYPE.D3DMULTISAMPLE_NONE;
+import static com.fourthskyinteractive.dx4j.d3d9.D3D9.D3DSWAPEFFECT.D3DSWAPEFFECT_DISCARD;
 
 @Library("d3d9")
 @Runtime(COMRuntime.class)
@@ -1921,4 +1926,22 @@ public class D3D9 {
 	
 	@Convention(Style.StdCall)
 	public static final native Pointer<IDirect3D9> Direct3DCreate9(int SDKVersion);
+
+    public static final D3DPRESENT_PARAMETERS CreatePresentationParameters(int width, int height, boolean windowed) {
+        D3DPRESENT_PARAMETERS d3dpp = new D3DPRESENT_PARAMETERS();
+        d3dpp.Windowed(windowed ? 1 : 0);
+        d3dpp.SwapEffect(D3DSWAPEFFECT_DISCARD);
+        d3dpp.BackBufferCount(1);
+        d3dpp.BackBufferFormat(D3DFMT_UNKNOWN);
+        d3dpp.BackBufferWidth(width);
+        d3dpp.BackBufferHeight(height);
+        d3dpp.EnableAutoDepthStencil(0);
+        d3dpp.MultiSampleType(D3DMULTISAMPLE_NONE);
+        d3dpp.MultiSampleQuality(0);
+        d3dpp.FullScreen_RefreshRateInHz(D3DPRESENT_RATE_DEFAULT);
+        d3dpp.PresentationInterval(D3DPRESENT_INTERVAL_DEFAULT);
+        d3dpp.Flags(0);
+
+        return d3dpp;
+    }
 }

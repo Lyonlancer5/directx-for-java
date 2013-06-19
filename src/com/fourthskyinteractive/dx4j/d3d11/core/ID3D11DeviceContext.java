@@ -1,7 +1,5 @@
 package com.fourthskyinteractive.dx4j.d3d11.core;
 
-
-
 import static org.bridj.Pointer.allocatePointer;
 import static org.bridj.Pointer.allocatePointers;
 import static org.bridj.Pointer.pointerTo;
@@ -71,18 +69,14 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void DrawIndexed(int IndexCount, int StartIndexLocation, int BaseVertexLocation);
 	@Virtual(6)
 	public native void Draw(int VertexCount, int StartVertexLocation);
-	
 	@Deprecated @Virtual(7)
 	public native int Map(Pointer<? extends ID3D11Resource> pResource, int Subresource, ValuedEnum<D3D11_MAP> MapType, int MapFlags, Pointer<D3D11_MAPPED_SUBRESOURCE> pMappedResource);
 	@Deprecated @Virtual(8)
 	public native void Unmap(Pointer<? extends ID3D11Resource> pResource, int Subresource);
-
 	@Virtual(9)
 	public native void PSSetConstantBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppConstantBuffers);
-	
 	@Deprecated @Virtual(10)
 	public native void IASetInputLayout(Pointer<ID3D11InputLayout> pLayout);
-	
 	@Virtual(11)
 	public native void IASetVertexBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppVertexBuffers, Pointer<Integer> pStrides, Pointer<Integer> pOffsets);
 	@Virtual(12)
@@ -277,7 +271,11 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native int GetContextFlags();
 	@Deprecated @Virtual(107)
 	public native int FinishCommandList(int RestoreDeferredContextState, Pointer<Pointer<ID3D11CommandList>> ppCommandList);
-	
+
+    public final boolean isDeferred() {
+        return GetType().equals(D3D11_DEVICE_CONTEXT_TYPE.D3D11_DEVICE_CONTEXT_DEFERRED);
+    }
+
 	// "Javanized methods
 	public final void OMSetRenderTargets(ID3D11RenderTargetView rTView, ID3D11DepthStencilView dSView) {
 		OMSetRenderTargets(1, 
