@@ -9,7 +9,7 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
-import com.fourthskyinteractive.dx4j.coreaudio.WAVEFORMATEX;
+import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 import com.fourthskyinteractive.dx4j.xaudio2.XAudio2.XAUDIO2_PROCESSOR;
 
 @CLSID("5a508685-a254-4fba-9b82-9a24b00306af")

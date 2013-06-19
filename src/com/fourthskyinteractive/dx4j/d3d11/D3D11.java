@@ -76,6 +76,7 @@ public class D3D11 {
 			return FlagSet.fromValue(value, values());
 		}
 	}
+    /*
 	public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
 		D3D_FEATURE_LEVEL_9_1(0x9100, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
 		D3D_FEATURE_LEVEL_9_2(0x9200, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
@@ -115,6 +116,98 @@ public class D3D11 {
 			return FlagSet.fromValue(value, values());
 		}
 	}
+	*/
+    public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
+        D3D_FEATURE_LEVEL_9_1(0x9100),
+        D3D_FEATURE_LEVEL_9_2(0x9200),
+        D3D_FEATURE_LEVEL_9_3(0x9300),
+        D3D_FEATURE_LEVEL_10_0(0xA000),
+        D3D_FEATURE_LEVEL_10_1(0xA100),
+        D3D_FEATURE_LEVEL_11_0(0xB000),
+        D3D_FEATURE_LEVEL_11_1(0xB100);
+
+        public final long value;
+        public final String vsShaderVersion;
+        public final String psShaderVersion;
+        public final String gsShaderVersion;
+        public final String hsShaderVersion;
+        public final String dsShaderVersion;
+        public final String csShaderVersion;
+
+        D3D_FEATURE_LEVEL(long value) {
+            this.value = value;
+
+            switch((int)this.value) {
+                case 0x9100:
+                    vsShaderVersion = "vs_4_0_level_9_1";
+                    psShaderVersion = "ps_4_0_level_9_1";
+                    gsShaderVersion = "";
+                    csShaderVersion = "";
+                    hsShaderVersion = "";
+                    dsShaderVersion = "";
+                    break;
+                case 0x9200:
+                    vsShaderVersion = "vs_4_0_level_9_1";
+                    psShaderVersion = "ps_4_0_level_9_1";
+                    gsShaderVersion = "";
+                    csShaderVersion = "";
+                    hsShaderVersion = "";
+                    dsShaderVersion = "";
+                    break;
+                case 0x9300:
+                    vsShaderVersion = "vs_4_0_level_9_3";
+                    psShaderVersion = "ps_4_0_level_9_3";
+                    gsShaderVersion = "";
+                    csShaderVersion = "";
+                    hsShaderVersion = "";
+                    dsShaderVersion = "";
+                    break;
+                case 0xA000:
+                    vsShaderVersion = "vs_4_0";
+                    psShaderVersion = "ps_4_0";
+                    gsShaderVersion = "gs_4_0";
+                    csShaderVersion = "cs_4_0";
+                    hsShaderVersion = "hs_4_0";
+                    dsShaderVersion = "ds_4_0";
+                    break;
+                case 0xA100:
+                    vsShaderVersion = "vs_4_1";
+                    psShaderVersion = "ps_4_1";
+                    gsShaderVersion = "gs_4_1";
+                    csShaderVersion = "cs_4_1";
+                    hsShaderVersion = "hs_4_1";
+                    dsShaderVersion = "ds_4_1";
+                    break;
+                case 0xB000:
+                    vsShaderVersion = "vs_5_0";
+                    psShaderVersion = "ps_5_0";
+                    gsShaderVersion = "gs_5_0";
+                    csShaderVersion = "cs_5_0";
+                    hsShaderVersion = "hs_5_0";
+                    dsShaderVersion = "ds_5_0";
+                    break;
+                case 0xB100:
+                default:
+                    vsShaderVersion = "vs_5_1";
+                    psShaderVersion = "ps_5_1";
+                    gsShaderVersion = "gs_5_1";
+                    csShaderVersion = "cs_5_1";
+                    hsShaderVersion = "hs_5_1";
+                    dsShaderVersion = "ds_5_1";
+                    break;
+            }
+        }
+
+        public long value() {
+            return this.value;
+        }
+        public Iterator<D3D_FEATURE_LEVEL > iterator() {
+            return Collections.singleton(this).iterator();
+        }
+        public static ValuedEnum<D3D_FEATURE_LEVEL > fromValue(long value) {
+            return FlagSet.fromValue(value, values());
+        }
+    }
 	public enum D3D_PRIMITIVE_TOPOLOGY implements IntValuedEnum<D3D_PRIMITIVE_TOPOLOGY > {
 		D3D_PRIMITIVE_TOPOLOGY_UNDEFINED(0),
 		D3D_PRIMITIVE_TOPOLOGY_POINTLIST(1),

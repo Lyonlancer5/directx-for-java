@@ -1,4 +1,4 @@
-package com.fourthskyinteractive.dx4j.coreaudio;
+package com.fourthskyinteractive.dx4j.util;
 
 import org.bridj.Pointer;
 import org.bridj.StructObject;
