@@ -1,11 +1,16 @@
 package com.fourthskyinteractive.dx4j.d3d11.core;
 
-import static org.bridj.Pointer.allocatePointer;
-import static org.bridj.Pointer.allocatePointers;
-import static org.bridj.Pointer.pointerTo;
-import static org.bridj.Pointer.pointerToPointer;
+import static com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_QUERY;
+import static org.bridj.BridJ.sizeOf;
+import static org.bridj.Pointer.*;
+import static org.bridj.Pointer.allocate;
 
+import com.fourthskyinteractive.dx4j.d3d11.D3D11;
+import com.fourthskyinteractive.dx4j.d3d11.query.D3D11_QUERY_DESC;
+import com.fourthskyinteractive.dx4j.d3d11.query.ID3D11Query;
+import com.fourthskyinteractive.dx4j.windows.WindowsException;
 import org.bridj.Pointer;
+import org.bridj.StructObject;
 import org.bridj.ValuedEnum;
 import org.bridj.ann.Array;
 import org.bridj.ann.Library;
@@ -309,7 +314,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 
 		int result = Map(pointerTo(resource), subResource, MapType, MapFlags, pointerTo(mappedData));
 		if(result != 0) {
-			throw new D3D11Exception("Could not map resource", result);
+			throw new D3D11Exception(result);
 		}
 		
 		return mappedData;
@@ -326,13 +331,70 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		End(pointerTo(async));
 	}
 
+    /*
 	public final void GetData(ID3D11Asynchronous pAsync, Pointer<?> pData, int DataSize, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
 		int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
 		if(result != 0) {
-			throw new D3D11Exception("Could not get data from query", result);
+			throw new D3D11Exception(result);
 		}
 	}
-	
+    */
+    /*
+    public final Number GetData(ID3D11Asynchronous pAsync, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
+        // First, check data size
+        int DataSize = pAsync.GetDataSize();
+
+        // Allocate a pointer to return object
+        Pointer<?> pData = null;
+
+        try {
+            if (DataSize == sizeOf(Integer.class)) {
+                pData = allocateInt();
+            } else if (DataSize == sizeOf(Long.class)) {
+                pData = allocateLong();
+            } else {
+                throw new D3D11Exception("Return type is not a number, call \"GetData\" that returns a struct", -1);
+            }
+
+            int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
+            if(result != 0) {
+                throw new D3D11Exception(result);
+            }
+
+            return (Number) pData.get();
+
+        } finally {
+            if (pData != null) {
+                pData.release();
+            }
+        }
+    }
+    */
+    public final <T> T GetData(ID3D11Asynchronous pAsync, /*Class<T> klazz,*/ ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
+        // Allocate a pointer to return object
+        Pointer<?> pData = null;
+
+        try {
+            D3D11_QUERY_DESC queryDesc = pAsync.GetDesc();
+            Class<?> queryResultClass = queryDesc.ResultClass();
+
+            pData = allocate(queryResultClass);
+            int DataSize = (int)sizeOf(queryResultClass);
+
+            int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
+            if(result != 0) {
+                throw new D3D11Exception(result);
+            }
+
+            return (T) pData.as(queryResultClass);
+
+        } finally {
+            if (pData != null) {
+                pData.release();
+            }
+        }
+    }
+
 	public final void RSSetViewport(D3D11_VIEWPORT viewport) {
 		this.RSSetViewports(1, pointerTo(viewport));
 	}
@@ -342,7 +404,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		try {
 			int result = this.FinishCommandList(RestoreDeferredContextState, pp);
 			if(result != 0) {
-				throw new D3D11Exception("Error finishing command list", result);
+				throw new D3D11Exception(result);
 			}
 			
 			return pp.get().getNativeObject(ID3D11CommandList.class);
@@ -351,4 +413,5 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 			pp = null;
 		}		
 	}
+
 }

@@ -19,4 +19,16 @@ public class ID3D11Counter extends ID3D11Asynchronous {
 //	}
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_COUNTER_DESC> pDesc);
+
+    @Override
+    public D3D11_COUNTER_DESC GetDesc() {
+        Pointer<D3D11_COUNTER_DESC> pDesc = null;
+
+        try {
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            pDesc.release();
+        }
+    }
 }

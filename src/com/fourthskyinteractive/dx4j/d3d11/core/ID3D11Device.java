@@ -1,8 +1,10 @@
 package com.fourthskyinteractive.dx4j.d3d11.core;
 
 
+import static com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D_FEATURE_LEVEL.*;
 import static org.bridj.Pointer.*;
 
+import com.fourthskyinteractive.dx4j.d3d11.D3D11;
 import org.bridj.Pointer;
 import org.bridj.SizeT;
 import org.bridj.ann.Library;
@@ -610,5 +612,100 @@ public class ID3D11Device extends IUnknown {
     		pInt.release();
     		pInt = null;
     	}
+    }
+
+
+    public String VertexShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1: return "vs_4_0_level_9_1";
+            case D3D_FEATURE_LEVEL_9_2: return "vs_4_0_level_9_1";
+            case D3D_FEATURE_LEVEL_9_3: return"vs_4_0_level_9_3";
+            case D3D_FEATURE_LEVEL_10_0: return "vs_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "vs_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "vs_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "vs_5_1";
+        }
+    }
+
+    public String PixelShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1: return "ps_4_0_level_9_1";
+            case D3D_FEATURE_LEVEL_9_2: return "ps_4_0_level_9_1";
+            case D3D_FEATURE_LEVEL_9_3: return "ps_4_0_level_9_3";
+            case D3D_FEATURE_LEVEL_10_0: return "ps_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "ps_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "ps_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "ps_5_1";
+        }
+    }
+
+    public String GeometryShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1:
+            case D3D_FEATURE_LEVEL_9_2:
+            case D3D_FEATURE_LEVEL_9_3:
+                return "";
+            case D3D_FEATURE_LEVEL_10_0: return "gs_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "gs_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "gs_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "gs_5_1";
+        }
+    }
+
+    public String HullShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1:
+            case D3D_FEATURE_LEVEL_9_2:
+            case D3D_FEATURE_LEVEL_9_3:
+                return "";
+            case D3D_FEATURE_LEVEL_10_0: return "hs_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "hs_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "hs_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "hs_5_1";
+        }
+    }
+
+    public String DomainShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1:
+            case D3D_FEATURE_LEVEL_9_2:
+            case D3D_FEATURE_LEVEL_9_3:
+                return "";
+            case D3D_FEATURE_LEVEL_10_0: return "ds_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "ds_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "ds_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "ds_5_1";
+        }
+    }
+
+    public String ComputeShaderVersion() {
+        D3D_FEATURE_LEVEL level = this.GetFeatureLevel();
+        switch(level) {
+            case D3D_FEATURE_LEVEL_9_1:
+            case D3D_FEATURE_LEVEL_9_2:
+            case D3D_FEATURE_LEVEL_9_3:
+                return "";
+            case D3D_FEATURE_LEVEL_10_0: return "cs_4_0";
+            case D3D_FEATURE_LEVEL_10_1: return "cs_4_1";
+            case D3D_FEATURE_LEVEL_11_0: return "cs_5_0";
+            case D3D_FEATURE_LEVEL_11_1:
+            default:
+                return "cs_5_1";
+        }
     }
 }

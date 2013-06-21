@@ -3,12 +3,15 @@ package com.fourthskyinteractive.dx4j.dxgi.adapter;
 import com.fourthskyinteractive.dx4j.dxgi.IDXGIObject;
 import com.fourthskyinteractive.dx4j.dxgi.device.DXGI_MAPPED_RECT;
 import com.fourthskyinteractive.dx4j.dxgi.device.IDXGIResource;
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.*;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.RECT;
+
+import static org.bridj.Pointer.allocate;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +23,7 @@ import org.bridj.cpp.com.RECT;
 @IID("191cfac3-a341-470d-b26e-a864f428319c")
 @Library("dxgi")
 @Runtime(COMRuntime.class)
-public class IDXGIOutputDuplication extends IDXGIObject {
+public class IDXGIOutputDuplication extends IDXGIObject implements Describable {
     public IDXGIOutputDuplication() {
         super();
     }
@@ -48,5 +51,18 @@ public class IDXGIOutputDuplication extends IDXGIObject {
 
     @Virtual(7)
     public native int ReleaseFrame();
+
+    public DXGI_OUTDUPL_DESC GetDesc() {
+        Pointer<DXGI_OUTDUPL_DESC> pDesc = null;
+
+        try {
+            pDesc = allocate(DXGI_OUTDUPL_DESC.class);
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 
 }

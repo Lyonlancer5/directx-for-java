@@ -6,6 +6,7 @@ import static org.bridj.Pointer.allocatePointer;
 import static org.bridj.Pointer.pointerTo;
 import static org.bridj.Pointer.pointerToPointer;
 
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -47,7 +48,7 @@ import com.fourthskyinteractive.dx4j.dxgi.adapter.IDXGIOutput;
 @IID("310d36a0-d2e7-4c0a-aa04-6a9d23b8886a") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGISwapChain extends IDXGIDeviceSubObject {
+public class IDXGISwapChain extends IDXGIDeviceSubObject implements Describable {
 	public IDXGISwapChain() {
 		super();
 	}
@@ -161,4 +162,18 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject {
 			pInt.release();
 		}
 	}
+
+    @Override
+    public DXGI_SWAP_CHAIN_DESC GetDesc() {
+        Pointer<DXGI_SWAP_CHAIN_DESC> pDesc = null;
+
+        try {
+            pDesc = allocate(DXGI_SWAP_CHAIN_DESC.class);
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 }

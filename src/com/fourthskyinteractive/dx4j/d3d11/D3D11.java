@@ -8,6 +8,9 @@ import static org.bridj.Pointer.pointerTo;
 import java.util.Collections;
 import java.util.Iterator;
 
+import com.fourthskyinteractive.dx4j.d3d11.query.D3D11_QUERY_DATA_PIPELINE_STATISTICS;
+import com.fourthskyinteractive.dx4j.d3d11.query.D3D11_QUERY_DATA_SO_STATISTICS;
+import com.fourthskyinteractive.dx4j.d3d11.query.D3D11_QUERY_DATA_TIMESTAMP_DISJOINT;
 import org.bridj.BridJ;
 import org.bridj.FlagSet;
 import org.bridj.IntValuedEnum;
@@ -76,47 +79,6 @@ public class D3D11 {
 			return FlagSet.fromValue(value, values());
 		}
 	}
-    /*
-	public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
-		D3D_FEATURE_LEVEL_9_1(0x9100, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
-		D3D_FEATURE_LEVEL_9_2(0x9200, "vs_4_0_level_9_1", "ps_4_0_level_9_1", "gs_4_0_level_9_1", "", "", ""),
-		D3D_FEATURE_LEVEL_9_3(0x9300, "vs_4_0_level_9_3", "ps_4_0_level_9_3", "gs_4_0_level_9_3", "", "", ""),
-		D3D_FEATURE_LEVEL_10_0(0xA000, "vs_4_0", "ps_4_0", "gs_4_0", "cs_4_0", "hs_4_0", "ds_4_0"),
-		D3D_FEATURE_LEVEL_10_1(0xA100, "vs_4_1", "ps_4_1", "gs_4_1", "cs_4_1", "hs_4_1", "ds_4_1"),
-		D3D_FEATURE_LEVEL_11_0(0xB000, "vs_5_0", "ps_5_0", "gs_5_0", "cs_5_0", "hs_5_0", "ds_5_0"),
-		D3D_FEATURE_LEVEL_11_1(0xB100, "vs_5_1", "ps_5_1", "gs_5_1", "cs_5_1", "hs_5_1", "ds_5_1");
-		
-		public final long value;
-		public final String vsShaderVersion;
-		public final String psShaderVersion;
-		public final String gsShaderVersion;
-		public final String hsShaderVersion;
-		public final String dsShaderVersion;
-		public final String csShaderVersion;
-		
-		D3D_FEATURE_LEVEL(long value, String vsVersion, String psVersion, 
-									  String gsVersion, String csVersion,
-									  String hsVersion, String dsVersion) {
-			this.value = value;
-			vsShaderVersion = vsVersion;
-			psShaderVersion = psVersion;
-			gsShaderVersion = gsVersion;
-			csShaderVersion = csVersion;
-			hsShaderVersion = hsVersion;
-			dsShaderVersion = dsVersion;
-		}
-		
-		public long value() {
-			return this.value;
-		}
-		public Iterator<D3D_FEATURE_LEVEL > iterator() {
-			return Collections.singleton(this).iterator();
-		}
-		public static ValuedEnum<D3D_FEATURE_LEVEL > fromValue(long value) {
-			return FlagSet.fromValue(value, values());
-		}
-	}
-	*/
     public enum D3D_FEATURE_LEVEL implements IntValuedEnum<D3D_FEATURE_LEVEL > {
         D3D_FEATURE_LEVEL_9_1(0x9100),
         D3D_FEATURE_LEVEL_9_2(0x9200),
@@ -127,75 +89,8 @@ public class D3D11 {
         D3D_FEATURE_LEVEL_11_1(0xB100);
 
         public final long value;
-        public final String vsShaderVersion;
-        public final String psShaderVersion;
-        public final String gsShaderVersion;
-        public final String hsShaderVersion;
-        public final String dsShaderVersion;
-        public final String csShaderVersion;
-
         D3D_FEATURE_LEVEL(long value) {
             this.value = value;
-
-            switch((int)this.value) {
-                case 0x9100:
-                    vsShaderVersion = "vs_4_0_level_9_1";
-                    psShaderVersion = "ps_4_0_level_9_1";
-                    gsShaderVersion = "";
-                    csShaderVersion = "";
-                    hsShaderVersion = "";
-                    dsShaderVersion = "";
-                    break;
-                case 0x9200:
-                    vsShaderVersion = "vs_4_0_level_9_1";
-                    psShaderVersion = "ps_4_0_level_9_1";
-                    gsShaderVersion = "";
-                    csShaderVersion = "";
-                    hsShaderVersion = "";
-                    dsShaderVersion = "";
-                    break;
-                case 0x9300:
-                    vsShaderVersion = "vs_4_0_level_9_3";
-                    psShaderVersion = "ps_4_0_level_9_3";
-                    gsShaderVersion = "";
-                    csShaderVersion = "";
-                    hsShaderVersion = "";
-                    dsShaderVersion = "";
-                    break;
-                case 0xA000:
-                    vsShaderVersion = "vs_4_0";
-                    psShaderVersion = "ps_4_0";
-                    gsShaderVersion = "gs_4_0";
-                    csShaderVersion = "cs_4_0";
-                    hsShaderVersion = "hs_4_0";
-                    dsShaderVersion = "ds_4_0";
-                    break;
-                case 0xA100:
-                    vsShaderVersion = "vs_4_1";
-                    psShaderVersion = "ps_4_1";
-                    gsShaderVersion = "gs_4_1";
-                    csShaderVersion = "cs_4_1";
-                    hsShaderVersion = "hs_4_1";
-                    dsShaderVersion = "ds_4_1";
-                    break;
-                case 0xB000:
-                    vsShaderVersion = "vs_5_0";
-                    psShaderVersion = "ps_5_0";
-                    gsShaderVersion = "gs_5_0";
-                    csShaderVersion = "cs_5_0";
-                    hsShaderVersion = "hs_5_0";
-                    dsShaderVersion = "ds_5_0";
-                    break;
-                case 0xB100:
-                default:
-                    vsShaderVersion = "vs_5_1";
-                    psShaderVersion = "ps_5_1";
-                    gsShaderVersion = "gs_5_1";
-                    csShaderVersion = "cs_5_1";
-                    hsShaderVersion = "hs_5_1";
-                    dsShaderVersion = "ds_5_1";
-                    break;
-            }
         }
 
         public long value() {
@@ -1337,7 +1232,8 @@ public class D3D11 {
 			return FlagSet.fromValue(value, values());
 		}
 	}
-	public enum D3D11_QUERY implements IntValuedEnum<D3D11_QUERY > {
+
+    public enum D3D11_QUERY implements IntValuedEnum<D3D11_QUERY > {
 		D3D11_QUERY_EVENT(0),
 		D3D11_QUERY_OCCLUSION(1),
 		D3D11_QUERY_TIMESTAMP(2),
@@ -1361,7 +1257,7 @@ public class D3D11 {
 		public long value() {
 			return this.value;
 		}
-		public Iterator<D3D11_QUERY > iterator() {
+        public Iterator<D3D11_QUERY > iterator() {
 			return Collections.singleton(this).iterator();
 		}
 		public static ValuedEnum<D3D11_QUERY > fromValue(long value) {
@@ -1369,7 +1265,8 @@ public class D3D11 {
 		}
 	}
 	public enum D3D11_QUERY_MISC_FLAG implements IntValuedEnum<D3D11_QUERY_MISC_FLAG > {
-		D3D11_QUERY_MISC_PREDICATEHINT(0x1);
+        D3D11_QUERY_MISC_NONE(0),
+        D3D11_QUERY_MISC_PREDICATEHINT(0x1);
 		D3D11_QUERY_MISC_FLAG(long value) {
 			this.value = value;
 		}

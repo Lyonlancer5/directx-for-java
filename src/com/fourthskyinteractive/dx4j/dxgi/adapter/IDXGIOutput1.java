@@ -10,6 +10,8 @@ import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
 import org.bridj.cpp.com.IUnknown;
 
+import static com.fourthskyinteractive.dx4j.dxgi.DXGI.DXGI_FORMAT;
+
 /**
  * Created with IntelliJ IDEA.
  * User: evandro.paulino
@@ -26,7 +28,7 @@ public class IDXGIOutput1 extends IDXGIOutput {
     }
 
     @Virtual(0)
-    public native int GetDisplayModeList1(DXGI.DXGI_FORMAT EnumFormat, int Flags, Pointer<Integer> pNumModes, Pointer<DXGI_MODE_DESC1> pDesc);
+    public native int GetDisplayModeList1(DXGI_FORMAT EnumFormat, int Flags, Pointer<Integer> pNumModes, Pointer<DXGI_MODE_DESC1> pDesc);
 
     @Virtual(1)
     public native int FindClosestMatchingMode1(Pointer<DXGI_MODE_DESC1> pModeToMatch, Pointer<DXGI_MODE_DESC1> pClosestMatch, Pointer<IUnknown> pConcernedDevice);

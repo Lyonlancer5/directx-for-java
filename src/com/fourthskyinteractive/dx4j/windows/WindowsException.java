@@ -37,7 +37,8 @@ public class WindowsException extends Exception {
 	public static final long    UI_E_PRIMITIVE_OUT_OF_BOUNDS								= 0x802A010C;
 	public static final long    UI_E_WINDOW_CLOSED											= 0x802A0201;
 	public static final long    E_AUDIO_ENGINE_NODE_NOT_FOUND								= 0x80660001;
-	public static final long    DXGI_STATUS_OCCLUDED										= 0x087A0001;
+	public static final long    D3DERR_INVALIDCALL                                          = 0x8876086C;
+    public static final long    DXGI_STATUS_OCCLUDED										= 0x087A0001;
 	public static final long    DXGI_STATUS_CLIPPED											= 0x087A0002;
 	public static final long    DXGI_STATUS_NO_REDIRECTION									= 0x087A0004;
 	public static final long    DXGI_STATUS_NO_DESKTOP_ACCESS								= 0x087A0005;
@@ -201,7 +202,8 @@ public class WindowsException extends Exception {
 		errorDescription.put(   UI_E_PRIMITIVE_OUT_OF_BOUNDS							,	"The added primitive begins at or beyond the duration of the interpolator.");
 		errorDescription.put(   UI_E_WINDOW_CLOSED										,	"The operation cannot be completed because the window is being closed.");
 		errorDescription.put(   E_AUDIO_ENGINE_NODE_NOT_FOUND							,	"PortCls could not find an audio engine node exposed by a miniport driver claiming support for IMiniportAudioEngineNode.");
-		errorDescription.put(   DXGI_STATUS_OCCLUDED									,	"The Present operation was invisible to the user.");
+		errorDescription.put(   D3DERR_INVALIDCALL                                      ,   "The operation is invalid.");
+        errorDescription.put(   DXGI_STATUS_OCCLUDED									,	"The Present operation was invisible to the user.");
 		errorDescription.put(   DXGI_STATUS_CLIPPED										,	"The Present operation was partially invisible to the user.");
 		errorDescription.put(   DXGI_STATUS_NO_REDIRECTION								,	"The driver is requesting that the DXGI runtime not use shared resources to communicate with the Desktop Window Manager.");
 		errorDescription.put(   DXGI_STATUS_NO_DESKTOP_ACCESS							,	"The Present operation was not visible because the Windows session has switched to another desktop (for example, ctrl-alt-del).");

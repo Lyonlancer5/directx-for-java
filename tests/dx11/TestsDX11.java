@@ -4,11 +4,17 @@ import java.awt.Component;
 
 import javax.swing.JFrame;
 
+import com.fourthskyinteractive.dx4j.d3d11.query.D3D11_QUERY_DESC;
+import com.fourthskyinteractive.dx4j.d3d11.query.ID3D11Asynchronous;
+import com.fourthskyinteractive.dx4j.d3d11.query.ID3D11Query;
+import com.fourthskyinteractive.dx4j.windows.WindowsException;
 import org.bridj.jawt.JAWT;
 import org.bridj.jawt.JAWTUtils;
 import org.bridj.jawt.JAWTUtils.LockedComponentRunnable;
 import org.bridj.jawt.JawtLibrary.JNIEnv;
 
+import static com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_ASYNC_GETDATA_FLAG.D3D11_ASYNC_GETDATA_NONE;
+import static com.fourthskyinteractive.dx4j.d3d11.D3D11.D3D11_QUERY.D3D11_QUERY_EVENT;
 import static org.bridj.BridJ.*;
 import static org.bridj.Pointer.*;
 
@@ -57,7 +63,7 @@ public class TestsDX11 {
 	 * @throws D3DCompilerException 
 	 * @throws DXGIException 
 	 */
-	public static void main(String[] args) throws D3D11Exception, D3DCompilerException, DXGIException {
+	public static void main(String[] args) throws WindowsException {
 
 		// Create JFrame
 		JFrame frame = new JFrame("D3D11 Tutorial");
@@ -90,6 +96,11 @@ public class TestsDX11 {
 		immediateContext.OMSetRenderTargets(rtView, null);
 		immediateContext.RSSetViewport(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
 
+        // Query
+        final ID3D11Query query = device.CreateQuery(new D3D11_QUERY_DESC()
+                                                  .Query(D3D11_QUERY_EVENT)
+                                                  .MiscFlags(D3D11_ASYNC_GETDATA_NONE));
+
 		// Shader
 		String shaders = "float4 VS( float4 Pos : POSITION ) : SV_POSITION        \n" +
 						"{                                                        \n" +
@@ -102,7 +113,7 @@ public class TestsDX11 {
 						"}";
 
 		// Compiling for vertex shader and input layout
-		ID3D10Blob code = D3DCompile(shaders, "VS", featureLevel.vsShaderVersion, 0, 0);
+		ID3D10Blob code = D3DCompile(shaders, "VS", device.VertexShaderVersion(), 0, 0);
 
 		// Create input layout
 		D3D11_INPUT_ELEMENT_DESC layoutDesc = new D3D11_INPUT_ELEMENT_DESC("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0);
@@ -114,7 +125,7 @@ public class TestsDX11 {
 		code.Release();
 
 		// Creating pixel shader
-		code = D3DCompile(shaders, "PS", featureLevel.psShaderVersion, 0, 0);
+		code = D3DCompile(shaders, "PS", "ps_4_0", 0, 0);
 		final ID3D11PixelShader ps = device.CreatePixelShader(code, null);
 		code.Release();
 
@@ -150,7 +161,15 @@ public class TestsDX11 {
                     immediateContext.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
                     immediateContext.Draw(3, 0);
 
-                    swapChain.Present(0, 0);
+                    //
+                    immediateContext.End(query);
+                    try {
+                        int ok = immediateContext.GetData(query, D3D11_ASYNC_GETDATA_NONE);
+                    } catch (D3D11Exception e) {
+                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                    }
+
+                        swapChain.Present(0, 0);
 
                     //immediateContext.ClearState();
 					}
@@ -164,6 +183,7 @@ public class TestsDX11 {
 			}
 		}
 
+        query.Release();
 		vs.Release();
 		ps.Release();
 		layout.Release();

@@ -1,5 +1,6 @@
 package com.fourthskyinteractive.dx4j.d3d11.states;
 
+import org.bridj.StructObject;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
 import org.bridj.cpp.com.COMRuntime;

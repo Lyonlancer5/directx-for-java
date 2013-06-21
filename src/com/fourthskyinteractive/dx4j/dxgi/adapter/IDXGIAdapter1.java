@@ -5,6 +5,9 @@ import org.bridj.ann.Runtime;
 import org.bridj.ann.Virtual;
 import org.bridj.cpp.com.COMRuntime;
 import org.bridj.cpp.com.IID;
+
+import static org.bridj.Pointer.allocate;
+
 /**
  * <i>native declaration : DXGI.h:2412</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
@@ -40,6 +43,20 @@ public class IDXGIAdapter1 extends IDXGIAdapter {
 //	public IDXGIAdapter1(Pointer pointer) {
 //		super(pointer);
 //	}
+
 	@Virtual(0) 
 	public native int GetDesc1(Pointer<DXGI_ADAPTER_DESC1 > pDesc);
+
+    public DXGI_ADAPTER_DESC1 GetDesc1() {
+        Pointer<DXGI_ADAPTER_DESC1> pDesc = null;
+
+        try {
+            pDesc = allocate(DXGI_ADAPTER_DESC1.class);
+            this.GetDesc1(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 }
