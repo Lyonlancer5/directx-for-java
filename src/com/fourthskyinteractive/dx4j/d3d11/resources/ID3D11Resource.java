@@ -2,6 +2,7 @@ package com.fourthskyinteractive.dx4j.d3d11.resources;
 
 import static org.bridj.Pointer.allocateInt;
 
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -18,7 +19,7 @@ import com.fourthskyinteractive.dx4j.windows.HANDLE;
 @IID("dc8e63f3-d12b-4952-b47b-5e45026a862d")
 @Library("d3d11")
 @Runtime(COMRuntime.class)
-public class ID3D11Resource extends ID3D11DeviceChild {
+public abstract class ID3D11Resource extends ID3D11DeviceChild implements Describable {
 
 	public ID3D11Resource() {
 		super();

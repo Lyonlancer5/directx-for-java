@@ -1,11 +1,13 @@
 package com.fourthskyinteractive.dx4j.dxgi.adapter;
 
+import static org.bridj.Pointer.allocate;
 import static org.bridj.Pointer.allocatePointer;
 import static org.bridj.Pointer.pointerTo;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -45,7 +47,7 @@ import com.fourthskyinteractive.dx4j.windows.kernel32.LARGE_INTEGER;
 @IID("2411e7e1-12ac-4ccf-bd14-9798e8534dc0") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIAdapter extends IDXGIObject {
+public class IDXGIAdapter extends IDXGIObject implements Describable {
 	public IDXGIAdapter() {
 		super();
 	}
@@ -90,4 +92,18 @@ public class IDXGIAdapter extends IDXGIObject {
 		
 		return outputs;
 	}
+
+    @Override
+    public DXGI_ADAPTER_DESC GetDesc() {
+        Pointer<DXGI_ADAPTER_DESC> pDesc = null;
+
+        try {
+            pDesc = allocate(DXGI_ADAPTER_DESC.class);
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 }

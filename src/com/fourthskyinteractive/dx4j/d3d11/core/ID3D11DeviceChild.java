@@ -1,5 +1,6 @@
 package com.fourthskyinteractive.dx4j.d3d11.core;
 
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;

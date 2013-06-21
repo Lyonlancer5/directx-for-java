@@ -1,5 +1,6 @@
 package com.fourthskyinteractive.dx4j.d3d11.states;
 
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -9,10 +10,12 @@ import org.bridj.cpp.com.IID;
 
 import com.fourthskyinteractive.dx4j.d3d11.core.ID3D11DeviceChild;
 
+import static org.bridj.Pointer.allocate;
+
 @IID("da6fea51-564c-4487-9810-f0d0f9b4e3a5")
 @Library("d3d11")
 @Runtime(COMRuntime.class)
-public class ID3D11SamplerState extends ID3D11DeviceChild {
+public class ID3D11SamplerState extends ID3D11DeviceChild implements Describable {
 
 	private int hashCode;
 	
@@ -24,16 +27,20 @@ public class ID3D11SamplerState extends ID3D11DeviceChild {
 //	}
 	@Virtual(0)
 	public final native void GetDesc(Pointer<D3D11_SAMPLER_DESC> pDesc);
-	
-	public final D3D11_SAMPLER_DESC GetDesc() {
-		Pointer<D3D11_SAMPLER_DESC> p = Pointer.allocate(D3D11_SAMPLER_DESC.class);
-		try {
-			GetDesc(p);
-			return p.get();
-		} finally {
-			p.release();
-		}
-	}
+
+    @Override
+    public D3D11_SAMPLER_DESC GetDesc() {
+        Pointer<D3D11_SAMPLER_DESC> pDesc = null;
+
+        try {
+            pDesc = allocate(D3D11_SAMPLER_DESC.class);
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 	
 	public int hashCode() {
 		if(hashCode == 0) {

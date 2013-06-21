@@ -18,7 +18,7 @@ import org.bridj.cpp.com.IUnknown;
 @IID("aec22fb8-76f3-4639-9be0-28eb43a67a2e") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIObject extends org.bridj.cpp.com.IUnknown {
+public class IDXGIObject extends IUnknown {
 	public IDXGIObject() {
 		super();
 	}

@@ -1,4 +1,5 @@
 package com.fourthskyinteractive.dx4j.dxgi.adapter;
+import com.fourthskyinteractive.dx4j.util.Describable;
 import org.bridj.Pointer;
 import org.bridj.ann.Library;
 import org.bridj.ann.Runtime;
@@ -10,6 +11,9 @@ import org.bridj.cpp.com.IUnknown;
 import com.fourthskyinteractive.dx4j.dxgi.DXGI_MODE_DESC;
 import com.fourthskyinteractive.dx4j.dxgi.IDXGIObject;
 import com.fourthskyinteractive.dx4j.dxgi.device.IDXGISurface;
+
+import static org.bridj.Pointer.allocate;
+
 /**
  * <i>native declaration : DXGI.h:1257</i><br>
  * Error: Conversion Error : uuid("aec22fb8-76f3-4639-9be0-28eb43a67a2e") novtable struct IDXGIObject {<br>
@@ -38,7 +42,7 @@ import com.fourthskyinteractive.dx4j.dxgi.device.IDXGISurface;
 @IID("ae02eedb-c735-4690-8d52-5a8dc20213aa") 
 @Library("dxgi") 
 @Runtime(COMRuntime.class)
-public class IDXGIOutput extends IDXGIObject {
+public class IDXGIOutput extends IDXGIObject implements Describable {
 	public IDXGIOutput() {
 		super();
 	}
@@ -67,4 +71,17 @@ public class IDXGIOutput extends IDXGIObject {
 	public native int GetDisplaySurfaceData(Pointer<IDXGISurface > pDestination);
 	@Virtual(11) 
 	public native int GetFrameStatistics(Pointer<DXGI_FRAME_STATISTICS > pStats);
+
+    public DXGI_OUTPUT_DESC GetDesc() {
+        Pointer<DXGI_OUTPUT_DESC> pDesc = null;
+
+        try {
+            pDesc = allocate(DXGI_OUTPUT_DESC.class);
+            this.GetDesc(pDesc);
+            return pDesc.get();
+        } finally {
+            if (pDesc != null)
+                pDesc.release();
+        }
+    }
 }
