@@ -65,7 +65,7 @@ public class TestD3D9 {
         final IDirect3DDevice9 device = d3d9.CreateDevice(D3DADAPTER_DEFAULT,
                                                     D3DDEVTYPE_HAL,
                                                     new HWND(JAWTUtils.getNativePeerHandle(frame)),
-                                                    D3DCREATE_HARDWARE_VERTEXPROCESSING,
+                                                    D3DCREATE_SOFTWARE_VERTEXPROCESSING,
                                                     d3dpp);
 
 

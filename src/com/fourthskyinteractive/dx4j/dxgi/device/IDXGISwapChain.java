@@ -163,7 +163,8 @@ public class IDXGISwapChain extends IDXGIDeviceSubObject implements Describable 
 		}
 	}
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public DXGI_SWAP_CHAIN_DESC GetDesc() {
         Pointer<DXGI_SWAP_CHAIN_DESC> pDesc = null;
 

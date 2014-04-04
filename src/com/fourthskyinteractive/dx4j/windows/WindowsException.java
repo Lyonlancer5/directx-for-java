@@ -11,6 +11,7 @@ public class WindowsException extends Exception {
 	private static final long serialVersionUID = 8785991875414909443L;
 	
 	// Error codes
+	public static final long	E_INVALIDARG												= 0x80070057;
 	public static final long    UI_E_CREATE_FAILED											= 0x802A0001;
 	public static final long    UI_E_SHUTDOWN_CALLED										= 0x802A0002;
 	public static final long    UI_E_ILLEGAL_REENTRANCY										= 0x802A0003;
@@ -176,6 +177,7 @@ public class WindowsException extends Exception {
 	
 	private static final Map<Long, String> errorDescription = new HashMap<Long, String>();
 	static {
+		errorDescription.put(	E_INVALIDARG											,	"There's an invalid argument for the function call.");
 		errorDescription.put(   UI_E_CREATE_FAILED										,	"The object could not be created.");
 		errorDescription.put(   UI_E_SHUTDOWN_CALLED									,	"Shutdown was already called on this object or the object that owns it.");
 		errorDescription.put(   UI_E_ILLEGAL_REENTRANCY									,	"This method cannot be called during this type of callback.");

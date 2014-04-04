@@ -22,7 +22,8 @@ public class ID3D11Texture3D extends ID3D11Resource {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_TEXTURE3D_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_TEXTURE3D_DESC GetDesc() {
         Pointer<D3D11_TEXTURE3D_DESC> pDesc = null;
 

@@ -94,12 +94,11 @@ public class TestsDX11 {
 		backBuffer.Release();
 
 		immediateContext.OMSetRenderTargets(rtView, null);
-		immediateContext.RSSetViewport(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
+		immediateContext.RSSetViewports(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
 
         // Query
         final ID3D11Query query = device.CreateQuery(new D3D11_QUERY_DESC()
-                                                  .Query(D3D11_QUERY_EVENT)
-                                                  .MiscFlags(D3D11_ASYNC_GETDATA_NONE));
+                                                  			.Query(D3D11_QUERY_EVENT));
 
 		// Shader
 		String shaders = "float4 VS( float4 Pos : POSITION ) : SV_POSITION        \n" +
@@ -113,7 +112,7 @@ public class TestsDX11 {
 						"}";
 
 		// Compiling for vertex shader and input layout
-		ID3D10Blob code = D3DCompile(shaders, "VS", device.VertexShaderVersion(), 0, 0);
+		ID3D10Blob code = D3DCompile(shaders, "VS", "vs_4_0", 0, 0);
 
 		// Create input layout
 		D3D11_INPUT_ELEMENT_DESC layoutDesc = new D3D11_INPUT_ELEMENT_DESC("POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0);
@@ -141,37 +140,39 @@ public class TestsDX11 {
                 .pSysMem(0.0f, 1.0f, 0.5f, 1f, -0.5f, 0.5f, -0.5f, -0.5f, 0.5f);
 		final ID3D11Buffer vertexBuffer = device.CreateBuffer(bufferDesc, initData);
 
+		final float[] clearColor = { 0.0f, 0.125f, 0.3f, 1.0f };
+		
 		JNIEnv env = JAWTUtils.getJNIEnv();
 		JAWT jawt = JAWTUtils.getJAWT(env);
 		while(frame.isEnabled()) {
 
 			if(frame.isVisible())
+				immediateContext.ClearRenderTargetView(rtView, clearColor);
+				
+	            int stride = (int) (sizeOf(Float.class) * 3);
+	            immediateContext.IASetVertexBuffers(0, 1, vertexBuffer, stride, 0);
+	
+	            immediateContext.IASetInputLayout(layout);
+	            immediateContext.VSSetShader(vs, null);
+	            immediateContext.PSSetShader(ps, null);
+	
+	            immediateContext.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+	            immediateContext.Draw(3, 0);
+	            
 				JAWTUtils.withLockedSurface(env, jawt, frame, new LockedComponentRunnable() {
 					@Override
 					public void run(Component comp, long peer) {
-                    immediateContext.ClearRenderTargetView(pointerTo(rtView), pointerToFloats(0.0f, 0.125f, 0.3f, 1.0f));
-
-                    int stride = (int) (sizeOf(Float.class) * 3);
-                    immediateContext.IASetVertexBuffers(0, 1, pointerToPointer(pointerTo(vertexBuffer)), pointerToInt(stride), pointerToInt(0));
-
-                    immediateContext.IASetInputLayout(layout);
-                    immediateContext.VSSetShader(pointerTo(vs), null, 0);
-                    immediateContext.PSSetShader(pointerTo(ps), null, 0);
-
-                    immediateContext.IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
-                    immediateContext.Draw(3, 0);
-
-                    //
-                    immediateContext.End(query);
-                    try {
-                        int ok = immediateContext.GetData(query, D3D11_ASYNC_GETDATA_NONE);
-                    } catch (D3D11Exception e) {
-                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                    }
-
-                        swapChain.Present(0, 0);
-
-                    //immediateContext.ClearState();
+	                    	
+	                    /*
+	                    try {
+	                    	immediateContext.End(query);
+	                        Integer ok = immediateContext.GetData(query, D3D11_ASYNC_GETDATA_FLAG.D3D11_ASYNC_GETDATA_DONOTFLUSH);
+	                    } catch (D3D11Exception e) {
+	                        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+	                    }
+	                    */	                    
+	                    
+                        swapChain.Present(0, 0);                        
 					}
 				});
 

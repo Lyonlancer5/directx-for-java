@@ -22,7 +22,8 @@ public class ID3D11Buffer extends ID3D11Resource {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_BUFFER_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_BUFFER_DESC GetDesc() {
         Pointer<D3D11_BUFFER_DESC> pDesc = null;
 

@@ -207,7 +207,7 @@ public class ParticlesGS {
 	
 			// Configuring screen
 			immediateContext.OMSetRenderTargets(rtView, depthView);
-			immediateContext.RSSetViewport(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
+			immediateContext.RSSetViewports(new D3D11_VIEWPORT(frame.getWidth(), frame.getHeight()));
 		}
 		
 		{

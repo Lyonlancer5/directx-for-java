@@ -1,17 +1,18 @@
 package xaudio2;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
-import java.nio.file.Paths;
+//import java.nio.file.Paths;
 
 import org.bridj.Pointer;
 
 import com.fourthskyinteractive.dx4j.util.WAVEFORMATEX;
 import com.fourthskyinteractive.dx4j.xaudio2.XAUDIO2_BUFFER;
 
-import static java.nio.file.StandardOpenOption.*;
+//import static java.nio.file.StandardOpenOption.*;
 import static com.fourthskyinteractive.dx4j.xaudio2.XAudio2.*;
 
 public class WavLoader {
@@ -35,7 +36,8 @@ public class WavLoader {
 		
 		FileChannel file = null;
 		try {
-			file = FileChannel.open(Paths.get(fileName), READ);
+			//file = FileChannel.open(Paths.get(fileName), READ);
+			file = new FileInputStream(fileName).getChannel();
 			ByteBuffer value = ByteBuffer.allocateDirect(4).order(ByteOrder.nativeOrder());
 		
 			int dwChunkId = 0, dwFileSize = 0, dwChunkSize = 0, dwExtra = 0;

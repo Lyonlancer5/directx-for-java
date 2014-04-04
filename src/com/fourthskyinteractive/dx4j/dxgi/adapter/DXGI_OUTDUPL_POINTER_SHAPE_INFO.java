@@ -62,7 +62,8 @@ public class DXGI_OUTDUPL_POINTER_SHAPE_INFO extends StructObject {
     public DXGI_OUTDUPL_POINTER_SHAPE_INFO() {
         super();
     }
-    public DXGI_OUTDUPL_POINTER_SHAPE_INFO(Pointer pointer) {
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	public DXGI_OUTDUPL_POINTER_SHAPE_INFO(Pointer pointer) {
         super(pointer);
     }
 }

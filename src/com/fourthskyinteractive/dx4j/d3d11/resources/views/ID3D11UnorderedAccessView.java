@@ -23,7 +23,8 @@ public class ID3D11UnorderedAccessView extends ID3D11View {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_UNORDERED_ACCESS_VIEW_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_UNORDERED_ACCESS_VIEW_DESC GetDesc() {
         Pointer<D3D11_UNORDERED_ACCESS_VIEW_DESC> pDesc = null;
 

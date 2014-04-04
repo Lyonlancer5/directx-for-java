@@ -64,11 +64,11 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void VSSetConstantBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppBuffers);
 	@Virtual(1)
 	public native void PSSetShaderResources(int StartSlot, int NumViews, Pointer<Pointer<ID3D11ShaderResourceView>> ppViews);
-	@Virtual(2)
+	@Deprecated @Virtual(2)
 	public native void PSSetShader(Pointer<ID3D11PixelShader> pPixelShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(3)
 	public native void PSSetSamplers(int StartSlot, int NumSamplers, Pointer<Pointer<ID3D11SamplerState>> ppSamplers);
-	@Virtual(4)
+	@Deprecated @Virtual(4)
 	public native void VSSetShader(Pointer<ID3D11VertexShader> pVertexShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(5)
 	public native void DrawIndexed(int IndexCount, int StartIndexLocation, int BaseVertexLocation);
@@ -82,9 +82,9 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void PSSetConstantBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppConstantBuffers);
 	@Deprecated @Virtual(10)
 	public native void IASetInputLayout(Pointer<ID3D11InputLayout> pLayout);
-	@Virtual(11)
+	@Deprecated @Virtual(11)
 	public native void IASetVertexBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppVertexBuffers, Pointer<Integer> pStrides, Pointer<Integer> pOffsets);
-	@Virtual(12)
+	@Deprecated @Virtual(12)
 	public native void IASetIndexBuffer(Pointer<ID3D11Buffer> pIndexBuffer, DXGI_FORMAT Format, int Offset);
 	@Virtual(13)
 	public native void DrawIndexedInstanced(int IndexCountPerInstance, int InstanceCount, int StartIndexLocation, int BaseVertexLocation, int StartInstanceLocation);
@@ -92,7 +92,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void DrawInstanced(int VertexCountPerInstance, int InstanceCount, int StartVertexLocation, int StartInstanceLocation);
 	@Virtual(15)
 	public native void GSSetConstantBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppConstantBuffers);
-	@Virtual(16)
+	@Deprecated @Virtual(16)
 	public native void GSSetShader(Pointer<ID3D11GeometryShader> pShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(17)
 	public native void IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY Topology);
@@ -146,7 +146,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void UpdateSubresource(Pointer<? extends ID3D11Resource> pDstResource, int DstSubresource, Pointer<D3D11_BOX> pDstBox, Pointer<?> pSrcData, int SrcRowPitch, int SrcDepthPitch);
 	@Virtual(42)
 	public native void CopyStructureCount(Pointer<ID3D11Buffer> pDstBuffer, int DstAlignedByteOffset, Pointer<ID3D11UnorderedAccessView> pSrcView);
-	@Virtual(43)
+	@Deprecated @Virtual(43)
 	public native void ClearRenderTargetView(Pointer<ID3D11RenderTargetView> pRenderTargetView, @Array(4) Pointer<Float> ColorRGBA);
 	@Virtual(44)
 	public native void ClearUnorderedAccessViewUint(Pointer<ID3D11UnorderedAccessView> pUnorderedAccessView, @Array(4) Pointer<Integer> Values);
@@ -166,7 +166,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void ExecuteCommandList(Pointer<ID3D11CommandList> pCommandList, int RestoreContextState);
 	@Virtual(52)
 	public native void HSSetShaderResources(int StartSlot, int NumViews, Pointer<Pointer<ID3D11ShaderResourceView>> ppShaderResourceViews);
-	@Virtual(53)
+	@Deprecated @Virtual(53)
 	public native void HSSetShader(Pointer<ID3D11HullShader> pHullShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(54)
 	public native void HSSetSamplers(int StartSlot, int NumSamplers, Pointer<Pointer<ID3D11SamplerState>> ppSamplers);
@@ -174,7 +174,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void HSSetConstantBuffers(int StartSlot, int NumBuffers, Pointer<Pointer<ID3D11Buffer>> ppConstantBuffers);
 	@Virtual(56)
 	public native void DSSetShaderResources(int StartSlot, int NumViews, Pointer<Pointer<ID3D11ShaderResourceView>> ppShaderResourceViews);
-	@Virtual(57)
+	@Deprecated @Virtual(57)
 	public native void DSSetShader(Pointer<ID3D11DomainShader> pDomainShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(58)
 	public native void DSSetSamplers(int StartSlot, int NumSamplers, Pointer<Pointer<ID3D11SamplerState>> ppSamplers);
@@ -184,7 +184,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public native void CSSetShaderResources( int StartSlot, int NumViews, Pointer<Pointer<ID3D11ShaderResourceView>> ppShaderResourceViews);
 	@Virtual(61)
 	public native void CSSetUnorderedAccessViews(int StartSlot, int NumUAVs, Pointer<Pointer<ID3D11UnorderedAccessView>> ppUnorderedAccessViews,  Pointer<Integer> pUAVInitialCounts);
-	@Virtual(62)
+	@Deprecated @Virtual(62)
 	public native void CSSetShader(Pointer<ID3D11ComputeShader> pComputeShader, Pointer<Pointer<ID3D11ClassInstance>> ppClassInstances, int NumClassInstances);
 	@Virtual(63)
 	public native void CSSetSamplers(int StartSlot, int NumSamplers, Pointer<Pointer<ID3D11SamplerState>> ppSamplers);
@@ -304,9 +304,182 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 		}
 	}
 	
+	public final void VSSetShader(ID3D11VertexShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				VSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				VSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
+	
+	public final void PSSetShader(ID3D11PixelShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				PSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				PSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
+	
+	public final void GSSetShader(ID3D11GeometryShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				GSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				GSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
+	
+	public final void HSSetShader(ID3D11HullShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				HSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				HSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
+	
+	public final void DSSetShader(ID3D11DomainShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				DSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				DSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
+	
+	public final void CSSetShader(ID3D11ComputeShader shader, ID3D11ClassInstance[] instances) {
+		Pointer<Pointer<ID3D11ClassInstance>> pp = null;
+		
+		try {
+			if (instances != null && instances.length > 0) {
+				
+				pp = allocatePointers(ID3D11ClassInstance.class, instances.length);
+				for(int i = 0; i < instances.length; i++) {
+					pp.set(i, pointerTo(instances[i]));
+				}				
+				
+				CSSetShader(pointerTo(shader), pp, instances.length);
+				
+			} else {
+				CSSetShader(pointerTo(shader), null, 0);
+			}
+			
+		} finally {
+			if (pp != null) {
+				pp.release();
+				pp = null;
+			}
+		}
+	}
 
 	public final void IASetInputLayout(ID3D11InputLayout layout) {
 		IASetInputLayout(pointerTo(layout));
+	}
+	
+	public final void IASetVertexBuffers(int startSlot, int numBuffers, ID3D11Buffer vertexBuffer, int stride, int offset) {
+		IASetVertexBuffers(startSlot, numBuffers, pointerToPointer(pointerTo(vertexBuffer)), pointerToInt(stride), pointerToInt(offset));
+	}
+	
+	public final void IASetVertexBuffers(int StartSlot, int NumBuffers, ID3D11Buffer[] vertexBuffers, int[] strides, int[] offsets) {
+		Pointer<Pointer<ID3D11Buffer>> pp = allocatePointers(ID3D11Buffer.class, vertexBuffers.length);
+		
+		try {
+			for(int i = 0; i < vertexBuffers.length; i++) {
+				pp.set(i, pointerTo(vertexBuffers[i]));
+			}
+			
+			IASetVertexBuffers(StartSlot, NumBuffers, pp, pointerToInts(strides), pointerToInts(offsets));			
+			
+		} finally {
+			pp.release();
+			pp = null;
+		}
+	}
+	
+	public final void ClearRenderTargetView(ID3D11RenderTargetView rtView, float[] ColorRGBA) {
+		ClearRenderTargetView(pointerTo(rtView), pointerToFloats(ColorRGBA));
 	}
 	
 	public final D3D11_MAPPED_SUBRESOURCE Map(ID3D11Resource resource, int subResource, ValuedEnum<D3D11_MAP> MapType, int MapFlags) throws D3D11Exception {
@@ -327,50 +500,13 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
 	public final void Begin(ID3D11Asynchronous async) {
 		Begin(pointerTo(async));
 	}
+	
 	public final void End(ID3D11Asynchronous async) {
 		End(pointerTo(async));
 	}
 
-    /*
-	public final void GetData(ID3D11Asynchronous pAsync, Pointer<?> pData, int DataSize, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
-		int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
-		if(result != 0) {
-			throw new D3D11Exception(result);
-		}
-	}
-    */
-    /*
-    public final Number GetData(ID3D11Asynchronous pAsync, ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
-        // First, check data size
-        int DataSize = pAsync.GetDataSize();
-
-        // Allocate a pointer to return object
-        Pointer<?> pData = null;
-
-        try {
-            if (DataSize == sizeOf(Integer.class)) {
-                pData = allocateInt();
-            } else if (DataSize == sizeOf(Long.class)) {
-                pData = allocateLong();
-            } else {
-                throw new D3D11Exception("Return type is not a number, call \"GetData\" that returns a struct", -1);
-            }
-
-            int result = GetData(pointerTo(pAsync), pData, DataSize, GetDataFlags);
-            if(result != 0) {
-                throw new D3D11Exception(result);
-            }
-
-            return (Number) pData.get();
-
-        } finally {
-            if (pData != null) {
-                pData.release();
-            }
-        }
-    }
-    */
-    public final <T> T GetData(ID3D11Asynchronous pAsync, /*Class<T> klazz,*/ ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
+    @SuppressWarnings("unchecked")
+	public final <T> T GetData(ID3D11Asynchronous pAsync, /*Class<T> klazz,*/ ValuedEnum<D3D11_ASYNC_GETDATA_FLAG> GetDataFlags) throws D3D11Exception {
         // Allocate a pointer to return object
         Pointer<?> pData = null;
 
@@ -386,7 +522,7 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
                 throw new D3D11Exception(result);
             }
 
-            return (T) pData.as(queryResultClass);
+            return (T) pData.as(queryResultClass).get();
 
         } finally {
             if (pData != null) {
@@ -395,8 +531,15 @@ public class ID3D11DeviceContext extends ID3D11DeviceChild {
         }
     }
 
-	public final void RSSetViewport(D3D11_VIEWPORT viewport) {
-		this.RSSetViewports(1, pointerTo(viewport));
+	public final void RSSetViewports(D3D11_VIEWPORT... viewports) {
+		if (viewports.length == 1) {
+			this.RSSetViewports(1, pointerTo(viewports[0]));
+			
+		} else {
+			Pointer<D3D11_VIEWPORT> pVP = pointerToArray(viewports);
+			this.RSSetViewports(viewports.length, pVP);
+			
+		}
 	}
 	
 	public final ID3D11CommandList FinishCommandList(int RestoreDeferredContextState) throws D3D11Exception {

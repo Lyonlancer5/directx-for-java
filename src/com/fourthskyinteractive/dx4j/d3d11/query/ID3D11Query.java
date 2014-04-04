@@ -23,7 +23,8 @@ public class ID3D11Query extends ID3D11Asynchronous {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_QUERY_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_QUERY_DESC GetDesc() {
         Pointer<D3D11_QUERY_DESC> pDesc = null;
 

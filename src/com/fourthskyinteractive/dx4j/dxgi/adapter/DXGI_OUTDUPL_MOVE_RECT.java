@@ -39,7 +39,8 @@ public class DXGI_OUTDUPL_MOVE_RECT extends StructObject {
     public DXGI_OUTDUPL_MOVE_RECT() {
         super();
     }
-    public DXGI_OUTDUPL_MOVE_RECT(Pointer pointer) {
+    @SuppressWarnings("unchecked")
+	public DXGI_OUTDUPL_MOVE_RECT(@SuppressWarnings("rawtypes") Pointer pointer) {
         super(pointer);
     }
 }
