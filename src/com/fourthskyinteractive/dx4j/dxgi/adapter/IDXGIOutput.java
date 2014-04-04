@@ -72,7 +72,8 @@ public class IDXGIOutput extends IDXGIObject implements Describable {
 	@Virtual(11) 
 	public native int GetFrameStatistics(Pointer<DXGI_FRAME_STATISTICS > pStats);
 
-    public DXGI_OUTPUT_DESC GetDesc() {
+    @SuppressWarnings("unchecked")
+	public DXGI_OUTPUT_DESC GetDesc() {
         Pointer<DXGI_OUTPUT_DESC> pDesc = null;
 
         try {

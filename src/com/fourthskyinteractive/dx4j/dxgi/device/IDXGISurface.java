@@ -51,7 +51,8 @@ public class IDXGISurface extends IDXGIDeviceSubObject implements Describable {
 	@Virtual(2) 
 	public native int Unmap();
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public DXGI_SURFACE_DESC GetDesc() {
         Pointer<DXGI_SURFACE_DESC> pDesc = null;
 

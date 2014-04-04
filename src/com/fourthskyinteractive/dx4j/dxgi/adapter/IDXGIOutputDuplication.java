@@ -52,7 +52,8 @@ public class IDXGIOutputDuplication extends IDXGIObject implements Describable {
     @Virtual(7)
     public native int ReleaseFrame();
 
-    public DXGI_OUTDUPL_DESC GetDesc() {
+    @SuppressWarnings("unchecked")
+	public DXGI_OUTDUPL_DESC GetDesc() {
         Pointer<DXGI_OUTDUPL_DESC> pDesc = null;
 
         try {

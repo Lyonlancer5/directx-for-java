@@ -24,7 +24,8 @@ public class ID3D11DepthStencilView extends ID3D11View {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_DEPTH_STENCIL_VIEW_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_DEPTH_STENCIL_VIEW_DESC GetDesc() {
         Pointer<D3D11_DEPTH_STENCIL_VIEW_DESC> pDesc = null;
 

@@ -93,7 +93,8 @@ public class DXGI_OUTDUPL_FRAME_INFO extends StructObject {
     public DXGI_OUTDUPL_FRAME_INFO() {
         super();
     }
-    public DXGI_OUTDUPL_FRAME_INFO(Pointer pointer) {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public DXGI_OUTDUPL_FRAME_INFO(Pointer pointer) {
         super(pointer);
     }
 }

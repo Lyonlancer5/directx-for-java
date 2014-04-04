@@ -35,6 +35,7 @@ public class DXGI_OUTDUPL_POINTER_POSITION extends StructObject {
     public DXGI_OUTDUPL_POINTER_POSITION() {
         super();
     }
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public DXGI_OUTDUPL_POINTER_POSITION(Pointer pointer) {
         super(pointer);
     }

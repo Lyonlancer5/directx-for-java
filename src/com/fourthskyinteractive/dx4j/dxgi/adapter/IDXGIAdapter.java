@@ -93,7 +93,8 @@ public class IDXGIAdapter extends IDXGIObject implements Describable {
 		return outputs;
 	}
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public DXGI_ADAPTER_DESC GetDesc() {
         Pointer<DXGI_ADAPTER_DESC> pDesc = null;
 

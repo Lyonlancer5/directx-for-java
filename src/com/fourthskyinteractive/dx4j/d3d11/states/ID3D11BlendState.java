@@ -28,7 +28,8 @@ public class ID3D11BlendState extends ID3D11DeviceChild implements Describable {
 	@Virtual(0)
 	public final native void GetDesc(Pointer<D3D11_BLEND_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_BLEND_DESC GetDesc() {
         Pointer<D3D11_BLEND_DESC> pDesc = null;
 

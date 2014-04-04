@@ -78,7 +78,8 @@ public class TestD2D1 {
 
             JAWTUtils.withLockedSurface(env, jawt, frame, new JAWTUtils.LockedComponentRunnable() {
 
-                @Override
+                @SuppressWarnings("unchecked")
+				@Override
                 public void run(Component comp, long peer) {
                     renderTarget.BeginDraw();
 

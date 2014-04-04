@@ -28,7 +28,8 @@ public class ID3D11RasterizerState extends ID3D11DeviceChild implements Describa
 	@Virtual(0)
 	public final native void GetDesc(Pointer<D3D11_RASTERIZER_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public D3D11_RASTERIZER_DESC GetDesc() {
         Pointer<D3D11_RASTERIZER_DESC> pDesc = null;
 

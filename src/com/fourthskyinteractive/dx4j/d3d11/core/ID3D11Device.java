@@ -267,7 +267,8 @@ public class ID3D11Device extends IUnknown {
     public final ID3D11PixelShader CreatePixelShader(ID3D10Blob compiledCode, ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11PixelShader>> pp = allocatePointer(ID3D11PixelShader.class);
     	try {
-    		int result = CreatePixelShader(compiledCode.GetBufferPointer(), new SizeT(compiledCode.GetBufferSize()),
+    		int result = CreatePixelShader(compiledCode.GetBufferPointer(), 
+    										new SizeT(compiledCode.GetBufferSize()),
     										linkage != null ? pointerTo(linkage) : null,
     										pp);
     		if(result != 0) {
@@ -305,7 +306,11 @@ public class ID3D11Device extends IUnknown {
     																	   int RasterizedStream,
     																	   ID3D11ClassLinkage linkage) throws D3D11Exception {
     	Pointer<Pointer<ID3D11GeometryShader>> pp = allocatePointer(ID3D11GeometryShader.class);
-    	Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = pointerToArray(soDeclaration);
+    	
+    	//Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = pointerToArray(soDeclaration);
+    	Pointer<D3D11_SO_DECLARATION_ENTRY> pDescs = allocateArray(D3D11_SO_DECLARATION_ENTRY.class, soDeclaration.length);
+    	for (int i = 0; i < soDeclaration.length; i++)
+    		pDescs.set(i, soDeclaration[i]);
     	
     	try {
     		int result = this.CreateGeometryShaderWithStreamOutput(compiledCode.GetBufferPointer(),
@@ -314,7 +319,7 @@ public class ID3D11Device extends IUnknown {
                                                                     soDeclaration.length,
     															    pointerToInts(bufferStrides), bufferStrides.length,
     															    RasterizedStream,
-    															    pointerTo(linkage),
+    															    linkage != null ? pointerTo(linkage) : null,
     															    pp);
     		if(result != 0) {
     			throw new D3D11Exception(result);

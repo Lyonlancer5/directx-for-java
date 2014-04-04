@@ -20,7 +20,8 @@ public class ID3D11Counter extends ID3D11Asynchronous {
 	@Virtual(0)
 	public native void GetDesc(Pointer<D3D11_COUNTER_DESC> pDesc);
 
-    @Override
+    @SuppressWarnings({ "unchecked", "null" })
+	@Override
     public D3D11_COUNTER_DESC GetDesc() {
         Pointer<D3D11_COUNTER_DESC> pDesc = null;
 
